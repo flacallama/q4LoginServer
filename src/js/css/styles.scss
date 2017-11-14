@@ -1,0 +1,11 @@
+$mainColor: #7777bb;
+
+
+.test{
+  height: 300px;
+  width: 300px;
+  background-color: $mainColor;
+  h1{
+    text-transform: uppercase;
+  }
+}
