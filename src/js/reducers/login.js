@@ -8,15 +8,23 @@
 //   }
 // }
 
+const initialState = {
+  loggedIn: false,
+  userData: {}
+}
 
-
-export default (state = [], action) => {
+export default (state = initialState, action) => {
   switch (action.type){
     case "LOGIN_PENDING":
       return state;
     case "LOGIN_FULFILLED":
-      console.log('reducer login', action.payload.data[0]);
-      return [action.payload.data[0]];
+      if(action.payload.data[0]){
+
+        return {
+          loggedIn: true,
+          userData: action.payload.data[0]
+        };
+      }
 
 
 

@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { login } from '../../actions/login';
+import Friends from './Friends';
 
-
-class LoginActive extends Component {
+class FriendsContainer extends Component {
   constructor() {
     super();
   }
   render () {
-    // console.log('loginactive: this.props.login', this.props.login)
 
+    console.log(this.props.login.userData);
     return (
       <div>
-
-        {this.props.login ? "Welcome: " + this.props.login.userData.username : "LoginActive error"}
-
+        {this.props.login.userData.friends ? <Friends login={this.props.login} /> : ''}
       </div>
     )
   }
 }
-
 function mapStateToProps(state, props){
   // console.log('mapping state to props in loginActive', state.login);
   return {
@@ -33,4 +28,4 @@ function mapStateToProps(state, props){
 //     loginAction: bindActionCreators(login, dispatch),
 //   }
 // }
-export default connect(mapStateToProps, null)(LoginActive);
+export default connect(mapStateToProps, null)(FriendsContainer);

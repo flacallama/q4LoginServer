@@ -19,11 +19,11 @@ class Login extends Component {
   }
 
   render () {
-    console.log("login: this.props.login", this.props.login, this.props.login[0])
+    // console.log("login: this.props.login", this.props.login, this.props.login[0])
     return (
       <div>
         <div>
-          {this.props.login[0] ? <LoginActive /> : "Please log in"}
+          {this.props.login.userData ? <LoginActive /> : "Please log in"}
         </div>
         <form
           onSubmit={e => { this.props.loginAction(

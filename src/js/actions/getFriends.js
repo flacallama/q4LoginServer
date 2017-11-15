@@ -9,10 +9,10 @@ import axios from 'axios';
 //   }
 // }
 //
-export const login = (username, password) => {
-  // console.log('login action reached', username, password);
+export const getFriends = () => {
+  console.log('getfriends action reached');
   return {
-    type: "LOGIN",
-    payload: axios.get(`http://localhost:1337/users/?username=${username}&password=${password}`)
+    type: "GET_FRIENDS",
+    payload: axios.get(`http://localhost:1337/users`)
   }
 }

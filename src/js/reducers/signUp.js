@@ -9,7 +9,7 @@
 // }
 
 export default (state = [], action) => {
-  console.log("in signup reducer");
+  // console.log("in signup reducer");
   switch (action.type){
     case "SIGNUP_PENDING":
       return state;

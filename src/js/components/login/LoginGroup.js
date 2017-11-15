@@ -9,11 +9,11 @@ class LoginGroup extends Component {
   }
   render () {
 
-    console.log('logingroup this.props.login', this.props.login);
+    // console.log('logingroup this.props.login', this.props.login);
     return (
       <div>
-        {this.props.login ? <SignUp /> : "signup"  }
-        <Login />
+        {this.props.login.loggedIn === true ? "" : <SignUp /> }
+        {this.props.login.loggedIn === true ? "Welcome " + this.props.login.userData.username : <Login /> }
       </div>
     )
   }

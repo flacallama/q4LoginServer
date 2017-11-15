@@ -9,3 +9,11 @@ $mainColor: #7777bb;
     text-transform: uppercase;
   }
 }
+
+.friendBox{
+  height: 150px;
+  width: 120px;
+  background-color: #f3f3f3;
+  border: 3px solid $mainColor;
+  display: inline-block;
+}
