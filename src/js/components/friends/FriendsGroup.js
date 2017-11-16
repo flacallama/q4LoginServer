@@ -8,10 +8,15 @@ class FriendsContainer extends Component {
   }
   render () {
 
-    console.log(this.props.login.userData);
+    // console.log(this.props.login.userData);
     return (
-      <div>
-        {this.props.login.userData.friends ? <Friends login={this.props.login} /> : ''}
+      <div id="friendsOuterContainer">      
+        <h2 id="title">Friends List</h2>
+        <div className="friendsContainer">
+          <div>
+            {this.props.login.userData.friends ? <Friends login={this.props.login} /> : 'friendsgrouprenderfail'}
+          </div>
+        </div>
       </div>
     )
   }

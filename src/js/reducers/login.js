@@ -14,6 +14,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+  // console.log("reducer login");
   switch (action.type){
     case "LOGIN_PENDING":
       return state;

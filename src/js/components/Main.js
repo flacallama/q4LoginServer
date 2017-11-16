@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
-// import Header from './Header';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { example } from '../actions/example'
+import { Switch, Route } from 'react-router-dom';
+import LoginGroup from './login/LoginGroup';
+import FriendsGroup from './friends/FriendsGroup';
+import FriendsDetailsGroup from './friendsDetails/FriendsDetailsGroup';
+import Calendar from './views/Calendar';
+import EventCreate from './views/EventCreate';
+import Events from './views/Events';
+import Friends from './views/Friends';
+import FriendsShow from './views/FriendsShow';
+import PageNotFound from './views/PageNotFound';
+import Root from './views/Root';
+import LoginLanding from './views/LoginLanding';
+
 
 class Main extends Component {
 
   render () {
 
-console.log(this.props)
     return (
-      <div>
-
-        <div className="container">
-          main is rendering
-          <h1>{this.props.example1}</h1>
-          <button onClick={this.props.exampleAction}>action</button>
-        </div>
-      </div>
+      <main>
+        <Switch>
+          <Route exact path="/" render={props => <Root {...props} /> } />
+          <Route exact path="/events" render={props => <Events {...props} /> } />
+          <Route exact path="/event/create" render={props => <EventCreate {...props} /> } />
+          <Route exact path="/friends" render={props => <Friends {...props} /> } />
+          <Route exact path="/friend/:id" render={props => <FriendsShow {...props} /> } />
+          <Route exact path="/calendar" render={props => <Calendar {...props} /> } />
+          <Route exact path="/login" render={props => <LoginLanding {...props} /> } />
+          <Route exact path="/404" component={PageNotFound} />
+        </Switch>
+      </main>
     )
   }
 }

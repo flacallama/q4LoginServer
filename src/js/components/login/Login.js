@@ -18,8 +18,17 @@ class Login extends Component {
     this.props.loginAction();
   }
 
+  // checkUserPass = () => {
+  //   if(this.state.username){
+  //     console.log('we have username')
+  //   }
+  // }
+
   render () {
     // console.log("login: this.props.login", this.props.login, this.props.login[0])
+
+
+
     return (
       <div>
         <div>

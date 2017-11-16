@@ -2,18 +2,204 @@ $mainColor: #7777bb;
 
 
 .test{
-  height: 300px;
-  width: 300px;
   background-color: $mainColor;
   h1{
     text-transform: uppercase;
   }
 }
+#friendsOuterContainer{
+  border: 3px solid black;
 
-.friendBox{
-  height: 150px;
-  width: 120px;
+  #title{
+    margin:0px;
+    font-size: 50px;
+    font-weight: bold;
+    font-variant: small-caps;
+    display: block;
+  }
+  .friendsContainer{
+    height: auto;
+
+    display: flex;
+    .friendBox{
+      height: 150px;
+      width: 100px;
+      flex: 1;
+      background-color: #f3f3f3;
+      border: 3px solid $mainColor;
+      display: inline-flex;
+      align-content: flex-start;
+      .friendNameBox{
+        height: 20%;
+        width: 100%;
+      }
+      .friendImageBox{
+        height: 80%;
+        width:100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        .friendImageImg{
+          object-fit: cover;
+          height: auto;
+          width: 100px;
+        }
+      }
+    }
+  }
+
+}
+
+.calendarGroup{
+  height: 400px;
+  width: 500px;
+  background-color: blue;
+}
+
+
+@keyframes myAnimation{
+  0%{
+      opacity: 1;
+  }
+  80%{
+      opacity: 0.9;
+  }
+  100%{
+      display: none;
+      opacity: 0;
+  }
+}
+
+#disappearWarning{
+animation-name: myAnimation;
+animation-duration: 4000ms;
+animation-fill-mode: forwards;
+color: red;
+font-size: 3em;
+font-family: Helvetica;
+font-weight: bold;
+}
+
+#mainPic{
+  width: 30vw;
+  height: auto;
+}
+
+
+
+
+
+.eventsGroup{
+  height: 100vh;
+  width: 100%;
+  background-color: lightgrey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.calShell{
+  height:500px;
+  width:600px;
   background-color: #f3f3f3;
-  border: 3px solid $mainColor;
-  display: inline-block;
+  display: flex;
+  flex-direction:row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.calShell div{
+}
+
+.dateBox, .dayBox{
+  border: 1px solid black;
+  height: 90px;
+  flex-basis: 13.9%;
+  margin-top: 2px;
+  background-color: lightgreen;
+}
+
+#monDay{
+  font-weight: 600;
+  text-align: left;
+  margin-top:0;
+  font-size: .9em;
+}
+
+#grey{
+  background-color: lightgrey;
+}
+
+.green{
+  background-color: green;
+}
+
+#dateBoxText{
+  font-family: cursive;
+}
+
+.dayBox{
+  height: 30px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+}
+
+#dayBoxText{
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: auto;
+}
+
+.monthHeadComp {
+  flex-basis: 100%;
+
+}
+
+#monthHeading {
+  margin:auto;
+  text-align: center;
+}
+
+.monthControl{
+  display: flex;
+}
+
+.monthControlChild{
+  flex: 3;
+}
+
+.monthControlChildBut{
+  flex: 1;
 }

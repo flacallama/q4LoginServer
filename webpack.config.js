@@ -4,6 +4,12 @@ var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, "src"),
+  devServer: {
+    port: 8080,
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  },
   devtool: debug ? "inline-sourcemap" : false,
   // define entry point. require .css within
   entry: "./js/client.js",

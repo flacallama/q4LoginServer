@@ -1,34 +1,42 @@
 import React, { Component } from 'react';
-class FriendInfo extends Component {
-  // constructor() {
-  //   super();
-  //
-  // }
+import FriendDetails from './FriendDetails';
 
-  state = {
-    friend: null
+class FriendInfo extends Component {
+  constructor() {
+    super();
+    this.state = {
+      updated: false
+    }
+
   }
 
-  componentWillUpdate(nextProps, nextState){
-    if (nextProps.friend != this.state.friend){
-      this.update()
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps != this.props){
+      // console.log('nextprops hit;')
+      if(nextProps.elem){
+        // console.log('elem hit;')
+        this.setState({ updated: true })
+      }
     }
   }
-  update = () => {
-    this.setState({
-      friend: this.props.friend
-    })
-  }
-
   render () {
-    let friend = this.props.friend;
-
-    console.log("friendinfo props: ", this.props.friend);
-
-    console.log("friendinfo state: ", this.state.friend);
+    let elem = this.props.elem[0];
+    // console.log(elem)
+    // let picUrl = this.props.picUrl;
+    // let id = this.props.id;
+    //
+    // console.log("friendinfo props: ", this.props.friend);
+    //
+    // console.log("friendinfo state: ", this.state.friend);
     // {friend.length === 1 ? 'novalue' : console.log('inside return', friend[0])}
+    //
+
     return (
-      <div>{this.state.friend == null ? 'notusername' :  this.state.friend[0].username}</div>
+      <div class="">
+          {!this.state.updated ? "noelem" : <FriendDetails elem={elem} />}
+      </div>
+      // <div>{this.state.friend == null ? 'notusername' :  this.state.friend[0].username}</div>
     )
   }
 }
