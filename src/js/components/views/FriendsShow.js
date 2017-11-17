@@ -12,9 +12,11 @@ class FriendsShow extends Component {
 
   render () {
     if (!this.props.login.loggedIn) {
-      return (
-        <Redirect to={ '/login'}/>
-      )
+      console.log("got booted in friendsshow for not logged in");
+      // UNCOMMENT FOR SECURITY!!!
+      // return (
+      //   // <Redirect to={ '/login'}/>
+      // )
     }
 
   const myId = parseInt(this.props.match.params.id, 10);
@@ -25,7 +27,8 @@ class FriendsShow extends Component {
 
     return (
       <div>{myId}
-        <FriendsShowGroup />
+        <FriendsShowGroup myId={myId}/>
+        
       </div>
     )
   }

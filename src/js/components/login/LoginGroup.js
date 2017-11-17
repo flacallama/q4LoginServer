@@ -13,7 +13,7 @@ class LoginGroup extends Component {
     return (
       <div className="container">
 
-        <div classname="row">
+        <div className="row">
           <div className="col-md-4">
             <h2>Create Account</h2>
             {this.props.login.loggedIn === true ? "" : <SignUp /> }

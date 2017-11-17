@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFriends } from '../../actions/getFriends';
+import { Link } from 'react-router-dom';
 
 
 class Friend extends Component {
@@ -10,18 +11,20 @@ class Friend extends Component {
   }
 
   render () {
-
+    let pathid = "/friends/" + this.props.elem.id
 
     return (
-      <div className="friendBox" >
-        <div className="friendNameBox">
-          <h6>{this.props.elem.username}</h6>
-        </div>
+      <Link to={pathid}>
+        <div className="friendBox" >
+          <div className="friendNameBox">
+            <h6>{this.props.elem.username}</h6>
+          </div>
 
-        <div className="friendImageBox">
-          <img src={this.props.elem.picUrl} className="friendImageImg"/>
+          <div className="friendImageBox">
+            <img src={this.props.elem.picUrl} className="friendImageImg"/>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }

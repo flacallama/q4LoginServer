@@ -10,26 +10,32 @@ import Friend from './Friend';
 class FriendsShowGroup extends Component {
 
   componentDidMount(){
-    this.props.getFriendAction(this.props.match.params.id)
+    console.log('myid', this.props.myId);
+    this.props.getFriendAction(this.props.myId)
   }
 
 
 render() {
 
-  const myId = parseInt(this.props.match.params.id, 10);
-
-
-  if(myId !== 0 && !myId){
-    return <Redirect to={{ pathname: "/404"}} />;
-  }
-
-
-  console.log(this.props.getFriends.friend, "friends detailsgroup")
+  // const myId = parseInt(this.props.myId);
+  //
+  //
+  // if(myId !== 0 && !myId){
+  //   return <Redirect to={{ pathname: "/404"}} />;
+  // }
+  //
+  //
+  // console.log(this.props.getFriends.friend, "friends detailsgroup")
 
 
 
   return (
-    <Friend getFriend={this.props.getFriends} />
+    <div>
+      <Friend
+        getFriend={this.props.getFriends}
+        myId={this.props.myId}
+      />
+    </div>
 
   )
 

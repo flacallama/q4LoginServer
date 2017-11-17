@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import LoginGroup from './login/LoginGroup';
 import FriendsGroup from './friends/FriendsGroup';
-import FriendsDetailsGroup from './friendsDetails/FriendsDetailsGroup';
+import FriendsShowGroup from './friendsShow/FriendsShowGroup';
 import Calendar from './views/Calendar';
 import EventCreate from './views/EventCreate';
 import EventShow from './views/EventShow';
@@ -24,7 +24,7 @@ class Main extends Component {
           <Route exact path="/events/:id" render={props => <EventShow {...props} /> } />
           <Route exact path="/event/create" render={props => <EventCreate {...props} /> } />
           <Route exact path="/friends" render={props => <Friends {...props} /> } />
-          <Route exact path="/friend/:id" render={props => <FriendsShow {...props} /> } />
+          <Route exact path="/friends/:id" render={props => <FriendsShow {...props} /> } />
           <Route exact path="/calendar" render={props => <Calendar {...props} /> } />
           <Route exact path="/login" render={props => <LoginLanding {...props} /> } />
           <Route exact path="/404" component={PageNotFound} />
