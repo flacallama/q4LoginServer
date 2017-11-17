@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getEvents } from '../../actions/getEvents';
+
+
 import Event from './Event';
-// import Friend from './Friend';
-
-
 
 
 class Events extends Component {
@@ -30,27 +29,25 @@ class Events extends Component {
     }
   }
 
-
   render () {
-    var userId = this.props.login.userData.id
-
+    let userId = this.props.login.userData.id
     let theevents = null;
 
     if(this.state.updated){
       theevents = this.props.getEvents
       .filter(elem => {
-        if(elem.invitees.includes(userId)){
+        if(Object.keys(elem.invitees).includes(userId.toString())){
           return elem
         }
       })
-      .map(elem => {
-        return <Event key={elem.id} elem={elem} />
+      .map(el => {
+        return <Event elem={el} key={el.id}/>
       })
     }
 
     return (
       <div className="eventsGroup">
-      <h2> Your Events </h2>
+        <h2> Your Events </h2>
         {theevents}
       </div>
     )

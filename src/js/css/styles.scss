@@ -107,6 +107,23 @@ font-weight: bold;
 
 
 
+.eventSingle{
+  .accepted{
+    background-color: blue;
+  }
+  .maybe{
+    background-color: orange;
+  }
+  .decline{
+    background-color: red;
+  }
+  .invited{
+    background-color: lightblue;
+  }
+}
+
+
+
 
 
 
