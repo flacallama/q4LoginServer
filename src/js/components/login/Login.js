@@ -18,29 +18,19 @@ class Login extends Component {
     this.props.loginAction();
   }
 
-  // checkUserPass = () => {
-  //   if(this.state.username){
-  //     console.log('we have username')
-  //   }
-  // }
+  // <div>
+  //   {this.props.login.userData ? <LoginActive /> : "Please log in"}
+  // </div>
 
   render () {
-    // console.log("login: this.props.login", this.props.login, this.props.login[0])
-
-
-
     return (
       <div>
-        <div>
-          {this.props.login.userData ? <LoginActive /> : "Please log in"}
-        </div>
         <form
           onSubmit={e => { this.props.loginAction(
             this.state.username,
             this.state.password
           )
           e.preventDefault();
-          // this.resetState();
           e.target.reset();
         }}
 

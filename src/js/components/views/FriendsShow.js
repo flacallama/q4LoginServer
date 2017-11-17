@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import FriendsShowGroup from '../friendsShow/FriendsShowGroup';
 
 class FriendsShow extends Component {
   constructor() {
@@ -24,7 +24,9 @@ class FriendsShow extends Component {
   }
 
     return (
-      <div>{myId}</div>
+      <div>{myId}
+        <FriendsShowGroup />
+      </div>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import FriendGroup from '../friends/FriendsGroup';
 import EventsGroup from '../events/EventsGroup';
 // import { bindActionCreators } from 'redux';
@@ -20,12 +21,10 @@ class Root extends Component {
       )
     }
 
-
-    // <img src={this.props.login}
     return (
       <div className="row">
         <div className="col-md-4">
-          <h1>{this.props.login.userData.username}</h1>
+          <h1>Welcome, {this.props.login.userData.username}</h1>
           <img src={this.props.login.userData.picUrl} id="mainPic"/>
           <FriendGroup />
         </div>

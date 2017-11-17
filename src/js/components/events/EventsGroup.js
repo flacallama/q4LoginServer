@@ -1,59 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { getEvents } from '../../actions/getEvents';
-// import Friend from './Friend';
-
-
-
+import { Switch, Route } from 'react-router-dom';
+import Events from './Events';
+import Event from './Event';
 
 class EventsGroup extends Component {
   constructor() {
     super();
-    this.state = {
-      updated: false
-    }
-
   }
 
-  componentDidMount(){
-    this.props.getEventsAction()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.getEvents != this.props.getEvents){
-      console.log('nextprops hit;', nextProps)
-      if(nextProps.getEvents){
-        // console.log('elem hit;')
-        this.setState({ updated: true })
-      }
-    }
-  }
-
+  // <Switch>
+  //   <Route exact path='/events' component={Events}/>
+  //   <Route path='/event/:id' component={Event}/>
+  // </Switch>
 
   render () {
-    console.log(this.props, "EventsGroup");
-
-
     return (
-      <div className="eventsGroup">
-
-        {this.state.updated ? this.props.getEvents[0].title : "noevents"}
-      </div>
+      <Events />
     )
   }
 }
-
-function mapStateToProps(state, props){
-  return {
-    getEvents: state.getEvents
-  }
-}
-
-function matchDispatchToProps(dispatch){
-  return {
-    getEventsAction: bindActionCreators(getEvents, dispatch),
-  }
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(EventsGroup);
+export default EventsGroup;

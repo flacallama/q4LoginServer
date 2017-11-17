@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import Friend from './Friend';
-// import { getFriends } from '../../actions/getFriends';
+
 
 
 class Friends extends Component {
@@ -10,32 +10,40 @@ class Friends extends Component {
     super();
   }
 
-  // componentWillMount(){
-  //   this.props.getFriendsAction()
-  // }
-
   render () {
-    // console.log(this.props.login.userData.friends);
-    let friends = this.props.login.userData.friends
-    let thefriends = friends.map((elem, i)=> {
-      return <Friend key={i} friend={elem} />
-    })
+
+    let friendsList = this.props.login.userData.friends
+    let usersFriends = null;
+    if(this.props.getFriends.user){
+      usersFriends = this.props.getFriends.user
+      .filter((elem, i) => {
+        if (friendsList.includes(parseInt(elem.id))){
+          return elem
+        }
+      })
+      .map(elem => {
+        // return <FriendInfo elem={elem} />
+        return <Friend key={elem.id} elem={elem} />
+      })
+    }
+
+
+    console.log('friends friendslist: ', usersFriends);
     return (
-      <div>{thefriends}</div>
+      <div>{usersFriends}</div>
     )
   }
 }
 
-// function mapStateToProps(state, props){
-//   // console.log('mapping state to props in loginActive', state.login);
-//   return {
-//     getFriends: state.getFriends
-//   }
-// }
+function mapStateToProps(state, props){
+  return {
+    getFriends: state.getFriends
+  }
+}
 
 // function matchDispatchToProps(dispatch){
 //   return {
 //     getFriendsAction: bindActionCreators(getFriends, dispatch),
 //   }
 // }
-export default connect(null, null)(Friends);
+export default connect(mapStateToProps, null)(Friends);

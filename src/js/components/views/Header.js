@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import {resetCurId} from '../actions/setCurId';
-// import logo from '../gifted.png';
+
 
 class Header extends Component {
-
 
   render () {
     return (
       <header>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <li className="active"><Link to="/events">myEvents</Link></li>
+            <li className="active"><Link to="/event/:id">myEvents</Link></li>
             <li className="active"><Link to="/event/create">makeEvent</Link></li>
             <li><Link to="/calendar">myCal</Link></li>
             {!this.props.login.loggedIn ? <li><Link to="/login">login</Link></li> : <li className="active"><a href="#">Welcome, {this.props.login.userData.username}</a></li>}

@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Friends from './Friends';
+import { getFriends } from '../../actions/getFriends';
 
-class FriendsContainer extends Component {
+class FriendsGroup extends Component {
   constructor() {
     super();
   }
+
+  componentWillMount(){
+    this.props.getFriendsAction()
+  }
+
+
   render () {
 
     // console.log(this.props.login.userData);
     return (
-      <div id="friendsOuterContainer">      
+      <div id="friendsOuterContainer">
         <h2 id="title">Friends List</h2>
         <div className="friendsContainer">
           <div>
@@ -22,15 +30,14 @@ class FriendsContainer extends Component {
   }
 }
 function mapStateToProps(state, props){
-  // console.log('mapping state to props in loginActive', state.login);
   return {
     login: state.login
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     loginAction: bindActionCreators(login, dispatch),
-//   }
-// }
-export default connect(mapStateToProps, null)(FriendsContainer);
+function matchDispatchToProps(dispatch){
+  return {
+    getFriendsAction: bindActionCreators(getFriends, dispatch),
+  }
+}
+export default connect(mapStateToProps, matchDispatchToProps)(FriendsGroup);

@@ -7,7 +7,7 @@ import Friend from './Friend';
 
 // { match: {params: { id } } }
 
-class FriendsDetailsGroup extends Component {
+class FriendsShowGroup extends Component {
 
   componentDidMount(){
     this.props.getFriendAction(this.props.match.params.id)
@@ -50,4 +50,4 @@ function matchDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, matchDispatchToProps)(FriendsDetailsGroup);
+export default connect(mapStateToProps, matchDispatchToProps)(FriendsShowGroup);

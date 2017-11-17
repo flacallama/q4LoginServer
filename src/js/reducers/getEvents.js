@@ -4,7 +4,7 @@
 // }
 
 export default (state = [], action) => {
-  console.log("reducer: getEvents");
+  // console.log("reducer: getEvents");
   switch (action.type){
     case "GET_EVENTS_PENDING":
       return state;

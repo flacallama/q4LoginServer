@@ -5,7 +5,7 @@ import FriendsGroup from './friends/FriendsGroup';
 import FriendsDetailsGroup from './friendsDetails/FriendsDetailsGroup';
 import Calendar from './views/Calendar';
 import EventCreate from './views/EventCreate';
-import Events from './views/Events';
+import EventShow from './views/EventShow';
 import Friends from './views/Friends';
 import FriendsShow from './views/FriendsShow';
 import PageNotFound from './views/PageNotFound';
@@ -21,7 +21,7 @@ class Main extends Component {
       <main>
         <Switch>
           <Route exact path="/" render={props => <Root {...props} /> } />
-          <Route exact path="/events" render={props => <Events {...props} /> } />
+          <Route exact path="/events/:id" render={props => <EventShow {...props} /> } />
           <Route exact path="/event/create" render={props => <EventCreate {...props} /> } />
           <Route exact path="/friends" render={props => <Friends {...props} /> } />
           <Route exact path="/friend/:id" render={props => <FriendsShow {...props} /> } />

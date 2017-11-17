@@ -17,7 +17,8 @@ class SignUp extends Component {
 
   render () {
     return (
-      <div>
+      <div className="">
+
         <form
           onSubmit={e => { this.props.signUpAction(
             this.state.username,
