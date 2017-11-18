@@ -14,21 +14,18 @@ class Calendar extends Component {
   }
 
   prevMonth = () => {
-    // console.log('choseMonth --', this.state.monthChoser);
     this.setState({
       monthChoser: this.state.monthChoser -1
     })
   }
 
   nextMonth = () => {
-    // console.log('choseMonth ++', this.state.monthChoser);
     this.setState({
       monthChoser: this.state.monthChoser + 1
     })
   }
 
   selectDate = (element, index) => {
-    // console.log(element)
     if(!this.state.selected.includes(element)){
       this.setState({
         selected: this.state.selected.concat(element)

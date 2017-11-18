@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import EventShowOne from '../events/EventShowOne';
+import EventShow1 from '../events/EventShow1';
 // import { bindActionCreators } from 'redux';
 
 
@@ -28,11 +28,11 @@ class EventShow extends Component {
   // }
 
   render () {
-    if (!this.props.login.loggedIn) {
-      return (
-        <Redirect to={ '/login'}/>
-      )
-    }
+    // if (!this.props.login.loggedIn) {
+    //   return (
+    //     <Redirect to={ '/login'}/>
+    //   )
+    // }
 
      let myEvents = this.props.getEvents
      .filter(elem => {
@@ -40,7 +40,7 @@ class EventShow extends Component {
          return elem
        }
      }).map((elem, i) => {
-       return <EventShowOne key={elem.id} elem={elem} />
+       return <EventShow1 key={elem.id} elem={elem} />
      })
 
     return (

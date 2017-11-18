@@ -22,7 +22,6 @@ class Friend extends Component {
   render () {
     let getFriend = this.props.getFriend;
 
-    console.log(getFriend.friend, "getFriend")
     return (
       <div>
         {this.state.postsLoaded ? <FriendItem getFriend={getFriend} /> : "no friend recieved"}
