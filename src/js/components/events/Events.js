@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getEvents } from '../../actions/getEvents';
-
-
-import Event from './Event';
+import EventPre from './EventPre';
 
 
 class Events extends Component {
   constructor() {
     super();
     this.state = {
-      updated: false
+      updated: true
     }
   }
 
@@ -19,15 +17,17 @@ class Events extends Component {
     this.props.getEventsAction()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.getEvents != this.props.getEvents){
-      // console.log('nextprops hit;', nextProps)
-      if(nextProps.getEvents){
-        // console.log('elem hit;')
-        this.setState({ updated: true })
-      }
-    }
-  }
+// THIS WAS USEFUL BEFORE - STATE.UPDATED == NULL (BEFORE)
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.getEvents != this.props.getEvents){
+  //     // console.log('nextprops hit;', nextProps)
+  //     if(nextProps.getEvents){
+  //       // console.log('elem hit;')
+  //       this.setState({ updated: true })
+  //     }
+  //   }
+  // }
+
 
   render () {
     let userId = this.props.login.userData.id
@@ -41,7 +41,7 @@ class Events extends Component {
         }
       })
       .map(el => {
-        return <Event elem={el} key={el.id}/>
+        return <EventPre elem={el} key={el.id} reRender={this.reRender}/>
       })
     }
 

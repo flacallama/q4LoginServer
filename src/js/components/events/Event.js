@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { putEvent, getEvents } from '../../actions/getEvents';
+import { putEvent } from '../../actions/getEvent';
 
 
 class Event extends Component {
@@ -10,20 +10,6 @@ class Event extends Component {
     super();
   }
 
-  componentDidMount(){
-    // this.props.putEventAction()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.getEvents != this.props.getEvents){
-      console.log('nextprops hit;', nextProps)
-      this.props.getEventsAction()
-      // if(nextProps.getEvents){
-      //   // console.log('elem hit;')
-      //   this.setState({ updated: true })
-      // }
-    }
-  }
 
 
   acceptButton = (e) => {
@@ -33,6 +19,7 @@ class Event extends Component {
     invitees[userId] = "accepted";
     this.props.putEventAction(eventId, invitees)
     e.preventDefault()
+
   }
 
   maybeButton = (e) => {
@@ -106,14 +93,15 @@ class Event extends Component {
 
 function mapStateToProps(state, props){
   return {
-    getEvents: state.getEvents,
+    getEvent: state.getEvent,
+    // getEvent: state.getEvent,
     login: state.login
   }
 }
 
 function matchDispatchToProps(dispatch){
   return {
-    getEventsAction: bindActionCreators(getEvents, dispatch),
+    // getEventAction: bindActionCreators(getEvent, dispatch),
     putEventAction: bindActionCreators(putEvent, dispatch)
   }
 }

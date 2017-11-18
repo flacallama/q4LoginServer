@@ -27,8 +27,6 @@ class Friends extends Component {
       })
     }
 
-
-    console.log('friends friendslist: ', usersFriends);
     return (
       <div>{usersFriends}</div>
     )

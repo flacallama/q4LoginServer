@@ -10,24 +10,25 @@ export const getEvents = () => {
   }
 }
 
-export const putEvent = (eventId, invitees) => {
-  console.log('putEvent action reached', eventId, invitees);
-  return {
-    type: "PUT_EVENT",
-    payload: axios.put(`http://localhost:1337/events/${eventId}`,
-      {
-        invitees
-      }
-
-
-    )
-  }
-}
-
-// export const getFriend = (myId) => {
-//   // console.log("getfriend action, myId: ", myId)
+// export const getEvent = (eventId) => {
+//   console.log("getEvent action, myId: ", eventId)
 //   return {
-//     type: "GET_FRIEND",
-//     payload: axios.get(`http://localhost:1337/users/${myId}`)
+//     type: "GET_EVENT",
+//     payload: axios.get(`http://localhost:1337/events/${eventId}`)
+//   }
+// }
+//
+//
+// export const putEvent = (eventId, invitees) => {
+//   console.log('putEvent action reached', eventId, invitees);
+//   return {
+//     type: "PUT_EVENT",
+//     payload: axios.put(`http://localhost:1337/events/${eventId}`,
+//       {
+//         invitees
+//       }
+//
+//
+//     )
 //   }
 // }

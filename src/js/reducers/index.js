@@ -5,6 +5,7 @@ import signUp from './signUp'
 import login from './login'
 import getFriends from './getFriends';
 import getEvents from './getEvents';
+import getEvent from './getEvent';
 // import setCurId from './setCurId';
 
 
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   signUp,
   login,
   getFriends,
-  getEvents
+  getEvents,
+  getEvent
 
 
 })
