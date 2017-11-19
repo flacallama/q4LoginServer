@@ -5,7 +5,7 @@ const initialState = {
 
 
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type){
     case "GET_FRIENDS_PENDING":
       return state;
@@ -22,6 +22,16 @@ export default (state = [], action) => {
       return {
         friend: [action.payload.data]
       };
+    case "PUT_DATE_PENDING":
+        return state;
+    case "PUT_DATE_FULFILLED":
+    console.log("reducer: PutDate - PUT", action.payload.data);
+        // return [...action.payload.data];
+        return        {
+          friend: [action.payload.data]
+        };
+
+
     default:
       return state;
   }

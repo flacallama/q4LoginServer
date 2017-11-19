@@ -4,13 +4,20 @@ import DayBox from '../calendar/DayBox';
 import MonthControl from '../calendar/MonthControl';
 var moment = require('moment');
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom'
+import { getFriend } from '../../actions/getFriends';
 
 class Calendar extends Component {
 
   state = {
     selected: [],
     monthChoser : 1
+  }
+  userId = this.props.login.userData.id
+
+  componentWillMount(){
+    this.props.getFriendAction(this.userId)
   }
 
   prevMonth = () => {
@@ -25,19 +32,19 @@ class Calendar extends Component {
     })
   }
 
-  selectDate = (element, index) => {
-    if(!this.state.selected.includes(element)){
-      this.setState({
-        selected: this.state.selected.concat(element)
-      })
-    } else {
-      this.setState({
-        selected: this.state.selected.filter(x => x != element)
-      })
-    }
-    console.log('clicked', this.state.selected)
-    // console.log()
-  }
+  // selectDate = (element, index) => {
+  //   if(!this.state.selected.includes(element)){
+  //     this.setState({
+  //       selected: this.state.selected.concat(element)
+  //     })
+  //   } else {
+  //     this.setState({
+  //       selected: this.state.selected.filter(x => x != element)
+  //     })
+  //   }
+  // }
+
+
 
   render () {
     if (!this.props.login.loggedIn) {
@@ -90,7 +97,12 @@ class Calendar extends Component {
     .filter(elem => {
       if(moment(elem).isBetween(calStart, calEnd)) return elem;
     })
-    .map((elem, i)=> <DateBox key={i} index={i} element={elem} currMonth={YrMoArr[this.state.monthChoser]} selectDate={this.selectDate} />
+    .map((elem, i)=> <DateBox key={i} index={i}
+        element={elem}
+        currMonth={YrMoArr[this.state.monthChoser]}
+
+        getFriend={this.props.getFriends}
+    />
     )
 
     return (
@@ -104,8 +116,8 @@ class Calendar extends Component {
               monthChoser={this.state.monthChoser}
             />
           </div>
-          {thedaynames}
-          {thedates}
+          {this.props.getFriends ? thedaynames : ''}
+          {this.props.getFriends ? thedates : console.log('no getFriend', this.props)}
         </div>
       </div>
     )
@@ -114,14 +126,15 @@ class Calendar extends Component {
 
 function mapStateToProps(state, props){
   return {
-    login: state.login
+    login: state.login,
+    getFriends: state.getFriends
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     loginAction: bindActionCreators(login, dispatch),
-//   }
-// }
+function matchDispatchToProps(dispatch){
+  return {
+    getFriendAction: bindActionCreators(getFriend, dispatch)
+  }
+}
 
-export default connect(mapStateToProps, null)(Calendar);
+export default connect(mapStateToProps, matchDispatchToProps)(Calendar);
