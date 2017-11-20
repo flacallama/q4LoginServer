@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import EventShow1 from '../events/EventShow1';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
+import { getEvent } from '../../actions/getEvent';
 
 
 class EventShow extends Component {
@@ -13,38 +14,23 @@ class EventShow extends Component {
     }
   }
 
+  componentDidMount(){
+    this.props.getEventAction(parseInt(this.props.match.params.id))
+  }
 
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.getEvents != this.props.getEvents){
-  //     // console.log('nextprops hit;', nextProps)
-  //     if(nextProps.getEvents){
-  //       // console.log('elem hit;')
-  //       this.setState({ updated: true })
-  //     }
-  //   }
-  // }
 
   render () {
 
-    // if (!this.props.login.loggedIn) {
-    //   return (
-    //     <Redirect to={ '/login'}/>
-    //   )
-    // }
-
-     let myEvents = this.props.getEvents
-     .filter(elem => {
-       if(elem.id == this.props.match.params.id){
-         return elem
-       }
-     }).map((elem, i) => {
-       return <EventShow1 key={elem.id} elem={elem} />
-     })
+    if (!this.props.login.loggedIn) {
+      return (
+        <Redirect to={ '/login'}/>
+      )
+    }
+    let getEvent = this.props.getEvent
 
     return (
     <ul>
-      {myEvents}
+      {getEvent ? <EventShow1 elem={this.props.getEvent} />: "no event yet in eventShow"}
     </ul>
     )
   }
@@ -57,10 +43,10 @@ function mapStateToProps(state, props){
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     getEventAction: bindActionCreators(login, dispatch),
-//   }
-// }
+function matchDispatchToProps(dispatch){
+  return {
+    getEventAction: bindActionCreators(getEvent, dispatch),
+  }
+}
 
-export default connect(mapStateToProps, null)(EventShow);
+export default connect(mapStateToProps, matchDispatchToProps)(EventShow);

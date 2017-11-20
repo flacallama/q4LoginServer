@@ -20,10 +20,6 @@ class LoginLanding extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps != this.props){
-      // this.setState({
-      //   loginLoaded: true
-      // })
-      console.log('compwillrecieveprops',nextProps.login.loggedIn)
       if(nextProps.login.LoggedIn){
         this.setState({ redirectToReferrer: true })
       }

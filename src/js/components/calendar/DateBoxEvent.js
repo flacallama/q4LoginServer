@@ -16,7 +16,7 @@ class DateBox extends Component {
 
   componentWillMount(){
     let eventId = parseInt(this.props.id);
-    console.log('eventId', eventId);
+    // console.log('eventId', eventId);
 
     axios.get(`http://localhost:1337/events/${eventId}`)
       .then(res => {
@@ -45,7 +45,7 @@ class DateBox extends Component {
     let pathid = "/events/" + this.props.id
 
     return (
-      <Link to={pathid}>
+      <Link to={pathid} onClick={e => e.stopPropagation()}>
         <div>
           {this.state.updated ? this.state.theEvent.title : "notupdated"}
         </div>

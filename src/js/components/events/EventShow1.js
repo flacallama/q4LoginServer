@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import EventShow2 from './EventShow2';
+import { getFriends } from '../../actions/getFriends'
 
 class EventShow1 extends Component {
   constructor() {
     super();
+    this.state = {
+      updated: false
+    }
   }
+  // console.log('eventShow1 elem: ', this.props.elem);
+  componentDidMount(){
+    this.props.getFriendsAction()
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.getFriends != this.props.getFriends){
+      console.log("nextProps has changed in EventShow1")
+      this.setState({
+        updated: true
+      })
+    }
+  }
+
   render () {
-
-
+    console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
     let invitedArr = [];
     let acceptedArr = [];
@@ -33,40 +50,47 @@ class EventShow1 extends Component {
       }
     }
 
-    let invitedFriends =this.props.getFriends.user.filter(elem => {
-      if(invitedArr.includes(elem.id)){
-        return elem;
-      }
-    }).map(el => {
-    return <EventShow2 key={el.id} elem={el} status="invited" />;
-    });
+    let invitedFriends
+    let acceptedFriends
+    let declinedFriends
+    let maybeFriends
+
+    if(this.state.updated){
+      let invitedFriends =this.props.getFriends.user.filter(elem => {
+        if(invitedArr.includes(elem.id)){
+          return elem;
+        }
+      }).map(el => {
+      return <EventShow2 key={el.id} elem={el} status="invited" />;
+      });
 
 
-    let acceptedFriends = this.props.getFriends.user.filter(elem => {
-      if(acceptedArr.includes(elem.id)){
-        return elem;
-      }
-    }).map(el => {
-    return <EventShow2 key={el.id} elem={el} status="accepted" />;
-    });
+      acceptedFriends = this.props.getFriends.user.filter(elem => {
+        if(acceptedArr.includes(elem.id)){
+          return elem;
+        }
+      }).map(el => {
+      return <EventShow2 key={el.id} elem={el} status="accepted" />;
+      });
 
 
-    let declinedFriends = this.props.getFriends.user.filter(elem => {
-      if(declinedArr.includes(elem.id)){
-        return elem;
-      }
-    }).map(el => {
-    return <EventShow2 key={el.id} elem={el} status="declined" />;
-    });
+      declinedFriends = this.props.getFriends.user.filter(elem => {
+        if(declinedArr.includes(elem.id)){
+          return elem;
+        }
+      }).map(el => {
+      return <EventShow2 key={el.id} elem={el} status="declined" />;
+      });
 
 
-    let maybeFriends = this.props.getFriends.user.filter(elem => {
-      if(maybeArr.includes(elem.id)){
-        return elem;
-      }
-    }).map(el => {
-    return <EventShow2 key={el.id} elem={el} status="maybe" />;
-    });
+      maybeFriends = this.props.getFriends.user.filter(elem => {
+        if(maybeArr.includes(elem.id)){
+          return elem;
+        }
+      }).map(el => {
+      return <EventShow2 key={el.id} elem={el} status="maybe" />;
+      });
+    }
 
     return (
       <div>
@@ -89,6 +113,7 @@ class EventShow1 extends Component {
 
       </div>
     )
+
   }
 }
 
@@ -98,9 +123,9 @@ function mapStateToProps(state, props){
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     getFriendsAction: bindActionCreators(getFriends, dispatch),
-//   }
-// }
-export default connect(mapStateToProps, null)(EventShow1);
+function matchDispatchToProps(dispatch){
+  return {
+    getFriendsAction: bindActionCreators(getFriends, dispatch),
+  }
+}
+export default connect(mapStateToProps, matchDispatchToProps)(EventShow1);

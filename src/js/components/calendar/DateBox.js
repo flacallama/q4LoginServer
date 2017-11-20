@@ -44,7 +44,7 @@ class DateBox extends Component {
     } else {
       modifiedArr = origArr.concat(this.props.element)
     }
-    console.log('origArr', origArr, 'modifiedArr', modifiedArr, 'elem', this.props.element);
+    // console.log('origArr', origArr, 'modifiedArr', modifiedArr, 'elem', this.props.element);
 
 
     // this is updating the dateFreeArr in mongo
@@ -72,7 +72,7 @@ class DateBox extends Component {
           todaysEvents.push(event)
         }
       }
-      return todaysEvents.map(elem => <li className="eventLi"><DateBoxEvent id={elem} /></li>)
+      return todaysEvents.map(elem => <li className="eventLi"><DateBoxEvent key={elem.id} id={elem} /></li>)
     }
 
     let currMonth = this.props.currMonth

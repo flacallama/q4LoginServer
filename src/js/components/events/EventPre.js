@@ -29,7 +29,7 @@ class EventPre extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps != this.props){
-      console.log('nextprops hit eventPrev;', nextProps )
+      // console.log('nextprops hit eventPrev;', nextProps )
       // if(nextProps.getEvents){
         // console.log('elem hit;')
         this.setState({ updated: true })
@@ -48,14 +48,14 @@ class EventPre extends Component {
   render () {
 
     if(!this.state.updated){
-      console.log('EventPre: state not updated');
+      // console.log('EventPre: state not updated');
       return (
         <div>
           loading...
         </div>
       )
     }
-    console.log('EventPre: state updated');
+    // console.log('EventPre: state updated');
     return(
       <div><Event elem={this.state.theEvent} /></div>
 
