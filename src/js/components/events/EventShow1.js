@@ -67,7 +67,6 @@ class EventShow1 extends Component {
     }).map(el => {
     return <EventShow2 key={el.id} elem={el} status="maybe" />;
     });
-    // console.log(acceptedFriends);
 
     return (
       <div>

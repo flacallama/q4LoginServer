@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { putDate } from '../../actions/getFriends';
+import DateBoxEvent from './DateBoxEvent';
 // import { getFriend } from '../../actions/getFriends';
 
 class DateBox extends Component {
@@ -20,7 +21,6 @@ class DateBox extends Component {
       // console.log('datebox received nextProps', nextProps.getFriend, this.props.getFriend);
     }
     if(nextProps.getFriend.friend[0].dateFreeArr.includes(this.props.element)){
-      console.log("includes date");
       this.setState({
         selected: true
       })
@@ -58,20 +58,35 @@ class DateBox extends Component {
 
 
   render () {
+    var todaysEvents = []
+    let getMyEvents = () => {
+      let eventObj = this.props.getFriend.friend[0].eventObj
+      // console.log('eventObj', eventObj);
 
+      for(event in eventObj){
+        let eventDate = eventObj[event].toString();
+        let todaysDate = this.props.element.toString()
+        // console.log('event', eventDate, todaysDate )
+        if(eventDate == todaysDate){
+          // console.log("eventsss", event)
+          todaysEvents.push(event)
+        }
+      }
+      return todaysEvents.map(elem => <li className="eventLi"><DateBoxEvent id={elem} /></li>)
+    }
 
     let currMonth = this.props.currMonth
     let elem = this.props.element
     let index = this.props.index
     let selected = this.state.selected
-    let eventObj = nextProps.getFriend.friend[0].eventObj
+
 
 
     return (
 
         <div id={currMonth !== elem.substring(0,7) ? "grey" : ""} className={selected ? "dateBox green" : "dateBox"} onClick={this.onClick}>
           <h6 id="monDay">{elem.substring(5, 10)}</h6>
-          {this.state.updated ? <h6></h6> : "nope"}
+          {this.state.updated ? <ul className="eventUl">{getMyEvents()}</ul> : "nope"}
         </div>
 
     )

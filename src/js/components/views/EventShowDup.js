@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import EventShow1 from '../events/EventShow1';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
+import { getEvent } from '../../actions/getEvent';
 
-
-class EventShow extends Component {
+class EventShowDup extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,7 +13,9 @@ class EventShow extends Component {
     }
   }
 
-
+  componentDidMount(){
+    this.props.getEventAction(parseInt(this.propsmatch.params.id))
+  }
   //
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.getEvents != this.props.getEvents){
@@ -26,7 +28,7 @@ class EventShow extends Component {
   // }
 
   render () {
-
+    console.log('EventShow', this.props.getEvent);
     // if (!this.props.login.loggedIn) {
     //   return (
     //     <Redirect to={ '/login'}/>
@@ -57,10 +59,10 @@ function mapStateToProps(state, props){
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     getEventAction: bindActionCreators(login, dispatch),
-//   }
-// }
+function matchDispatchToProps(dispatch){
+  return {
+    getEventAction: bindActionCreators(login, dispatch),
+  }
+}
 
-export default connect(mapStateToProps, null)(EventShow);
+export default connect(mapStateToProps, matchDispatchToProps)(EventShowDup);

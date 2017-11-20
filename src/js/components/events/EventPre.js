@@ -25,9 +25,6 @@ class EventPre extends Component {
           updated: true
         });
       });
-
-
-
   }
 
   componentWillReceiveProps(nextProps) {

@@ -225,3 +225,16 @@ body {
 .monthControlChildBut{
   flex: 1;
 }
+
+
+
+.eventUl{
+  list-style-type: none;
+  list-style-position: outside;
+  padding:3px;
+  .eventLi{
+    font-size: .6em;
+    margin-left: 0px;
+    padding:0px;
+  }
+}
