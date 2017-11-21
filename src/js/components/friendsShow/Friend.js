@@ -24,7 +24,7 @@ class Friend extends Component {
 
     return (
       <div>
-        {this.state.postsLoaded ? <FriendItem getFriend={getFriend} /> : "no friend recieved"}
+        {this.state.postsLoaded ? <FriendItem getFriend={getFriend} login={this.props.login}/> : "no friend recieved"}
 
       </div>
     )

@@ -42,7 +42,7 @@ class Friend extends Component {
 
       // this drills down to the inviteesObj
       let inviteesObj = curEvent[0].inviteesObj;
-      console.log('inviteesObj', inviteesObj);
+      // console.log('inviteesObj', inviteesObj);
 
       // takes value from each element of inviteesObj
       var rsvpText = null
@@ -51,9 +51,8 @@ class Friend extends Component {
           rsvpText = inviteesObj[id]
         }
       }
-      console.log('rsvpText', rsvpText);
 
-
+      
       var inviteRSVP = () => {
         inviteesObj[this.props.elem.id.toString()] = "invited";
         this.props.putEventRSVPAction(curEvent[0].id, inviteesObj)

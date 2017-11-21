@@ -17,6 +17,17 @@ export default (state = {}, action) => {
       return {
         friend: [action.payload.data]
       };
+
+// IM NOT SURE THAT friendRequestsArr IS UPDATING IN
+// REDUCER BUT IT IS ON THE SERVER
+    case "PUT_FRIEND_REQUEST_ARRAY_PENDING":
+      return state;
+    case "PUT_FRIEND_REQUEST_ARRAY_FULFILLED":
+    console.log('putFriendRequestArray', action.payload.data);
+      return {
+        friend: [action.payload.data]
+      };
+
     case "PUT_DATE_PENDING":
         return state;
     case "PUT_DATE_FULFILLED":

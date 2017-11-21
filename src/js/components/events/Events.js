@@ -20,7 +20,7 @@ class Events extends Component {
 // THIS WAS USEFUL BEFORE - STATE.UPDATED == NULL (BEFORE)
   componentWillReceiveProps(nextProps) {
     if (nextProps.getEvents != this.props.getEvents){
-      console.log('nextprops hit;', nextProps)
+      // console.log('nextprops hit;', nextProps)
 
       this.setState({ updated: true })
     }

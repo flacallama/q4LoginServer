@@ -16,7 +16,7 @@ class Event extends Component {
     let userId = this.props.login.userData.id
     let inviteesObj = this.props.elem.inviteesObj
     let eventId = this.props.elem.id;
-    console.log('accept button', inviteesObj, eventId);
+    // console.log('accept button', inviteesObj, eventId);
     inviteesObj[userId] = "accepted";
     this.props.putEventAction(eventId, inviteesObj)
     e.preventDefault()

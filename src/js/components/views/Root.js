@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 // import { withRouter } from 'react-router-dom';
 import FriendGroup from '../friends/FriendsGroup';
 import EventsGroup from '../events/EventsGroup';
+import PendingRequests from '../friends/PendingRequests';
 // import { bindActionCreators } from 'redux';
 
 
@@ -25,6 +26,7 @@ class Root extends Component {
       <div className="row">
         <div className="col-md-4">
           <h1>Welcome, {this.props.login.userData.username}</h1>
+          <PendingRequests />
           <img src={this.props.login.userData.picUrl} id="mainPic"/>
           <FriendGroup />
         </div>

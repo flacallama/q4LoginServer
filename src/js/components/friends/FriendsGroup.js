@@ -15,13 +15,13 @@ class FriendsGroup extends Component {
 
 
   render () {
-    console.log('friendsGroup login', this.props.login);
+    // console.log('friendsGroup login', this.props.login);
 
     // console.log(this.props.login.userData);
     return (
       <div className="container" id="friendsOuterContainer">
         <h2 id="title">Friends List</h2>
-        {this.props.login.userData.friends ? <Friends login={this.props.login} /> : 'friendsgrouprenderfail'}    
+        {this.props.login.userData.friends ? <Friends login={this.props.login} /> : 'friendsgrouprenderfail'}
       </div>
     )
   }
