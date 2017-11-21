@@ -38,3 +38,16 @@ export const createEvent = (input) => {
     payload: axios.post(`http://localhost:1337/events`, input)
   }
 }
+
+
+export const putEventRSVP = (eventId, inviteesObj) => {
+  console.log('putEvent action reached', eventId, inviteesObj);
+  return {
+    type: "PUT_EVENT_RSVP",
+    payload: axios.put(`http://localhost:1337/events/${eventId}`,
+      {
+        inviteesObj
+      }
+    )
+  }
+}

@@ -25,6 +25,7 @@ class Event2Events
     this.setState({
       selectedEvent: eventId
     })
+    console.log(this.state.selectedEvent + " is selected in state");
   }
   // componentDidReceiveProps(nextProps){
   //   if(nextProps !== this.props){
@@ -44,7 +45,7 @@ class Event2Events
     let myEvents;
 
     if(this.props.findEventByCreatorId.eventData){
-      myEvents = fetchedEvents.map(event => {
+      myEvents = fetchedEvents.map((event, idx) => {
         let selected = false;
         if(this.state.selectedEvent == event.id){
           selected = true;
@@ -52,6 +53,7 @@ class Event2Events
         return <Event2Event
           selected={selected}
           key={event.id}
+          idx={idx}
           event={event}
           selectEvent={this.selectEvent}
           />
@@ -61,8 +63,9 @@ class Event2Events
     return (
       <div className="container">
         <FriendsGroup fetchedEvents={fetchedEvents} selectedEvent={this.state.selectedEvent}/>
-        <div className="row">
+        <div className="row margin-top">
           <div className="col-md-4">
+            <h6>Select an event to manage invitees</h6>
             {this.props.findEventByCreatorId.eventData ? myEvents : "You have no events"}
           </div>
         </div>

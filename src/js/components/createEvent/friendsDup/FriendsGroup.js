@@ -22,7 +22,7 @@ class FriendsGroup extends Component {
     return (
       <div className="container" id="friendsOuterContainer">
         <h2 id="title">Your Friends List</h2>
-        {this.props.login.userData.friends ? <Friends login={this.props.login} /> : 'friendsgrouprenderfail'}
+        {this.props.login.userData.friends ? <Friends login={this.props.login} fetchedEvents={this.props.fetchedEvents} selectedEvent={this.props.selectedEvent}/> : 'friendsgrouprenderfail'}
       </div>
     )
   }

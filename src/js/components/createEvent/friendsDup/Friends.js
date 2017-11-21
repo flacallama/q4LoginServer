@@ -11,9 +11,12 @@ class Friends extends Component {
   }
 
   render () {
-
+    // friendsList is the friendId array from user json
     let friendsList = this.props.login.userData.friends
-    console.log('Friends friendsList... login.userData.friends', this.props.login);
+    // console.log('Friends friendsList... login.userData.friends', this.props.login);
+
+    // console.log('Friends getFriends.user', this.props.getFriends);
+
     let usersFriends = null;
     if(this.props.getFriends.user){
       usersFriends = this.props.getFriends.user
@@ -24,7 +27,7 @@ class Friends extends Component {
       })
       .map(elem => {
         // return <FriendInfo elem={elem} />
-        return <Friend key={elem.id} elem={elem} />
+        return <Friend key={elem.id} elem={elem} fetchedEvents={this.props.fetchedEvents} selectedEvent={this.props.selectedEvent}/>
       })
     }
 
