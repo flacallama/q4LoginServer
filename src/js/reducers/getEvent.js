@@ -14,6 +14,11 @@ export default (state = [], action) => {
     case "PUT_EVENT_FULFILLED":
     // console.log("reducer: getEvents - PUT");
         return [action.payload.data];
+    case "CREATE_EVENT_PENDING":
+      return state;
+    case "CREATE_EVENT_FULFILLED":
+    console.log('reducer create event', action.payload.data);
+      return action.payload.data
     default:
       return state;
   }

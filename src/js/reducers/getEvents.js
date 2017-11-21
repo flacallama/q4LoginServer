@@ -8,6 +8,7 @@ export default (state = [], action) => {
     case "GET_EVENTS_PENDING":
       return state;
     case "GET_EVENTS_FULFILLED":
+    console.log('getEvents reducer', action.payload.data);
       return [...action.payload.data]
     // case "GET_EVENT_PENDING":
     //   return state;

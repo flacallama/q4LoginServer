@@ -27,8 +27,14 @@ export const putEvent = (eventId, invitees) => {
       {
         invitees
       }
-
-
     )
+  }
+}
+
+export const createEvent = (input) => {
+  console.log('createEvent action', input);
+  return {
+    type: "CREATE_EVENT",
+    payload: axios.post(`http://localhost:1337/events`, input)
   }
 }

@@ -5,6 +5,10 @@ import FriendsGroup from './friends/FriendsGroup';
 import FriendsShowGroup from './friendsShow/FriendsShowGroup';
 import Calendar from './views/Calendar';
 import EventCreate from './views/EventCreate';
+import EventCreate1 from './views/EventCreate1';
+import EventCreate2 from './views/EventCreate2';
+import EventCreate3 from './views/EventCreate3';
+import EventCreate4 from './views/EventCreate4';
 import EventShow from './views/EventShow';
 import Friends from './views/Friends';
 import FriendsShow from './views/FriendsShow';
@@ -22,7 +26,10 @@ class Main extends Component {
         <Switch>
           <Route exact path="/" render={props => <Root {...props} /> } />
           <Route exact path="/events/:id" render={props => <EventShow {...props} /> } />
-          <Route exact path="/event/create" render={props => <EventCreate {...props} /> } />
+          <Route exact path="/event/create/1" render={props => <EventCreate1 {...props} /> } />
+          <Route exact path="/event/create/2" render={props => <EventCreate2 {...props} /> } />
+          <Route exact path="/event/create/3" render={props => <EventCreate3 {...props} /> } />
+          <Route exact path="/event/create/4" render={props => <EventCreate4 {...props} /> } />
           <Route exact path="/friends" render={props => <Friends {...props} /> } />
           <Route exact path="/friends/:id" render={props => <FriendsShow {...props} /> } />
           <Route exact path="/calendar" render={props => <Calendar {...props} /> } />

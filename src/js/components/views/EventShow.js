@@ -29,9 +29,9 @@ class EventShow extends Component {
     let getEvent = this.props.getEvent
 
     return (
-    <ul>
+    <div>
       {getEvent ? <EventShow1 elem={this.props.getEvent} />: "no event yet in eventShow"}
-    </ul>
+    </div>
     )
   }
 }

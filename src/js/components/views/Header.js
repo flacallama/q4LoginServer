@@ -11,7 +11,7 @@ class Header extends Component {
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
             <li className="active"><Link to="/event/:id">myEvents</Link></li>
-            <li className="active"><Link to="/event/create">makeEvent</Link></li>
+            <li className="active"><Link to="/event/create/1">makeEvent</Link></li>
             <li><Link to="/calendar">myCal</Link></li>
             {!this.props.login.loggedIn ? <li><Link to="/login">login</Link></li> : <li className="active"><a href="#">Welcome, {this.props.login.userData.username}</a></li>}
 

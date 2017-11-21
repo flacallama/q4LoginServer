@@ -32,19 +32,6 @@ class Calendar extends Component {
     })
   }
 
-  // selectDate = (element, index) => {
-  //   if(!this.state.selected.includes(element)){
-  //     this.setState({
-  //       selected: this.state.selected.concat(element)
-  //     })
-  //   } else {
-  //     this.setState({
-  //       selected: this.state.selected.filter(x => x != element)
-  //     })
-  //   }
-  // }
-
-
 
   render () {
     if (!this.props.login.loggedIn) {

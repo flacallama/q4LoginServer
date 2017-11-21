@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getFriends } from '../../actions/getFriends';
+import { getFriends } from '../../../actions/getFriends';
 import { Link } from 'react-router-dom';
 
 
@@ -15,8 +15,8 @@ class Friend extends Component {
 
     return (
 
-        <Link to={pathid} className="link friendBox">
-
+        <div className="link friendBox">
+          <Link to={pathid}>
             <div className="friendNameBox">
               {this.props.elem.username}
             </div>
@@ -24,8 +24,8 @@ class Friend extends Component {
             <div className="friendImageBox">
               <img src={this.props.elem.picUrl} className="friendImageImg"/>
             </div>
-
-        </Link>
+          </Link>
+        </div>
 
 
     )

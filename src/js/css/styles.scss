@@ -9,47 +9,61 @@ $mainColor: #7777bb;
 }
 #friendsOuterContainer{
   border: 3px solid black;
+}
 
-  #title{
-    margin:0px;
-    font-size: 50px;
-    font-weight: bold;
-    font-variant: small-caps;
-    display: block;
-  }
-  .friendsContainer{
-    height: auto;
+#title{
+  margin:0px;
+  font-size: 50px;
+  font-weight: bold;
+  font-variant: small-caps;
+  display: block;
+}
 
-    display: flex;
-    .friendBox{
-      height: 150px;
-      width: 100px;
-      flex: 1;
-      background-color: #f3f3f3;
-      border: 3px solid $mainColor;
-      display: inline-flex;
-      align-content: flex-start;
-      .friendNameBox{
-        height: 20%;
-        width: 100%;
-      }
-      .friendImageBox{
-        height: 80%;
-        width:100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        .friendImageImg{
-          object-fit: cover;
-          height: auto;
-          width: 100px;
-        }
-      }
-    }
-  }
+.friendsContainer{
+  margin:0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.friendBox{
+  flex: 1;
+  height: 150px;
+  width: 100px;
+  display: inline-block;
+  background-color: pink;
+  margin: 0px;
+  align-content: center;
+}
+
+.friendNameBox{
+  text-align: center;
+  height: 20%;
+  width: 90%;
+  display: block;
 
 }
+
+.friendImageBox{
+  margin: auto;
+  width: 90%;
+  height: 80%;
+  background-color: grey;
+  overflow: hidden;
+  object-fit: fill;
+}
+
+.friendImageImg{
+
+  height: 130px;
+}
+
+
+
+
+
+
 
 .calendarGroup{
   height: 400px;
@@ -236,5 +250,23 @@ body {
     font-size: .6em;
     margin-left: 0px;
     padding:0px;
+  }
+}
+
+
+
+
+
+.eventHeaderGroup{
+  height: 5vh;
+  background-color: #f3f3f3;
+  width: 100%;
+  display: flex;
+  .eventHeaderButton{
+    flex: 1;
+    background-color: darkgrey;
+    height: 100%;
+    margin: 2px;
+    align-items: center;
   }
 }

@@ -9,7 +9,7 @@ class Events extends Component {
   constructor() {
     super();
     this.state = {
-      updated: true
+      updated: null
     }
   }
 
@@ -18,15 +18,13 @@ class Events extends Component {
   }
 
 // THIS WAS USEFUL BEFORE - STATE.UPDATED == NULL (BEFORE)
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.getEvents != this.props.getEvents){
-  //     // console.log('nextprops hit;', nextProps)
-  //     if(nextProps.getEvents){
-  //       // console.log('elem hit;')
-  //       this.setState({ updated: true })
-  //     }
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.getEvents != this.props.getEvents){
+      console.log('nextprops hit;', nextProps)
+
+      this.setState({ updated: true })
+    }
+  }
 
 
   render () {

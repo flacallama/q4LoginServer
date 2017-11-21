@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { createEvent } from '../../actions/getEvent';
 
 
-class EventCreate extends Component {
+class Event1Form extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,6 +13,7 @@ class EventCreate extends Component {
       body: null,
       picUrl: null,
       eventStatus: null
+
     }
   }
 
@@ -22,6 +23,10 @@ class EventCreate extends Component {
     //     <Redirect to={ '/login'}/>
     //   )
     // }
+    console.log('login info', this.props.login);
+    let inviteesObj = {}
+
+    inviteesObj[this.props.login.userData.id] = "accepted"
 
 
     return (
@@ -34,7 +39,8 @@ class EventCreate extends Component {
                 body: this.state.body,
                 picUrl: this.state.picUrl,
                 eventStatus: this.state.eventStatus,
-                creatorId: this.props.login.userData.id
+                creatorId: this.props.login.userData.id,
+                invitees: inviteesObj
               })
               e.preventDefault();
               // this.resetState();
@@ -74,4 +80,4 @@ function matchDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(EventCreate);
+export default connect(mapStateToProps, matchDispatchToProps)(Event1Form);

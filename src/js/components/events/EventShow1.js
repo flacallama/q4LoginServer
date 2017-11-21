@@ -18,7 +18,7 @@ class EventShow1 extends Component {
 
   componentWillReceiveProps(nextProps){
     if(nextProps.getFriends != this.props.getFriends){
-      console.log("nextProps has changed in EventShow1")
+      // console.log("nextProps has changed in EventShow1")
       this.setState({
         updated: true
       })
@@ -26,7 +26,7 @@ class EventShow1 extends Component {
   }
 
   render () {
-    console.log('eventShow1 getFriends', this.props.getFriends);
+    // console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
     let invitedArr = [];
     let acceptedArr = [];
@@ -105,8 +105,6 @@ class EventShow1 extends Component {
               {acceptedFriends ? acceptedFriends : "no friends have accepted"}
               {declinedFriends ? declinedFriends : "no friends have declined"}
               {maybeFriends ? maybeFriends : "no friends are maybe"}
-
-
             </div>
           </div>
         </div>
