@@ -2,31 +2,68 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
-import { createEvent } from '../../actions/getEvent';
+// import { createEvent } from '../../actions/getEvent';
+import { findEventByCreatorId } from '../../actions/findEventByCreatorId';
+import Event2Event from './Event2Event';
+import FriendsGroup from './friendsDup/FriendsGroup';
 
 
 class Event2Events
  extends Component {
   constructor() {
     super();
+    this.state = {
+      selectedEvent: null
+    }
   }
-  componentWillMount(){
-    
-  }
-  render () {
-    // if (!this.props.login.loggedIn) {
-    //   return (
-    //     <Redirect to={ '/login'}/>
-    //   )
-    // }
 
-console.log('Event2Events, inviteesObj', this.props.login);
+  componentWillMount(){
+    this.props.findEventByCreatorIdAction(this.props.login.userData.id)
+  }
+
+  selectEvent = (eventId) => {
+    this.setState({
+      selectedEvent: eventId
+    })
+  }
+  // componentDidReceiveProps(nextProps){
+  //   if(nextProps !== this.props){
+  //     console.log('component did recieve props', nextProps.findEventByCreatorId, this.props.findEventByCreatorId);
+  //     this.setState({
+  //       updated: true
+  //     })
+  //   }
+  // }
+
+
+  render () {
+    // console.log('findEventByCreatorId', this.props.findEventByCreatorId.eventData);
+    // console.log('Event2Events, inviteesObj', this.props.login);
+    let fetchedEvents = this.props.findEventByCreatorId.eventData
+
+    let myEvents;
+
+    if(this.props.findEventByCreatorId.eventData){
+      myEvents = fetchedEvents.map(event => {
+        let selected = false;
+        if(this.state.selectedEvent == event.id){
+          selected = true;
+        }
+        return <Event2Event
+          selected={selected}
+          key={event.id}
+          event={event}
+          selectEvent={this.selectEvent}
+          />
+      })
+    }
 
     return (
       <div className="container">
+        <FriendsGroup fetchedEvents={fetchedEvents} selectedEvent={this.state.selectedEvent}/>
         <div className="row">
           <div className="col-md-4">
-
+            {this.props.findEventByCreatorId.eventData ? myEvents : "You have no events"}
           </div>
         </div>
       </div>
@@ -36,13 +73,14 @@ console.log('Event2Events, inviteesObj', this.props.login);
 
 function mapStateToProps(state, props){
   return {
-    login: state.login
+    login: state.login,
+    findEventByCreatorId: state.findEventByCreatorId
   }
 }
 
 function matchDispatchToProps(dispatch){
   return {
-    createEventAction: bindActionCreators(createEvent, dispatch),
+    findEventByCreatorIdAction: bindActionCreators(findEventByCreatorId, dispatch),
   }
 }
 

@@ -7,6 +7,7 @@ import getFriends from './getFriends';
 import getEvents from './getEvents';
 import getEvent from './getEvent';
 import putDate from './putDate';
+import findEventByCreatorId from './findEventByCreatorId';
 // import setCurId from './setCurId';
 
 
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   getFriends,
   getEvents,
   getEvent,
-  putDate
+  putDate,
+  findEventByCreatorId
 
 
 })

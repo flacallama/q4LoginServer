@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 // import { bindActionCreators } from 'redux';
 import EventHeader from '../createEvent/EventHeader'
-import FriendsGroup from '../createEvent/friendsDup/FriendsGroup';
+
 import Event2Events from '../createEvent/Event2Events'
 
 class EventCreate2 extends Component {
@@ -22,7 +22,7 @@ class EventCreate2 extends Component {
     return (
       <div className="container">
         <EventHeader />
-        <FriendsGroup />
+        
         <Event2Events />
       </div>
     )

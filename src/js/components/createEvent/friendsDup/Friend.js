@@ -12,7 +12,7 @@ class Friend extends Component {
 
   render () {
     let pathid = "/friends/" + this.props.elem.id
-
+    console.log('elem', this.props.elem);
     return (
 
         <div className="link friendBox">

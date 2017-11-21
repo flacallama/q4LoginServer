@@ -34,7 +34,7 @@ class Events extends Component {
     if(this.state.updated){
       theevents = this.props.getEvents
       .filter(elem => {
-        if(Object.keys(elem.invitees).includes(userId.toString())){
+        if(Object.keys(elem.inviteesObj).includes(userId.toString())){
           return elem
         }
       })

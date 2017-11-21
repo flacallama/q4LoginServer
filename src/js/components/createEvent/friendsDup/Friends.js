@@ -13,6 +13,7 @@ class Friends extends Component {
   render () {
 
     let friendsList = this.props.login.userData.friends
+    console.log('Friends friendsList... login.userData.friends', this.props.login);
     let usersFriends = null;
     if(this.props.getFriends.user){
       usersFriends = this.props.getFriends.user

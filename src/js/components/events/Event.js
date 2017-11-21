@@ -14,29 +14,31 @@ class Event extends Component {
 
   acceptButton = (e) => {
     let userId = this.props.login.userData.id
-    let invitees = this.props.elem.invitees
+    let inviteesObj = this.props.elem.inviteesObj
     let eventId = this.props.elem.id;
-    invitees[userId] = "accepted";
-    this.props.putEventAction(eventId, invitees)
+    console.log('accept button', inviteesObj, eventId);
+    inviteesObj[userId] = "accepted";
+    this.props.putEventAction(eventId, inviteesObj)
     e.preventDefault()
+    e.stopPropagation()
 
   }
 
   maybeButton = (e) => {
     let userId = this.props.login.userData.id
-    let invitees = this.props.elem.invitees
+    let inviteesObj = this.props.elem.inviteesObj
     let eventId = this.props.elem.id;
-    invitees[userId] = "maybe";
-    this.props.putEventAction(eventId, invitees)
+    inviteesObj[userId] = "maybe";
+    this.props.putEventAction(eventId, inviteesObj)
     e.preventDefault()
   }
 
   declineButton = (e) => {
     let userId = this.props.login.userData.id
-    let invitees = this.props.elem.invitees
+    let inviteesObj = this.props.elem.inviteesObj
     let eventId = this.props.elem.id;
-    invitees[userId] = "declined";
-    this.props.putEventAction(eventId, invitees)
+    inviteesObj[userId] = "declined";
+    this.props.putEventAction(eventId, inviteesObj)
     e.preventDefault()
   }
 
@@ -50,7 +52,7 @@ class Event extends Component {
     let pathid = "/events/" + this.props.elem.id
     let event = this.props.elem
     // console.log('event', event.invitees[userId])
-    switch(event.invitees[userId]) {
+    switch(event.inviteesObj[userId]) {
       case "invited":
         // console.log("they type is invited");
         eventType = "invited";

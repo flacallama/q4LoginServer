@@ -12,7 +12,7 @@ export default (state = [], action) => {
     case "PUT_EVENT_PENDING":
         return state;
     case "PUT_EVENT_FULFILLED":
-    // console.log("reducer: getEvents - PUT");
+    console.log("reducer: getEvents - PUT");
         return [action.payload.data];
     case "CREATE_EVENT_PENDING":
       return state;

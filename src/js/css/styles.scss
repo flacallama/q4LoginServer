@@ -55,10 +55,16 @@ $mainColor: #7777bb;
 }
 
 .friendImageImg{
-
   height: 130px;
 }
 
+.selectedEvent{
+  background-color: lightyellow;
+}
+
+.unSelectedEvent{
+  background-color: #f3f3f3;
+}
 
 
 

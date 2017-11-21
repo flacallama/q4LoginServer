@@ -23,7 +23,7 @@ class Event1Form extends Component {
     //     <Redirect to={ '/login'}/>
     //   )
     // }
-    console.log('login info', this.props.login);
+    // console.log('login info', this.props.login);
     let inviteesObj = {}
 
     inviteesObj[this.props.login.userData.id] = "accepted"
