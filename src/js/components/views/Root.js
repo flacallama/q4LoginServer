@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import FriendGroup from '../friends/FriendsGroup';
 import EventsGroup from '../events/EventsGroup';
 import PendingRequests from '../friends/PendingRequests';
+
 // import { bindActionCreators } from 'redux';
 
 
@@ -31,6 +32,7 @@ class Root extends Component {
           <FriendGroup />
         </div>
         <div className="col-md-8">
+
           <EventsGroup />
 
         </div>

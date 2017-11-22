@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import SearchGroup from '../search/SearchGroup'
 
 class Header extends Component {
 
@@ -17,6 +17,7 @@ class Header extends Component {
 
           </ul>
           <ul className="nav navbar-nav navbar-right">
+            <li><SearchGroup /></li>
             <li><Link to="/">Home</Link></li>
             <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
