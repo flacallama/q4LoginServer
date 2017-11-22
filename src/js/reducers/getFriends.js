@@ -28,6 +28,17 @@ export default (state = {}, action) => {
         friend: [action.payload.data]
       };
 
+    case "PUT_FRIENDS_ARRAY_PENDING":
+      return state;
+    case "PUT_FRIENDS_ARRAY_FULFILLED":
+    console.log('putFriendsArray', action.payload.data);
+      return {
+        friend: [action.payload.data]
+      };
+
+
+
+
     case "PUT_DATE_PENDING":
         return state;
     case "PUT_DATE_FULFILLED":

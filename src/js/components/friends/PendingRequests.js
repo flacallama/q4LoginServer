@@ -7,26 +7,52 @@ import PendingRequestAPI from './PendingRequestAPI';
 class PendingRequests extends Component {
   constructor() {
     super();
+    this.state = {
+      update: false
+    }
   }
 
+  // componentDidReceiveProps(nextProps){
+  //   if(nextProps != this.props){
+  //     console.log('componentDidReceiveProps');
+  //     this.setState({
+  //       update: !this.state.update
+  //     })
+  //   }
+  // }
+  // update = () => {
+  //   this.setState({
+  //     update: true
+  //   })
+  // }
 
   render () {
 
+    // if(this.props.login.userData){
+    //   this.update()
+    // }
 
+    let friendRequests = null;
     if(this.props.login.userData){
-      var friendsArr = this.props.login.userData.friends
-      let friendRequests = friendsArr.map(friendId => {
-        <PendingRequestAPI friendId={friendId} key={friendId} />
+      console.log('inside if PendingRequests');
+      var friendsArr = this.props.login.userData.friendRequestsArr
+
+      // console.log('friendsArr');
+      friendRequests = friendsArr.map(friendId => {
+        console.log('friendId', friendId);
+        return <li> <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendRequests={friendsArr}/> </li>
       })
 
 
-      console.log('login', friendsArr);
+      console.log('friendsArr', friendsArr);
     }
 
     return (
       <div>
         <h5>Pending requests</h5>
-
+        <ul>
+        {friendRequests ? friendRequests : 'no friend requests'}
+        </ul>
       </div>
     )
   }

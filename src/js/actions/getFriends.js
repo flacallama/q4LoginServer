@@ -48,3 +48,15 @@ export const putFriendRequestArray = (friendRequestsArr, friendId) => {
     )
   }
 }
+
+export const putFriendsArray = (friendsArr, friendId) => {
+  console.log('putFriendsArray action: ',  friendsArr, friendId);
+  return {
+    type: "PUT_FRIENDS_ARRAY",
+    payload: axios.put(`http://localhost:1337/users/${friendId}`,
+      {
+        "friends" : [...friendsArr]
+      }
+    )
+  }
+}

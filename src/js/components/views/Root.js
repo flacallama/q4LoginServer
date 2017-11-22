@@ -26,7 +26,7 @@ class Root extends Component {
       <div className="row">
         <div className="col-md-4">
           <h1>Welcome, {this.props.login.userData.username}</h1>
-          <PendingRequests />
+          <PendingRequests userId={this.props.login.userData.id}/>
           <img src={this.props.login.userData.picUrl} id="mainPic"/>
           <FriendGroup />
         </div>
