@@ -9,14 +9,20 @@ import axios from 'axios';
 //   }
 // }
 //
-export const signUp = (username, password) => {
-  console.log('action reached', username, password);
+export const signUp = (username, password, email, picUrl) => {
+  // console.log('action reached', username, password);
   return {
     type: "SIGNUP",
     payload: axios.post("http://localhost:1337/users",
       {
         username: username,
-        password: password
+        password: password,
+        email: email,
+        picUrl: picUrl,
+        dateFreeArr: [],
+        eventObj: {},
+        friends: [],
+        friendRequestsArr: []
       }
     )
   }

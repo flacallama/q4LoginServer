@@ -29,40 +29,46 @@ $mainColor: #7777bb;
   margin:0px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  .friendBox{
+    flex: 1;
+    height: 170px;
+    width: 130px;
+    display: inline-block;
+    background-color: pink;
+    margin: 0px;
+    align-content: center;
+
+    .friendNameBox{
+      text-align: center;
+      height: 20%;
+      width: 90%;
+      display: block;
+      font-size: 1.5em;
+    }
+
+    .friendImageBox{
+      margin: 0 auto;
+      overflow: hidden;
+      object-fit: fill;
+    
+      .friendImageImg{
+        display: block;
+        margin: 0 auto;
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+      }
+    }
+  }
 }
 
 
 
-.friendBox{
-  flex: 1;
-  height: 150px;
-  width: 100px;
-  display: inline-block;
-  background-color: pink;
-  margin: 0px;
-  align-content: center;
-}
 
-.friendNameBox{
-  text-align: center;
-  height: 20%;
-  width: 90%;
-  display: block;
 
-}
 
-.friendImageBox{
-  margin: auto;
-  width: 90%;
-  height: 80%;
-  background-color: grey;
-  overflow: hidden;
-  object-fit: fill;
-}
 
-.friendImageImg{
-  height: 130px;
-}
 
 .selectedEvent{
   background-color: lightyellow;
@@ -116,19 +122,15 @@ $mainColor: #7777bb;
 }
 
 #disappearWarning{
-animation-name: myAnimation;
-animation-duration: 4000ms;
-animation-fill-mode: forwards;
-color: red;
-font-size: 3em;
-font-family: Helvetica;
-font-weight: bold;
+  animation-name: myAnimation;
+  animation-duration: 4000ms;
+  animation-fill-mode: forwards;
+  color: red;
+  font-size: 3em;
+  font-family: Helvetica;
+  font-weight: bold;
 }
 
-#mainPic{
-  width: 30vw;
-  height: auto;
-}
 
 
 

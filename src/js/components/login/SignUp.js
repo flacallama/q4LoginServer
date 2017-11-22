@@ -8,7 +8,9 @@ class SignUp extends Component {
     super();
     this.state = {
       username: null,
-      password: null
+      password: null,
+      email: null,
+      picUrl: null
     }
   }
 
@@ -22,7 +24,9 @@ class SignUp extends Component {
         <form
           onSubmit={e => { this.props.signUpAction(
             this.state.username,
-            this.state.password
+            this.state.password,
+            this.state.email,
+            this.state.picUrl
           )
           e.preventDefault();
           // this.resetState();
@@ -32,6 +36,9 @@ class SignUp extends Component {
         >
           <input className="form-control" name="username" placeholder="username" onChange={e => this.setState({username: e.target.value})}/>
           <input className="form-control" name="password" placeholder="password" onChange={e => this.setState({password: e.target.value})}/>
+          <input className="form-control" name="email" placeholder="email" onChange={e => this.setState({email: e.target.value})}/>
+          <input className="form-control" name="picUrl" placeholder="pic url" onChange={e => this.setState({picUrl: e.target.value})}/>
+
 
           <div className="form-group">
             <input type="submit" className="btn btn-primary" />

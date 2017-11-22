@@ -10,7 +10,6 @@ class LoginGroup extends Component {
   }
   render () {
 
-    console.log('logingroup this.props.login', this.props.login);
     if(this.props.login.loggedIn) {
       return <Redirect to="/"/>
     }
@@ -19,7 +18,7 @@ class LoginGroup extends Component {
       <div className="container">
 
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4 col-md-offset-2">
             <h2>Create Account</h2>
             {this.props.login.loggedIn === true ? "" : <SignUp /> }
 

@@ -42,10 +42,10 @@ class PendingRequests extends Component {
         console.log('friendId', friendId);
         return <li> <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendRequests={friendsArr}/> </li>
       })
-
-
       console.log('friendsArr', friendsArr);
     }
+
+    
 
     return (
       <div>

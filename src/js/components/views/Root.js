@@ -25,16 +25,14 @@ class Root extends Component {
 
     return (
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-8">
           <h1>Welcome, {this.props.login.userData.username}</h1>
           <PendingRequests userId={this.props.login.userData.id}/>
-          <img src={this.props.login.userData.picUrl} id="mainPic"/>
           <FriendGroup />
         </div>
-        <div className="col-md-8">
 
+        <div className="col-md-4">
           <EventsGroup />
-
         </div>
       </div>
     )
