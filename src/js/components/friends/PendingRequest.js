@@ -61,7 +61,9 @@ class PendingRequestAPI extends Component {
           </div>
 
         </Link>
-        {this.state.accepted ? 'request accepted' : <button onClick={this.acceptFriend}>Accept Request</button>}
+        <div>
+          {this.state.accepted ? 'request accepted' : <button onClick={this.acceptFriend}>Accept Request</button>}
+        </div>
       </div>
     )
 

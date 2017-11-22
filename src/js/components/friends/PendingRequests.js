@@ -34,24 +34,26 @@ class PendingRequests extends Component {
 
     let friendRequests = null;
     if(this.props.login.userData){
-      console.log('inside if PendingRequests');
+      // console.log('inside if PendingRequests');
       var friendsArr = this.props.login.userData.friendRequestsArr
 
       // console.log('friendsArr');
       friendRequests = friendsArr.map(friendId => {
-        console.log('friendId', friendId);
+        // console.log('friendId', friendId);
         return <li> <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendRequests={friendsArr}/> </li>
       })
-      console.log('friendsArr', friendsArr);
+      // console.log('friendsArr', friendsArr);
     }
 
-    
+    if (!friendRequests){
+      return <div></div>
+    }
 
     return (
-      <div>
+      <div className="container col-md-12" id="friendsOuterContainer">
         <h5>Pending requests</h5>
         <ul>
-        {friendRequests ? friendRequests : 'no friend requests'}
+        {friendRequests ? friendRequests : 'you have no friend requests'}
         </ul>
       </div>
     )
