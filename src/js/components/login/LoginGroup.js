@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SignUp from './SignUp'
 import Login from './Login'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router'
 
 class LoginGroup extends Component {
   constructor() {
@@ -9,7 +10,11 @@ class LoginGroup extends Component {
   }
   render () {
 
-    // console.log('logingroup this.props.login', this.props.login);
+    console.log('logingroup this.props.login', this.props.login);
+    if(this.props.login.loggedIn) {
+      return <Redirect to="/"/>
+    }
+
     return (
       <div className="container">
 

@@ -15,7 +15,7 @@ class FriendsShowGroup extends Component {
 
 
 render() {
-  // console.log('getFriends', this.props.getFriends);
+  console.log('getFriends FriendsShowGroup', this.props.getFriends);
   return (
     <div>
       <Friend

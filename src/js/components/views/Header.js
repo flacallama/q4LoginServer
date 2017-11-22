@@ -6,10 +6,16 @@ import SearchGroup from '../search/SearchGroup'
 class Header extends Component {
 
   render () {
+    let userPic = null;
+    if(this.props.login.userData.picUrl){
+      userPic = this.props.login.userData.picUrl
+      console.log('header', this.props.login.userData.picUrl);
+    }
     return (
       <header>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
+            {userPic ? <li ><img className="userLoggedInPic" src={userPic} /></li> : ''}
             <li className="active"><Link to="/event/:id">myEvents</Link></li>
             <li className="active"><Link to="/event/create/1">makeEvent</Link></li>
             <li><Link to="/calendar">myCal</Link></li>

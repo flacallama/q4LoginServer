@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { putFriendRequestArray } from '../../actions/getFriends';
+import FriendsGroup from './friendsfriends/FriendsGroup';
 
 class FriendItem extends Component {
   constructor() {
@@ -18,19 +19,19 @@ class FriendItem extends Component {
   }
 
   render () {
-
+    console.log('getFriend FriendItem', this.props.getFriend);
     let getFriend = this.props.getFriend
     let friendId = getFriend.friend[0].id;
     let isFriend = null;
 
     // having issues with this request being slow
     if(this.props.login.userData.friends){
-      console.log('inside friendItem if');
-      let loggedInUsersFriends = this.props.login.userData.friends
-      console.log('login', loggedInUsersFriends);
+      // console.log('inside friendItem if');
+      var loggedInUsersFriends = this.props.login.userData.friends
+      // console.log('login', loggedInUsersFriends);
       isFriend = false;
       if(loggedInUsersFriends.includes(friendId)){
-        console.log('they are a friend');
+        // console.log('they are a friend');
         isFriend = true;
       }
 
@@ -38,16 +39,14 @@ class FriendItem extends Component {
 
     let invite = () => {
       let friendObj = getFriend.friend[0];
-      console.log('friendObj["friendRequestsArr"]');
+
       if(friendObj["friendRequestsArr"]){
         var arr = friendObj["friendRequestsArr"];
       } else {
         arr = []
       }
-      console.log('arr', arr);
-      console.log('friendObj id');
+
       let updatedArr = arr.concat(friendObj.id)
-      console.log('updatedArr', updatedArr);
       this.props.putFriendRequestArrayAction(updatedArr, friendObj.id)
       this.updated()
     }
@@ -63,6 +62,7 @@ class FriendItem extends Component {
         <div>{isFriend ? "Friends" : this.state.requested ? "friendship requested" : <button onClick={invite}>add friend</button>}</div>
 
         <img src={getFriend.friend[0].picUrl}/>
+        <FriendsGroup getFriend={getFriend}  />
       </div>
     )
   }
