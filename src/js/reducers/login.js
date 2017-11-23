@@ -20,25 +20,18 @@ export default (state = initialState, action) => {
       return state;
     case "LOGIN_FULFILLED":
       if(action.payload.data[0]){
-
         return {
           loggedIn: true,
           userData: action.payload.data[0]
         };
       }
-
-
-
-//     case "ADD_GIFTEE_PENDING":
-//       return state;
-//     case "ADD_GIFTEE_FULFILLED":
-//       return [...action.payload.data]
-//     case "DELETE_GIFTEE_PENDING":
-//     console.log('reducer delete pending', action.payload);
-//       return state;
-//     case "DELETE_GIFTEE_FULFILLED":
-//       console.log('reducer delete fulfille', action.payload);
-//       return [...action.payload.data]
+    case "LOGOUT_PENDING":
+      return state;
+    case "LOGOUT_FULFILLED":
+      return {
+        loggedIn: false,
+        userData: {}
+      }
     default:
       return state;
   }

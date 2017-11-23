@@ -51,7 +51,7 @@ class PendingRequests extends Component {
 
     return (
       <div className="container col-md-12" id="friendsOuterContainer">
-        <h5>Pending requests</h5>
+        <h4 id="title">Pending Requests</h4>
         <ul>
         {friendRequests ? friendRequests : 'you have no friend requests'}
         </ul>

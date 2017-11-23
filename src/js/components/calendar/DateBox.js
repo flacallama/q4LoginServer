@@ -9,24 +9,33 @@ class DateBox extends Component {
 
   state = {
     selected: false,
-    updated: false
+    updated: false,
+    updatingTF: false,
+    monthChoser: null
   }
 
-
   componentWillReceiveProps(nextProps){
+    if(nextProps.monthChoser != this.props.monthChoser){
+      this.setState({
+        selected: false
+      })
+    }
     if(nextProps.getFriend != this.props.getFriend){
       this.setState({
-        updated: true
+        updated: true,
+        // updating: !this.state.updating
       })
       // console.log('datebox received nextProps', nextProps.getFriend, this.props.getFriend);
     }
-    if(nextProps.getFriend.friend[0].dateFreeArr.includes(this.props.element)){
+    if(nextProps.getFriend.friend[0].dateFreeArr.includes(nextProps.element)){
       this.setState({
         selected: true
+        // updating: !this.state.updating
       })
     } else {
       this.setState({
         selected: false
+        // updating: !this.state.updating
       })
     }
   }
@@ -58,6 +67,8 @@ class DateBox extends Component {
 
 
   render () {
+
+    console.log('DateBox this.props.monthChoser', this.props.monthChoser);
     var todaysEvents = []
     let getMyEvents = () => {
       let eventObj = this.props.getFriend.friend[0].eventObj

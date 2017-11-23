@@ -1,4 +1,9 @@
 $mainColor: #7777bb;
+$pastelGreen: #aaf3a6;
+$limeGreen: #33cc66;
+$purple: #cda7d3;
+$brown: #a29276;
+$yellow: #fff07b;
 
 .userLoggedInPic{
   height: 50px;
@@ -19,7 +24,7 @@ $mainColor: #7777bb;
 
 #title{
   margin:0px;
-  font-size: 50px;
+  font-size: 33px;
   font-weight: bold;
   font-variant: small-caps;
   display: block;
@@ -61,6 +66,19 @@ $mainColor: #7777bb;
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154,16 +172,16 @@ $mainColor: #7777bb;
 
 .eventSingle{
   .accepted{
-    background-color: blue;
+    background-color: $limeGreen;
   }
   .maybe{
-    background-color: orange;
+    background-color: $pastelGreen;
   }
   .declined{
-    background-color: red;
+    background-color: $brown;
   }
   .invited{
-    background-color: lightblue;
+    background-color: $purple;
   }
 }
 
@@ -214,7 +232,7 @@ body {
   height: 90px;
   flex-basis: 13.9%;
   margin-top: 2px;
-  background-color: lightgreen;
+  background-color: $pastelGreen;
 }
 
 #monDay{
@@ -229,7 +247,7 @@ body {
 }
 
 .green{
-  background-color: green;
+  background-color: $limeGreen;
 }
 
 #dateBoxText{
@@ -265,6 +283,11 @@ body {
 
 .monthControlChild{
   flex: 3;
+  text-align:center;
+  #title{
+    margin:auto;
+    vertical-align:middle;
+  }
 }
 
 .monthControlChildBut{

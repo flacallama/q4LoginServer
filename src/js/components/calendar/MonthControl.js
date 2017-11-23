@@ -2,17 +2,30 @@ import React, { Component } from 'react';
 var moment = require('moment');
 class MonthControl extends Component {
 
+  clickNext = () => {
+    this.props.nextMonth()
+    this.props.doUpdate()
+  }
+
+  clickPrev = () => {
+    this.props.prevMonth()
+    this.props.doUpdate()
+  }
+
+
   render () {
+
     return (
       <div className="monthControl">
         <div className="monthControlChildBut">
-          <a onClick={this.props.prevMonth} className="waves-effect waves-light btn">Prev</a>
+          <button onClick={this.clickPrev} className="waves-effect waves-light btn btn-primary">Prev</button>
         </div>
         <div className="monthControlChild">
-          <h4 id="monthHeading">{moment(this.props.YrMoArr[this.props.monthChoser]).format("MMMM YYYY")}</h4>
+          <h4 id="title">{moment(this.props.YrMoArr[this.props.monthChoser]).format("MMMM YYYY")}</h4>
         </div>
         <div className="monthControlChildBut">
-          <a onClick={this.props.nextMonth} className="waves-effect waves-light btn">Next</a>
+
+          <button onClick={this.clickNext} className="waves-effect waves-light btn btn-primary navbar-right">next</button>
         </div>
 
 

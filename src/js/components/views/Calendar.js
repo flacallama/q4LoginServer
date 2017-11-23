@@ -11,8 +11,8 @@ import { getFriend } from '../../actions/getFriends';
 class Calendar extends Component {
 
   state = {
-    selected: [],
-    monthChoser : 1
+    // selected: [],
+    monthChoser : 4
   }
   userId = this.props.login.userData.id
 
@@ -29,6 +29,12 @@ class Calendar extends Component {
   nextMonth = () => {
     this.setState({
       monthChoser: this.state.monthChoser + 1
+    })
+  }
+
+  doUpdate = () => {
+    this.setState({
+      updatingTF: !this.state.updatingTF
     })
   }
 
@@ -62,9 +68,8 @@ class Calendar extends Component {
     })
 
     // TEMPORARY MONTH CHOOSER
-    let YrMoArr = ["2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12","2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-010", "2019-11", "2019-12"]
-    let chosenMo = '11'
-    let chosenYr = '2017'
+    let YrMoArr = ["2017-07", "2017-08", "2017-09" ,"2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12","2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-010", "2019-11", "2019-12"]
+
 
     // GETS SUNDAY BEFORE "firstOfMo"
     var firstofMo = moment(YrMoArr[this.state.monthChoser]+"-01", "YYYY-MM-DD");
@@ -87,11 +92,11 @@ class Calendar extends Component {
     .map((elem, i)=> <DateBox key={i} index={i}
         element={elem}
         currMonth={YrMoArr[this.state.monthChoser]}
-
         getFriend={this.props.getFriends}
+        monthChoser={this.state.monthChoser}
     />
     )
-
+    console.log('calendar state', this.state);
     return (
       <div className="container">
         <div className="calShell">
@@ -101,6 +106,7 @@ class Calendar extends Component {
               nextMonth={this.nextMonth}
               prevMonth={this.prevMonth}
               monthChoser={this.state.monthChoser}
+              doUpdate={this.doUpdate}
             />
           </div>
           {this.props.getFriends ? thedaynames : ''}

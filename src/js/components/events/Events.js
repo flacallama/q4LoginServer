@@ -45,7 +45,7 @@ class Events extends Component {
 
     return (
       <div className="eventsGroup">
-        <h2> Your Events </h2>
+        <h2 id="title">Events List</h2>
         {theevents}
       </div>
     )

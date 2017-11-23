@@ -16,3 +16,9 @@ export const login = (username, password) => {
     payload: axios.get(`http://localhost:1337/users/?username=${username}&password=${password}`)
   }
 }
+
+export const logout = () => {
+  return {
+    type: "LOGOUT"
+  }
+}
