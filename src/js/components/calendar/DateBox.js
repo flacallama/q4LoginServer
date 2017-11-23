@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { putDate } from '../../actions/getFriends';
 import DateBoxEvent from './DateBoxEvent';
-// import { getFriend } from '../../actions/getFriends';
+
 
 class DateBox extends Component {
 
@@ -23,25 +23,21 @@ class DateBox extends Component {
     if(nextProps.getFriend != this.props.getFriend){
       this.setState({
         updated: true,
-        // updating: !this.state.updating
       })
-      // console.log('datebox received nextProps', nextProps.getFriend, this.props.getFriend);
+
     }
     if(nextProps.getFriend.friend[0].dateFreeArr.includes(nextProps.element)){
       this.setState({
         selected: true
-        // updating: !this.state.updating
       })
     } else {
       this.setState({
         selected: false
-        // updating: !this.state.updating
       })
     }
   }
 
   onClick = () => {
-    // this.props.selectDate(this.props.element)
 
     // original from array from redux we're going to
     let origArr = this.props.getFriend.friend[0].dateFreeArr;
@@ -53,7 +49,7 @@ class DateBox extends Component {
     } else {
       modifiedArr = origArr.concat(this.props.element)
     }
-    // console.log('origArr', origArr, 'modifiedArr', modifiedArr, 'elem', this.props.element);
+
 
 
     // this is updating the dateFreeArr in mongo
@@ -61,14 +57,11 @@ class DateBox extends Component {
 
     var element = this.props.element;
     var userId = this.props.login.userData.id
-
-    console.log('putDate', this.props.putDate);
   }
 
 
   render () {
 
-    console.log('DateBox this.props.monthChoser', this.props.monthChoser);
     var todaysEvents = []
     let getMyEvents = () => {
       let eventObj = this.props.getFriend.friend[0].eventObj

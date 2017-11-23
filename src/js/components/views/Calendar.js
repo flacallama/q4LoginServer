@@ -11,7 +11,7 @@ import { getFriend } from '../../actions/getFriends';
 class Calendar extends Component {
 
   state = {
-    // selected: [],
+
     monthChoser : 4
   }
   userId = this.props.login.userData.id
@@ -32,11 +32,6 @@ class Calendar extends Component {
     })
   }
 
-  doUpdate = () => {
-    this.setState({
-      updatingTF: !this.state.updatingTF
-    })
-  }
 
 
   render () {
@@ -106,7 +101,7 @@ class Calendar extends Component {
               nextMonth={this.nextMonth}
               prevMonth={this.prevMonth}
               monthChoser={this.state.monthChoser}
-              doUpdate={this.doUpdate}
+
             />
           </div>
           {this.props.getFriends ? thedaynames : ''}

@@ -4,12 +4,10 @@ class MonthControl extends Component {
 
   clickNext = () => {
     this.props.nextMonth()
-    this.props.doUpdate()
   }
 
   clickPrev = () => {
     this.props.prevMonth()
-    this.props.doUpdate()
   }
 
 
