@@ -21,10 +21,11 @@ class Friend extends Component {
 
   render () {
     let getFriend = this.props.getFriend;
+    console.log('Friend, getFriend', getFriend);
 
     return (
       <div>
-        {this.state.postsLoaded ? <FriendItem getFriend={getFriend} login={this.props.login}/> : "no friend recieved"}
+        <FriendItem getFriend={getFriend} login={this.props.login}/>
 
       </div>
     )

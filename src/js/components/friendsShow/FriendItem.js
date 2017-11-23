@@ -37,9 +37,9 @@ class FriendItem extends Component {
 
     }
 
+    // friend request function = invite()
     let invite = () => {
       let friendObj = getFriend.friend[0];
-
       if(friendObj["friendRequestsArr"]){
         var arr = friendObj["friendRequestsArr"];
       } else {
@@ -59,9 +59,9 @@ class FriendItem extends Component {
 
       <div>
         <h2>{getFriend.friend[0].username}</h2>
-        <div>{isFriend ? "Friends" : this.state.requested ? "friendship requested" : <button onClick={invite}>add friend</button>}</div>
+        <div>{isFriend ? "You are friends" : this.state.requested ? "friendship requested" : <button onClick={invite}>add friend</button>}</div>
 
-        <img src={getFriend.friend[0].picUrl}/>
+        <img id="friendShowImage" src={getFriend.friend[0].picUrl}/>
         <FriendsGroup getFriend={getFriend}  />
       </div>
     )

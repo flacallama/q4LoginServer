@@ -10,7 +10,7 @@ class FriendsGroup extends Component {
   }
 
   componentWillMount(){
-    this.props.getFriendsAction()
+    // this.props.getFriendsAction()
   }
 
   render () {
