@@ -30,7 +30,7 @@ class PendingRequestAPI extends Component {
 
 
   render () {
-    console.log('PendingRequestAPI', this.state.theFriend);
+    // console.log('PendingRequestAPI', this.state.theFriend);
 
 
     return (

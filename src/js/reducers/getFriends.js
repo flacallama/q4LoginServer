@@ -8,9 +8,10 @@ export default (state = initialState, action) => {
     case "GET_FRIENDS_PENDING":
       return state;
     case "GET_FRIENDS_FULFILLED":
-      return {
-        user: [...action.payload.data]
-      };
+      return  {...state, user: action.payload.data};
+      // return {
+      //   user: [...action.payload.data]
+      // };
     case "GET_FRIEND_PENDING":
       return state;
     case "GET_FRIEND_FULFILLED":
