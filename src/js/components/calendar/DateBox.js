@@ -26,7 +26,7 @@ class DateBox extends Component {
       })
 
     }
-    if(nextProps.getFriend.friend[0].dateFreeArr.includes(nextProps.element)){
+    if(nextProps.getFriend.friend.dateFreeArr.includes(nextProps.element)){
       this.setState({
         selected: true
       })
@@ -40,7 +40,7 @@ class DateBox extends Component {
   onClick = () => {
 
     // original from array from redux we're going to
-    let origArr = this.props.getFriend.friend[0].dateFreeArr;
+    let origArr = this.props.getFriend.friend.dateFreeArr;
     // modify according to if it's selected or not
     let modifiedArr
 
@@ -64,7 +64,7 @@ class DateBox extends Component {
 
     var todaysEvents = []
     let getMyEvents = () => {
-      let eventObj = this.props.getFriend.friend[0].eventObj
+      let eventObj = this.props.getFriend.friend.eventObj
       // console.log('eventObj', eventObj);
 
       for(event in eventObj){

@@ -13,12 +13,13 @@ class EventShow2 extends Component {
         <div className="friendBox" >
           <div className="friendNameBox">
             <h3>{this.props.elem.username}</h3>
-            <p>{this.props.status}</p>
+
           </div>
 
           <div className="friendImageBox">
             <img src={this.props.elem.picUrl} className="friendImageImg"/>
           </div>
+          <div className="center"><p>{this.props.status}</p></div>
         </div>
       </Link>
     )

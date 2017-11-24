@@ -20,7 +20,7 @@ class FriendsShowGroup extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('componentWillReceiveProps', nextProps.getFriend, this.props.getFriend);
+    // console.log('componentWillReceiveProps', nextProps.getFriend, this.props.getFriend);
     if(nextProps.getFriend != this.props.getFriend){
       this.setState({
         getFriend: nextProps.getFriend
@@ -29,8 +29,8 @@ class FriendsShowGroup extends Component {
   }
 
 render() {
-  console.log('getFriends FriendsShowGroup props', this.props.getFriend);
-  console.log('getFriends FriendsShowGroup state', this.state.getFriend);
+  // console.log('getFriends FriendsShowGroup props', this.props.getFriend);
+  // console.log('getFriends FriendsShowGroup state', this.state.getFriend);
 
   if(!this.state.getFriend){
     return <div>no friend</div>

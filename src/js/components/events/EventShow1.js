@@ -18,7 +18,7 @@ class EventShow1 extends Component {
 
   componentWillReceiveProps(nextProps){
     if(nextProps.getFriends != this.props.getFriends){
-      // console.log("nextProps has changed in EventShow1")
+      console.log("nextProps has changed in EventShow1")
       this.setState({
         updated: true
       })
@@ -26,7 +26,7 @@ class EventShow1 extends Component {
   }
 
   render () {
-    // console.log('eventShow1 getFriends', this.props.getFriends);
+    console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
     let invitedArr = [];
     let acceptedArr = [];
@@ -56,7 +56,7 @@ class EventShow1 extends Component {
     let maybeFriends
 
     if(this.state.updated){
-      let invitedFriends =this.props.getFriends.user.filter(elem => {
+      invitedFriends =this.props.getFriends.user.filter(elem => {
         if(invitedArr.includes(elem.id)){
           return elem;
         }
@@ -96,7 +96,7 @@ class EventShow1 extends Component {
       <div>
         <h2>{this.props.elem.title}</h2>
         <p>{this.props.elem.body}</p>
-        <img src={this.props.elem.picUrl}/>
+        <img id="friendShowImage" src={this.props.elem.picUrl}/>
         <div id="friendsOuterContainer">
           <h2 id="title">RSVP List</h2>
           <div className="friendsContainer">

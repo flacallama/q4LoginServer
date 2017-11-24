@@ -19,9 +19,9 @@ class FriendItem extends Component {
   }
 
   render () {
-    console.log('getFriend FriendItem', this.props.getFriend);
+    // console.log('getFriend FriendItem', this.props.getFriend);
     let getFriend = this.props.getFriend
-    let friendId = getFriend.friend[0].id;
+    let friendId = getFriend.friend.id;
     let isFriend = null;
 
     // having issues with this request being slow
@@ -39,7 +39,7 @@ class FriendItem extends Component {
 
     // friend request function = invite()
     let invite = () => {
-      let friendObj = getFriend.friend[0];
+      let friendObj = getFriend.friend;
       if(friendObj["friendRequestsArr"]){
         var arr = friendObj["friendRequestsArr"];
       } else {
@@ -58,10 +58,10 @@ class FriendItem extends Component {
     return (
 
       <div>
-        <h2>{getFriend.friend[0].username}</h2>
+        <h2>{getFriend.friend.username}</h2>
         <div>{isFriend ? "You are friends" : this.state.requested ? "friendship requested" : <button onClick={invite}>add friend</button>}</div>
 
-        <img id="friendShowImage" src={getFriend.friend[0].picUrl}/>
+        <img id="friendShowImage" src={getFriend.friend.picUrl}/>
         <FriendsGroup getFriend={getFriend}  />
       </div>
     )

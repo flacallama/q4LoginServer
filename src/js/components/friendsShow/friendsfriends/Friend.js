@@ -3,32 +3,59 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getFriends } from '../../../actions/getFriends';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 
 class Friend extends Component {
   constructor() {
     super();
+    this.state = {
+      theFriend: null,
+      updated: false
+    }
   }
 
-  render () {
-    let pathid = "/friends/" + this.props.elem.id
+componentWillMount(){
+  var thefriend = null;
+  axios.get(`http://localhost:1337/users/${this.props.friend}`)
+  .then(res => {
+    thefriend  = res.data;
+    this.setState({
+      theFriend: thefriend,
+      updated: true
+    });
+    console.log('thefriend', thefriend);
+  })
+}
 
-    return (
+
+  render () {
+
+
+
+
+
+
+
+
+    if(this.state.updated){
+      let pathid = "/friends/" + this.state.theFriend.id
+      return (
 
         <Link to={pathid} className="link friendBox">
+          friend.js
+          <div className="friendNameBox">
+            {this.state.theFriend.username}
+          </div>
 
-            <div className="friendNameBox">
-              {this.props.elem.username}
-            </div>
-
-            <div className="friendImageBox">
-              <img src={this.props.elem.picUrl} className="friendImageImg"/>
-            </div>
+          <div className="friendImageBox">
+            <img src={this.state.theFriend.picUrl} className="friendImageImg"/>
+          </div>
 
         </Link>
-
-
-    )
+      )
+    } else {
+      return <div>technical problems getting friend</div>
+    }
   }
 }
 

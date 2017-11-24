@@ -29,20 +29,9 @@ class EventPre extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps != this.props){
-      // console.log('nextprops hit eventPrev;', nextProps )
-      // if(nextProps.getEvents){
-        // console.log('elem hit;')
         this.setState({ updated: true })
-      // }
     }
   }
-
-  // shouldComponentUpdate(nextProps, nextState){
-  //   return nextProps.getEvent == this.props.elem
-  // }
-
-
-
 
 
   render () {
