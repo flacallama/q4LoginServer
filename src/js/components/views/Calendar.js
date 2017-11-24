@@ -91,7 +91,7 @@ class Calendar extends Component {
         monthChoser={this.state.monthChoser}
     />
     )
-    console.log('calendar state', this.state);
+    // console.log('calendar state', this.state);
     return (
       <div className="container">
         <div className="calShell">

@@ -23,26 +23,19 @@ componentWillMount(){
       theFriend: thefriend,
       updated: true
     });
-    console.log('thefriend', thefriend);
+    // console.log('thefriend', thefriend);
   })
 }
 
 
   render () {
 
-
-
-
-
-
-
-
     if(this.state.updated){
       let pathid = "/friends/" + this.state.theFriend.id
       return (
 
         <Link to={pathid} className="link friendBox">
-          friend.js
+
           <div className="friendNameBox">
             {this.state.theFriend.username}
           </div>
@@ -52,6 +45,7 @@ componentWillMount(){
           </div>
 
         </Link>
+
       )
     } else {
       return <div>technical problems getting friend</div>

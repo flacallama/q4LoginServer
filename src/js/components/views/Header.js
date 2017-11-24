@@ -12,7 +12,7 @@ class Header extends Component {
     let userPic = null;
     if(this.props.login.userData.picUrl){
       userPic = this.props.login.userData.picUrl
-      console.log('header', this.props.login.userData.picUrl);
+      // console.log('header', this.props.login.userData.picUrl);
     }
     return (
       <header>

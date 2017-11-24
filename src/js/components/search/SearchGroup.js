@@ -40,7 +40,7 @@ class SearchGroup extends Component {
 
   render () {
 
-    console.log('query', this.props.query);
+    // console.log('query', this.props.query);
     return (
       <div>
         <form

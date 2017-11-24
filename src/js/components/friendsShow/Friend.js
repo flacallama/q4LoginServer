@@ -25,7 +25,7 @@ class Friend extends Component {
 
     return (
       <div>
-        <FriendItem getFriend={getFriend} login={this.props.login}/>
+        <FriendItem getFriend={getFriend} login={this.props.login} myId={this.props.myId} />
 
       </div>
     )

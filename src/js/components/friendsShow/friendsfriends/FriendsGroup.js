@@ -22,9 +22,11 @@ class FriendsGroup extends Component {
     })
 
     return (
-      <div className="container" id="friendsOuterContainer">
-        FriendGroup
-        {thefriends}
+      <div className="container col-md-12" id="friendsOuterContainer">
+        <div className="friendsContainer ">
+          <div><h4 id="title">{this.props.getFriend.friend.username}s Friends</h4></div>
+          <div>{thefriends}</div>
+        </div>
       </div>
     )
   }

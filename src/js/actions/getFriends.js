@@ -18,7 +18,7 @@ export const getFriends = () => {
 }
 
 export const getFriend = (myId) => {
-  console.log("getfriend action, myId: ", myId)
+  // console.log("getfriend action, myId: ", myId)
   return {
     type: "GET_FRIEND",
     payload: axios.get(`http://localhost:1337/users/${myId}`)
@@ -38,7 +38,7 @@ export const putDate = (dateFreeArr, userId) => {
 }
 
 export const putFriendRequestArray = (friendRequestsArr, friendId) => {
-  console.log('putFriendRequestArray action: ',  friendRequestsArr, friendId);
+  // console.log('putFriendRequestArray action: ',  friendRequestsArr, friendId);
   return {
     type: "PUT_FRIEND_REQUEST_ARRAY",
     payload: axios.put(`http://localhost:1337/users/${friendId}`,
@@ -50,7 +50,7 @@ export const putFriendRequestArray = (friendRequestsArr, friendId) => {
 }
 
 export const putFriendsArray = (friendsArr, friendId) => {
-  console.log('putFriendsArray action: ',  friendsArr, friendId);
+  // console.log('putFriendsArray action: ',  friendsArr, friendId);
   return {
     type: "PUT_FRIENDS_ARRAY",
     payload: axios.put(`http://localhost:1337/users/${friendId}`,

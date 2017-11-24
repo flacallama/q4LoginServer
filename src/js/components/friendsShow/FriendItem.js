@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { putFriendRequestArray } from '../../actions/getFriends';
 import FriendsGroup from './friendsfriends/FriendsGroup';
+// import { withRouter } from 'react-router'
 
 class FriendItem extends Component {
   constructor() {
@@ -12,6 +13,16 @@ class FriendItem extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps != this.props){
+      // console.log('props', this.props.match);
+      // console.log("thispropsreceived", this.props.match.params.id);
+      // console.log("nextpropsreceived", nextProps.match.params.id);
+    }
+  }
+
+
+
   updated = () =>{
     this.setState({
       requested: true
@@ -19,19 +30,18 @@ class FriendItem extends Component {
   }
 
   render () {
-    // console.log('getFriend FriendItem', this.props.getFriend);
+
     let getFriend = this.props.getFriend
-    let friendId = getFriend.friend.id;
+
+    let friendId = this.props.myId;
+
     let isFriend = null;
 
     // having issues with this request being slow
     if(this.props.login.userData.friends){
-      // console.log('inside friendItem if');
       var loggedInUsersFriends = this.props.login.userData.friends
-      // console.log('login', loggedInUsersFriends);
       isFriend = false;
       if(loggedInUsersFriends.includes(friendId)){
-        // console.log('they are a friend');
         isFriend = true;
       }
 
