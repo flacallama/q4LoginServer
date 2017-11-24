@@ -11,14 +11,14 @@ class EventShow1 extends Component {
       updated: false
     }
   }
-  // console.log('eventShow1 elem: ', this.props.elem);
+
   componentDidMount(){
     this.props.getFriendsAction()
   }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.getFriends != this.props.getFriends){
-      console.log("nextProps has changed in EventShow1")
+      // console.log("nextProps has changed in EventShow1")
       this.setState({
         updated: true
       })
@@ -26,6 +26,7 @@ class EventShow1 extends Component {
   }
 
   render () {
+    console.log('eventShow1 elem: ', this.props.elem);
     console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
     let invitedArr = [];

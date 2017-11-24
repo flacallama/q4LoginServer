@@ -8,7 +8,8 @@ import getEvents from './getEvents';
 import getEvent from './getEvent';
 import putDate from './putDate';
 import findEventByCreatorId from './findEventByCreatorId';
-import query from './query'
+import query from './query';
+import eventCreation from './eventCreation';
 // import setCurId from './setCurId';
 
 
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   getEvent,
   putDate,
   findEventByCreatorId,
-  query
+  query,
+  eventCreation
 
 
 })

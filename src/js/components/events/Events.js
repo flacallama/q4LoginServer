@@ -19,7 +19,7 @@ class Events extends Component {
 
 // THIS WAS USEFUL BEFORE - STATE.UPDATED == NULL (BEFORE)
   componentWillReceiveProps(nextProps) {
-    if (nextProps.getEvents != this.props.getEvents){
+    if (nextProps.getEvent != this.props.getEvent){
       // console.log('nextprops hit;', nextProps)
 
       this.setState({ updated: true })
@@ -32,7 +32,7 @@ class Events extends Component {
     let theevents = null;
 
     if(this.state.updated){
-      theevents = this.props.getEvents
+      theevents = this.props.getEvent.events
       .filter(elem => {
         if(Object.keys(elem.inviteesObj).includes(userId.toString())){
           return elem
@@ -54,7 +54,7 @@ class Events extends Component {
 
 function mapStateToProps(state, props){
   return {
-    getEvents: state.getEvents,
+    getEvent: state.getEvent,
     login: state.login
   }
 }

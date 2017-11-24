@@ -40,7 +40,7 @@ class Event1Form extends Component {
                 picUrl: this.state.picUrl,
                 eventStatus: this.state.eventStatus,
                 creatorId: this.props.login.userData.id,
-                invitees: inviteesObj
+                inviteesObj: inviteesObj
               })
               e.preventDefault();
               // this.resetState();

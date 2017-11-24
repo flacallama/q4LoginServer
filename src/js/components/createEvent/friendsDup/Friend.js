@@ -17,24 +17,17 @@ class Friend extends Component {
     this.setState({
       update: !this.state.update
     })
-
   }
-
-
-
 
   render () {
     let pathid = "/friends/" + this.props.elem.id
-    // console.log('elem', this.props.elem);
-    console.log('selected', this.props.selectedEvent);
-    // console.log('fetchedEvents', this.props.fetchedEvents);
 
-    if(this.props.selectedEvent){
-
+    if(this.props.eventCreation){
       // curEvent returns the selected event inviteeObj
       let curEvent = this.props.fetchedEvents.filter(elem =>{
-        // console.log('elem', elem);
-        if(parseInt(elem.id) == parseInt(this.props.selectedEvent)){
+        console.log('elem', elem);
+        console.log('eventId', this.props.eventCreation.eventId);
+        if(parseInt(elem.id) == parseInt(this.props.eventCreation.eventId)){
           // console.log("filtered Elem", elem);
           return elem
         }
@@ -42,17 +35,16 @@ class Friend extends Component {
 
       // this drills down to the inviteesObj
       let inviteesObj = curEvent[0].inviteesObj;
-      // console.log('inviteesObj', inviteesObj);
 
       // takes value from each element of inviteesObj
       var rsvpText = null
       for (let id in inviteesObj){
-        if(id === this.props.elem.id.toString()){
+        if(id.toString() === this.props.elem.id.toString()){
           rsvpText = inviteesObj[id]
         }
       }
 
-      
+
       var inviteRSVP = () => {
         inviteesObj[this.props.elem.id.toString()] = "invited";
         this.props.putEventRSVPAction(curEvent[0].id, inviteesObj)
@@ -61,9 +53,6 @@ class Friend extends Component {
       }
 
     }
-
-
-
 
 
     return (
@@ -79,7 +68,7 @@ class Friend extends Component {
             </div>
           </Link>
         </div>
-        {!this.props.selectedEvent ? '' : rsvpText ? rsvpText : <button onClick={inviteRSVP}>invite</button>}
+        {this.props.eventCreation.eventId == this.props.elem.id ? '?' : rsvpText ? rsvpText : <button onClick={inviteRSVP}>invite</button>}
       </div>
 
 
@@ -89,7 +78,8 @@ class Friend extends Component {
 
 function mapStateToProps(state, props){
   return {
-    getFriends: state.getFriends
+    getFriends: state.getFriends,
+    eventCreation: state.eventCreation
   }
 }
 

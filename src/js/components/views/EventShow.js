@@ -26,11 +26,11 @@ class EventShow extends Component {
         <Redirect to={ '/login'}/>
       )
     }
-    let getEvent = this.props.getEvent
+    let getEvent = this.props.getEvent.event
 
     return (
     <div>
-      {getEvent ? <EventShow1 elem={this.props.getEvent} />: "no event yet in eventShow"}
+      {getEvent ? <EventShow1 elem={getEvent} />: "no event yet in eventShow"}
     </div>
     )
   }

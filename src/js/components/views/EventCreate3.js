@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import EventHeader from '../createEvent/EventHeader'
 import { getFriends } from '../../actions/getFriends';
+import Event3Events from '../createEvent/Event3Events';
+import moment from 'moment';
 
 class EventCreate extends Component {
   constructor() {
@@ -49,12 +51,73 @@ class EventCreate extends Component {
     if(this.props.getFriends){
       // console.log('eventCreate3', this.props.login.userData.dateFreeArr);
       let inviteesObj = this.props.getFriends.user;
+      console.log('inviteesObj', inviteesObj);
+      console.log('eventCreation', this.props.eventCreation);
+      console.log('getEvent', this.props.getEvent);
+
       let dateFreeArr = this.props.login.userData.dateFreeArr
       let friendsArray = this.props.login.userData.friends
-      let result = getAvailabilityObject(inviteesObj, friendsArray);
-      console.log('result', result)
+      var result = getAvailabilityObject(inviteesObj, friendsArray);
+      // console.log('result', result)
 
-      
+      // THE FOLLOWING 2 FUNCTIONS SORT OUR RESULT DATA
+      function sortByDate(obj){
+      // lets make an array we can sort
+      var sortable = [];
+      // push object values inside
+      for (var date in obj) {
+        // is this date in the future?
+        if(moment(date).isAfter(new Date(), "day")){
+          sortable.push([date, obj[date]]);
+        }
+      }
+      return sortable.sort(function(a, b) {
+        //strip out the dashes
+        let firstElem = parseInt(a[0].replace(/-/g, ''))
+        let secondElem = parseInt(b[0].replace(/-/g, ''))
+          return firstElem - secondElem;
+      });
+    }
+
+
+    function sortByInviteesLength(obj){
+      var sortable = [];
+      for (var date in obj) {
+        // is this date in the future?
+        if(moment(date).isAfter(new Date(), "day")){
+          sortable.push([date, obj[date]]);
+        }
+      }
+      // first sort it by date
+      sortable.sort(function(a, b) {
+        let firstElem = parseInt(a[0].replace(/-/g, ''))
+        let secondElem = parseInt(b[0].replace(/-/g, ''))
+          return firstElem - secondElem;
+      });
+      // now sort it by array length to tell use
+      // which dates invitees are most available
+      return sortable.sort(function(a, b) {
+        let firstElem = a[1].length
+        let secondElem = b[1].length
+        // console.log("firstElem", firstElem)
+          return secondElem - firstElem;
+      });
+    }
+    // here's the result of the second sorting function
+    let sortedByInviteesLengthArr = sortByInviteesLength(result)
+
+    // here's the result of our first soring function
+    let sortedByDateArr = sortByDate(result)
+    console.log("sortedByDateArr", sortedByDateArr);
+
+    // LETS DISPLAY RESULTS NOW:
+    var thesorteddates = sortedByDateArr.map((elem, idx) => {
+        return <Event3Events elem={elem} key={idx} />
+      })
+
+    var thesortedinviteesarr = sortedByInviteesLengthArr.map((elem, idx) => {
+        return <Event3Events elem={elem} key={idx} />
+      })
 
     }
 
@@ -65,7 +128,9 @@ class EventCreate extends Component {
     return (
       <div className="container">
         <EventHeader />
-        EventCreate3
+
+        {thesorteddates}
+        {thesortedinviteesarr}
       </div>
     )
   }
@@ -74,7 +139,9 @@ class EventCreate extends Component {
 function mapStateToProps(state, props){
   return {
     login: state.login,
-    getFriends: state.getFriends
+    getFriends: state.getFriends,
+    eventCreation: state.eventCreation,
+    getEvent: state.getEvent
   }
 }
 

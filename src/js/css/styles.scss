@@ -99,10 +99,15 @@ $yellow: #fff07b;
 
 .selectedEvent{
   background-color: lightyellow;
+  margin: 2px;
+  color: blue;
+  padding: 5px;
 }
 
 .unSelectedEvent{
   background-color: #f3f3f3;
+  margin: 2px;
+  padding: 5px;
 }
 
 .margin-top{
