@@ -10,12 +10,21 @@ import moment from 'moment';
 class EventCreate extends Component {
   constructor() {
     super();
+    this.state = {
+      viewByRSVP: false
+    }
   }
   componentWillMount(){
-    this.props.getFriendsAction()
+    this.props.getFriendsAction();
+
   }
 
 
+  clickHandler = () => {
+    this.setState({
+      viewByRSVP: !this.state.viewByRSVP
+    })
+  }
 
 
 
@@ -49,15 +58,41 @@ class EventCreate extends Component {
     }
 
     if(this.props.getFriends){
-      // console.log('eventCreate3', this.props.login.userData.dateFreeArr);
-      let inviteesObj = this.props.getFriends.user;
-      console.log('inviteesObj', inviteesObj);
       console.log('eventCreation', this.props.eventCreation);
-      console.log('getEvent', this.props.getEvent);
+      // console.log('eventCreate3', this.props.login.userData.dateFreeArr);
+
+      // 1. lets start with all users
+      let allUsers = this.props.getFriends.user;
+      console.log('allUsers', allUsers);
+
+      // 2. now, here's an object with invited users as keys
+      let inviteesObj = this.props.getEvent.event.inviteesObj;
+      console.log('getEvent: inviteesObj', inviteesObj)
+
+      // 3. here's a function for filtering out uninvited users
+      function filterOutUninvited(allArr, invitedObj){
+        var invitedArr = [];
+        var invitedUsers = [];
+        for(let invitee in invitedObj){
+          invitedArr.push(invitee)
+        }
+        allUsers.filter(elem => {
+          if(invitedArr.includes(elem.id.toString())){
+            invitedUsers.push(elem)
+          }
+
+        })
+        return invitedUsers
+      }
+
+      // 4. Lets get only the relevant users
+      let filteredInvitees = filterOutUninvited(allUsers, inviteesObj)
+
+
 
       let dateFreeArr = this.props.login.userData.dateFreeArr
       let friendsArray = this.props.login.userData.friends
-      var result = getAvailabilityObject(inviteesObj, friendsArray);
+      var result = getAvailabilityObject(filteredInvitees, friendsArray);
       // console.log('result', result)
 
       // THE FOLLOWING 2 FUNCTIONS SORT OUR RESULT DATA
@@ -128,9 +163,9 @@ class EventCreate extends Component {
     return (
       <div className="container">
         <EventHeader />
-
-        {thesorteddates}
-        {thesortedinviteesarr}
+        <button onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
+        {this.state.viewByRSVP ? '' : thesorteddates}
+        {this.state.viewByRSVP ? thesortedinviteesarr : ''}
       </div>
     )
   }

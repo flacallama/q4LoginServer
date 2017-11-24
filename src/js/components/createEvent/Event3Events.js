@@ -9,7 +9,7 @@ class Event3Events extends Component {
 
     return (
       <div>
-      <span>{this.props.elem[0]} :  </span> {theinvitees}
+        <span>{this.props.elem[0]} :  </span> {theinvitees}
 
       </div>
     )
