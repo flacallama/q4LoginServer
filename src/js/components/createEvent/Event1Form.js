@@ -26,7 +26,7 @@ class Event1Form extends Component {
     // console.log('login info', this.props.login);
     let inviteesObj = {}
 
-    inviteesObj[this.props.login.userData.id] = "accepted"
+    inviteesObj[this.props.login.userData.id] = "hosting"
 
 
     return (

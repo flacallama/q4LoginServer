@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PendingRequestAPI from './PendingRequestAPI';
-
+import { friendsReqArrState } from '../../actions/getFriends';
 
 class PendingRequests extends Component {
   constructor() {
@@ -12,65 +12,59 @@ class PendingRequests extends Component {
     }
   }
 
-  // componentDidReceiveProps(nextProps){
-  //   if(nextProps != this.props){
-  //     console.log('componentDidReceiveProps');
-  //     this.setState({
-  //       update: !this.state.update
-  //     })
-  //   }
-  // }
-  // update = () => {
-  //   this.setState({
-  //     update: true
-  //   })
-  // }
+  componentDidMount(){
+    this.props.friendsReqArrStateAction(this.props.login.userData.friendRequestsArr);
+  }
+
 
   render () {
-
-    // if(this.props.login.userData){
-    //   this.update()
-    // }
-
+    console.log('login req array', this.props.login.userData);
     let friendRequests = null;
-    if(this.props.login.userData){
-      // console.log('inside if PendingRequests');
-      var friendsArr = this.props.login.userData.friendRequestsArr
+    if(this.props.getFriends.friendsReqArr){
 
-      // console.log('friendsArr');
-      friendRequests = friendsArr.map(friendId => {
+      var friendsReqArr = this.props.getFriends.friendsReqArr
+      // console.log('parameter', this.props.login.userData.friendRequestsArr);
+      console.log('friendsReqArr', friendsReqArr);
+      // console.log('friendsReqArr getfriends', this.props.getFriends);
+      // // this was working before but not updating
+      // var friendsReqArr = this.props.login.userData.friendRequestsArr
+
+
+      friendRequests = friendsReqArr.map(friendId => {
         // console.log('friendId', friendId);
-        return <li> <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendRequests={friendsArr}/> </li>
+        return <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendsReqArr={friendsReqArr}/>
       })
-      // console.log('friendsArr', friendsArr);
+      // console.log('', friendsReqArr);
     }
+    console.log('friendsReqArr',  this.props.getFriends.friendsReqArr );
+    if (this.props.getFriends.friendsReqArr) {
 
-    if (!friendRequests){
-      return <div></div>
+      return (
+        <div className="container col-md-12" id="friendsOuterContainer">
+          <h4 id="title">Pending Requests</h4>
+
+          {friendRequests ? friendRequests : 'you have no friend requests'}
+
+        </div>
+      )
+    } else {
+      return <div>You have no new friend requests</div>
     }
-
-    return (
-      <div className="container col-md-12" id="friendsOuterContainer">
-        <h4 id="title">Pending Requests</h4>
-        <ul>
-        {friendRequests ? friendRequests : 'you have no friend requests'}
-        </ul>
-      </div>
-    )
   }
 }
 
 
 function mapStateToProps(state, props){
   return {
-    login: state.login
+    login: state.login,
+    getFriends: state.getFriends
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     loginAction: bindActionCreators(login, dispatch),
-//   }
-// }
+function matchDispatchToProps(dispatch){
+  return {
+    friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
+  }
+}
 
-export default connect(mapStateToProps, null)(PendingRequests);
+export default connect(mapStateToProps, matchDispatchToProps)(PendingRequests);

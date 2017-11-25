@@ -60,3 +60,11 @@ export const putFriendsArray = (friendsArr, friendId) => {
     )
   }
 }
+
+export const friendsReqArrState = (friendsReqArr) => {
+  console.log("action: friendsReqArrState", friendsReqArr);
+  return {
+    type: "FRIENDS_REQ_ARR_STATE",
+    payload: friendsReqArr
+  }
+}

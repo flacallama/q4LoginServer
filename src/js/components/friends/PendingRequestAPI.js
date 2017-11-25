@@ -37,7 +37,7 @@ class PendingRequestAPI extends Component {
 
 
       <div className="friendsContainer ">
-        {this.state.updated ? <PendingRequest theFriend={this.state.theFriend} userId={this.props.userId} friendRequests={this.props.friendRequests}/> : 'not updated'}
+        {this.state.updated ? <PendingRequest theFriend={this.state.theFriend} userId={this.props.userId} friendsReqArr={this.props.friendsReqArr}/> : 'not updated'}
       </div>
 
 

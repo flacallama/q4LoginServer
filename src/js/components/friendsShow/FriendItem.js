@@ -55,8 +55,9 @@ class FriendItem extends Component {
       } else {
         arr = []
       }
-
-      let updatedArr = arr.concat(friendObj.id)
+      // console.log("inviteProcess friendObj.id, login", friendObj.id, this.props.login.userData.id);
+      
+      let updatedArr = arr.concat(this.props.login.userData.id)
       this.props.putFriendRequestArrayAction(updatedArr, friendObj.id)
       this.updated()
     }

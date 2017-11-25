@@ -36,12 +36,6 @@ class EventCreate1 extends Component {
         postSubmitted: true
       })
     }
-    // if(nextProps.getEvent.eventsByUser.eventData.length - this.props.getEvent.eventsByUser.eventData.length === 1){
-    //   console.log('props changing - updating', nextProps, this.props);
-    //   this.setState({
-    //     updating: !this.state.updating
-    //   })
-    // }
   }
 
 

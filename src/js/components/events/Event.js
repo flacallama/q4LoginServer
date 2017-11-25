@@ -69,6 +69,10 @@ class Event extends Component {
         // console.log("they type is maybe");
         eventType = "maybe";
         break;
+      case "hosting":
+        // console.log("they type is hosting");
+        eventType = "hosting";
+        break;
       default:
         eventType = null;
     }

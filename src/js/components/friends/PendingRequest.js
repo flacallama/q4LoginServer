@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { putFriendRequestArray } from '../../actions/getFriends';
 import { putFriendsArray } from '../../actions/getFriends';
+import { friendsReqArrState } from '../../actions/getFriends';
+
 
 class PendingRequestAPI extends Component {
   constructor() {
@@ -18,9 +20,8 @@ class PendingRequestAPI extends Component {
 
 
   acceptFriend = () => {
-
     let userId = this.props.userId
-    let userFriendRequests = this.props.friendRequests;
+    let userFriendRequests = this.props.friendsReqArr;
     let friendId = this.props.theFriend.id;
     let friendFriends = this.props.theFriend.friends;
     // console.log(userId, userFriendRequests, friendId, friendFriends);
@@ -33,10 +34,32 @@ class PendingRequestAPI extends Component {
     })
     this.props.putFriendRequestArrayAction(newUserFriendRequests, userId)
 
-    // update friends friend array to include
+
+    // the request is not disappearing on PendingRequests.
+    // Therefore, let's alter the store to trigger a rerender.
+    // First we get the orginal request array, then we take
+    // out this user's id, and then put it back.
+    console.log('this gets sent to state: ', newUserFriendRequests);
+    this.props.friendsReqArrStateAction(newUserFriendRequests)
+
+
+
+
+
+    // update friend's friend array to include
     // the userId
     let newFriendFriends = friendFriends.concat(userId)
     this.props.putFriendsArrayAction(newFriendFriends, friendId)
+
+    // update user's friend array to include accepted request
+    let origUsersFriendArr = this.props.login.userData.friends
+    let newUsersFriendArr = origUsersFriendArr.concat(friendId)
+    this.props.putFriendsArrayAction(newUsersFriendArr, userId)
+
+
+
+
+
     this.setState({
       accepted : true
     })
@@ -44,6 +67,7 @@ class PendingRequestAPI extends Component {
 
 
   render () {
+    console.log('login props', this.props.login);
     // console.log('PendingRequest', this.props.theFriend);
 
     let pathid = "/friends/" + this.props.theFriend.id
@@ -70,17 +94,19 @@ class PendingRequestAPI extends Component {
   }
 }
 
-// function mapStateToProps(state, props){
-//   return {
-//     getFriends: state.getFriends
-//   }
-// }
+function mapStateToProps(state, props){
+  return {
+    login: state.login,
+    getFriends: state.getFriends
+  }
+}
 
 function matchDispatchToProps(dispatch){
   return {
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
-    putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch)
+    putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
+    friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch)
   }
 }
 
-export default connect(null, matchDispatchToProps)(PendingRequestAPI);
+export default connect(mapStateToProps, matchDispatchToProps)(PendingRequestAPI);
