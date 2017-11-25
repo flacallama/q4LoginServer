@@ -1,6 +1,7 @@
 let initialState = {
   events: null,
-  event: null
+  event: null,
+  eventsByUser: null
 }
 
 export default (state = initialState, action) => {
@@ -33,6 +34,20 @@ export default (state = initialState, action) => {
     case "CREATE_EVENT_FULFILLED":
     console.log('reducer create event', action.payload.data);
       return {...state, event: action.payload.data}
+
+    case "PUT_EVENT_STATUS_INVITED_PENDING":
+        return state;
+    case "PUT_EVENT_STATUS_INVITED_FULFILLED":
+    console.log("reducer: putEventStatusInvited - PUT", action.payload.data);
+        return {...state, event: action.payload.data}
+
+    case "FIND_EVENT_BY_CREATOR_ID_PENDING":
+      return state;
+    case "FIND_EVENT_BY_CREATOR_ID_FULFILLED":
+    console.log("reducer: findEventByCreatorId", action.payload.data);
+      return {...state, eventsByUser: action.payload.data}
+
+
     default:
       return state;
   }

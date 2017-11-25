@@ -16,7 +16,8 @@ class Calendar extends Component {
   }
   userId = this.props.login.userData.id
 
-  componentWillMount(){
+  componentDidMount(){
+    console.log('this.props - user id', this.props.login.userData.id);
     this.props.getFriendAction(this.userId)
   }
 

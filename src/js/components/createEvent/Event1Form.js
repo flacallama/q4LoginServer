@@ -12,7 +12,7 @@ class Event1Form extends Component {
       title: null,
       body: null,
       picUrl: null,
-      eventStatus: null
+
 
     }
   }
@@ -38,7 +38,7 @@ class Event1Form extends Component {
                 title: this.state.title,
                 body: this.state.body,
                 picUrl: this.state.picUrl,
-                eventStatus: this.state.eventStatus,
+                eventStatus: "created",
                 creatorId: this.props.login.userData.id,
                 inviteesObj: inviteesObj
               })

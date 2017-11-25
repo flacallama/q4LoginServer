@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
     case "LOGIN_FULFILLED":
       if(action.payload.data[0]){
         return {
-          loggedIn: true,
+          ...state, loggedIn: true,
           userData: action.payload.data[0]
         };
       }
@@ -29,6 +29,7 @@ export default (state = initialState, action) => {
       return state;
     case "LOGOUT_FULFILLED":
       return {
+        ...state, 
         loggedIn: false,
         userData: {}
       }

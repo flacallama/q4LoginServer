@@ -70,9 +70,9 @@ class EventCreate extends Component {
       console.log('getEvent: inviteesObj', inviteesObj)
 
       // 3. here's a function for filtering out uninvited users
+      var invitedUsers = []
       function filterOutUninvited(allArr, invitedObj){
         var invitedArr = [];
-        var invitedUsers = [];
         for(let invitee in invitedObj){
           invitedArr.push(invitee)
         }
@@ -89,9 +89,13 @@ class EventCreate extends Component {
       let filteredInvitees = filterOutUninvited(allUsers, inviteesObj)
 
 
-
+      // an array of the logged in user's free days
       let dateFreeArr = this.props.login.userData.dateFreeArr
+
+
       let friendsArray = this.props.login.userData.friends
+
+
       var result = getAvailabilityObject(filteredInvitees, friendsArray);
       // console.log('result', result)
 
@@ -118,7 +122,7 @@ class EventCreate extends Component {
     function sortByInviteesLength(obj){
       var sortable = [];
       for (var date in obj) {
-        // is this date in the future?
+        // use moment to filter out past dates
         if(moment(date).isAfter(new Date(), "day")){
           sortable.push([date, obj[date]]);
         }
@@ -147,11 +151,11 @@ class EventCreate extends Component {
 
     // LETS DISPLAY RESULTS NOW:
     var thesorteddates = sortedByDateArr.map((elem, idx) => {
-        return <Event3Events elem={elem} key={idx} />
+        return <Event3Events elem={elem} key={idx} invitedUsers={invitedUsers}/>
       })
 
     var thesortedinviteesarr = sortedByInviteesLengthArr.map((elem, idx) => {
-        return <Event3Events elem={elem} key={idx} />
+        return <Event3Events elem={elem} key={idx} invitedUsers={invitedUsers}/>
       })
 
     }

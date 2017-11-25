@@ -44,8 +44,9 @@ export default (state = initialState, action) => {
     case "PUT_DATE_PENDING":
         return state;
     case "PUT_DATE_FULFILLED":
-        return        {
-          friend: [action.payload.data]
+        return {
+          ...state,
+          friend: action.payload.data
         };
 
 

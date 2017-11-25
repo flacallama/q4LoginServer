@@ -1,18 +1,89 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 class Event3Events extends Component {
   constructor() {
     super();
+    this.state = {
+      dateClicked: false
+    }
   }
-  render () {
 
-    let theinvitees = this.props.elem[1].map((person, i)=> <span key={i}> {i + 1}: {person}</span>)
+  inviteTheUsers = () => {
+    for(let user in this.props.invitedUsers){
+      // isolate this users eventObu
+      let usersEventObj = this.props.invitedUsers[user].eventObj;
+
+      // add the new value
+      usersEventObj[this.props.eventCreation.eventId] = this.props.elem[0];
+
+      // put it
+      axios.put(`http://localhost:1337/users/${this.props.invitedUsers[user].id}`,
+      {
+        "eventObj": usersEventObj
+      })
+        .then(res => {
+          const postPutUser = res.data;
+          // console.log('postPutUser', postPutUser);
+        });
+    }
+    this.setState({
+      dateClicked: true
+    })
+
+  }
+
+
+
+
+  render () {
+    if(this.state.dateClicked){
+      return (
+        <Redirect to={ '/event/create/4'}/>
+      )
+    }
+    // shit we don't have a userId for the PUT request.
+    // lets loop thru the users to find it.
+    let invitedUsersIdArr = [];
+    // an array of the invited userObjects
+    let invitedUsers = this.props.invitedUsers;
+    for(let user in invitedUsers){
+      // console.log(allUsers[user].username);
+      invitedUsersIdArr.push(invitedUsers[user].id)
+    }
+    // console.log('invitedUsersIdArr', invitedUsersIdArr);
+
+
+
+    // render out all of the invitees names; they're
+    // in an array at element [1]
+    let theinvitees = this.props.elem[1].map((person, i)=>{
+       return <span key={i}> {i + 1}: {person}</span>
+    })
 
     return (
       <div>
-        <span>{this.props.elem[0]} :  </span> {theinvitees}
+        <span onClick={this.inviteTheUsers}>{this.props.elem[0]} :  </span> {theinvitees}
 
       </div>
     )
   }
 }
-export default Event3Events;
+
+
+
+function mapStateToProps(state, props){
+  return {
+    eventCreation: state.eventCreation
+  }
+}
+
+// function matchDispatchToProps(dispatch){
+//   return {
+//     getFriendsAction: bindActionCreators(getFriends, dispatch),
+//   }
+// }
+
+export default connect(mapStateToProps, null)(Event3Events);
