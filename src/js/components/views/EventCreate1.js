@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import { findEventByCreatorId } from '../../actions/getEvents';
 import Event2Event from '../createEvent/Event2Event';
 
-class EventCreate extends Component {
+class EventCreate1 extends Component {
   constructor() {
     super();
     this.state = {
@@ -126,4 +126,4 @@ function matchDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(EventCreate);
+export default connect(mapStateToProps, matchDispatchToProps)(EventCreate1);

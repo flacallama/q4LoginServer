@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { selectEvent } from '../../actions/eventCreation';
 import { getEvent } from '../../actions/getEvent';
 import { putEventStatus } from '../../actions/getEvent';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 
 
-class Event2Event extends Component {
+class Event2EventFor4 extends Component {
   constructor() {
     super();
   }
@@ -19,16 +19,16 @@ class Event2Event extends Component {
       this.props.selectEventAction(this.props.event.id)
 
       // set the eventStatus of event on db
-      this.props.putEventStatusAction(this.props.event.id, "invited")
+      this.props.putEventStatusAction(this.props.event.id, "scheduled")
     }
 
       return (
-        <Link to={'/event/create/2'}>
+
           <div onClick={handleClick} className={this.props.event.id == this.props.eventCreation.eventId ? "selectedEvent" : "unSelectedEvent"}>
             {this.props.event.title}
 
           </div>
-        </Link>
+
       )
 
 
@@ -55,4 +55,4 @@ function matchDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Event2Event);
+export default connect(mapStateToProps, matchDispatchToProps)(Event2EventFor4);

@@ -38,6 +38,7 @@ class Event2Events
 
 
     // return this if somehow an event hasn't been chosen
+    // in our redux createEvent.eventId
     if(!this.props.eventCreation.eventId){
       return (
         <div className="container">

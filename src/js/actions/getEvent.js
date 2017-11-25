@@ -52,13 +52,13 @@ export const putEventRSVP = (eventId, inviteesObj) => {
   }
 }
 
-export const putEventStatusInvited = (eventId) => {
-  console.log('action putEventStatusInvited', eventId);
+export const putEventStatus = (eventId, status) => {
+  console.log('action putEventStatus', eventId);
   return {
     type: "PUT_EVENT_STATUS_INVITED",
     payload: axios.put(`http://localhost:1337/events/${eventId}`,
       {
-        "eventStatus": "invited"
+        "eventStatus": status
       }
     )
   }

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { putEventStatus } from '../../actions/getEvent';
+
 
 class Event3Events extends Component {
   constructor() {
@@ -13,7 +16,7 @@ class Event3Events extends Component {
 
   inviteTheUsers = () => {
     for(let user in this.props.invitedUsers){
-      // isolate this users eventObu
+      // isolate this users eventObj
       let usersEventObj = this.props.invitedUsers[user].eventObj;
 
       // add the new value
@@ -32,7 +35,7 @@ class Event3Events extends Component {
     this.setState({
       dateClicked: true
     })
-
+    this.props.putEventStatusAction(this.props.eventCreation.eventId, "scheduled")
   }
 
 
@@ -80,10 +83,9 @@ function mapStateToProps(state, props){
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     getFriendsAction: bindActionCreators(getFriends, dispatch),
-//   }
-// }
+function matchDispatchToProps(dispatch){
+  return {
+    putEventStatusAction: bindActionCreators(putEventStatus, dispatch)  }
+}
 
-export default connect(mapStateToProps, null)(Event3Events);
+export default connect(mapStateToProps, matchDispatchToProps)(Event3Events);
