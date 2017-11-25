@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PendingRequestAPI from './PendingRequestAPI';
 import { friendsReqArrState } from '../../actions/getFriends';
+// import { friendsArrState } from '../../actions/getFriends';
+
 
 class PendingRequests extends Component {
   constructor() {
@@ -14,20 +16,17 @@ class PendingRequests extends Component {
 
   componentDidMount(){
     this.props.friendsReqArrStateAction(this.props.login.userData.friendRequestsArr);
+    // this.props.friendsArrStateAction(this.props.login.userData.friends);
   }
 
 
   render () {
-    console.log('login req array', this.props.login.userData);
+    // console.log('login req array', this.props.login.userData);
     let friendRequests = null;
+
     if(this.props.getFriends.friendsReqArr){
 
       var friendsReqArr = this.props.getFriends.friendsReqArr
-      // console.log('parameter', this.props.login.userData.friendRequestsArr);
-      console.log('friendsReqArr', friendsReqArr);
-      // console.log('friendsReqArr getfriends', this.props.getFriends);
-      // // this was working before but not updating
-      // var friendsReqArr = this.props.login.userData.friendRequestsArr
 
 
       friendRequests = friendsReqArr.map(friendId => {
@@ -64,6 +63,7 @@ function mapStateToProps(state, props){
 function matchDispatchToProps(dispatch){
   return {
     friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
+    // friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
   }
 }
 

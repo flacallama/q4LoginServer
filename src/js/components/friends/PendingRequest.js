@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { putFriendRequestArray } from '../../actions/getFriends';
 import { putFriendsArray } from '../../actions/getFriends';
 import { friendsReqArrState } from '../../actions/getFriends';
+// import { getFriends } from '../../actions/getFriends';
+import { refresh } from '../../actions/login';
 
 
 class PendingRequestAPI extends Component {
@@ -39,10 +41,12 @@ class PendingRequestAPI extends Component {
     // Therefore, let's alter the store to trigger a rerender.
     // First we get the orginal request array, then we take
     // out this user's id, and then put it back.
-    console.log('this gets sent to state: ', newUserFriendRequests);
+    // console.log('this gets sent to state: ', newUserFriendRequests);
     this.props.friendsReqArrStateAction(newUserFriendRequests)
 
-
+    // trying to refresh the friends list to include the
+    // newest accepted friend
+    this.props.refreshAction(userId)
 
 
 
@@ -105,7 +109,8 @@ function matchDispatchToProps(dispatch){
   return {
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
     putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
-    friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch)
+    friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
+    refreshAction: bindActionCreators(refresh, dispatch)
   }
 }
 

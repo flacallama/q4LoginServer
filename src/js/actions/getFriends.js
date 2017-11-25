@@ -68,3 +68,12 @@ export const friendsReqArrState = (friendsReqArr) => {
     payload: friendsReqArr
   }
 }
+
+
+export const friendsArrState = (friendsArr) => {
+  console.log("action: friendsArrState", friendsArr);
+  return {
+    type: "FRIENDS_ARR_STATE",
+    payload: friendsArr
+  }
+}

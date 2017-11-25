@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import Friend from './Friend';
-
+import { friendsArrState } from '../../actions/getFriends';
 
 
 class Friends extends Component {
@@ -10,11 +10,27 @@ class Friends extends Component {
     super();
   }
 
-  render () {
+  componentDidMount(){
+    // this.props.friendsReqArrStateAction(this.props.login.userData.friendRequestsArr);
+    console.log('friends: GET', this.props.login.userData.friends);
+    this.props.friendsArrStateAction(this.props.login.userData.friends);
+  }
 
-    let friendsList = this.props.login.userData.friends
+  // componentDidReceiveProps(nextProps){
+  //   if(nextProps.getFriends != this.props.getFriends){
+  //     console.log(propschange - getFriends, nextProps.getFriends, this.props.getFriends);
+  //   }
+  //   if(nextProps.login != this.props.login){
+  //     console.log(propschange - login, nextProps.login, this.props.login);
+  //   }
+  // }
+
+  render () {
+    console.log('friends: login.props', this.props.login);
+
     let usersFriends = null;
-    if(this.props.getFriends.user){
+    if(this.props.getFriends.friendsArrState){
+      let friendsList = this.props.getFriends.friendsArrState
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
         if (friendsList.includes(parseInt(elem.id))){
@@ -39,9 +55,10 @@ function mapStateToProps(state, props){
   }
 }
 
-// function matchDispatchToProps(dispatch){
-//   return {
-//     getFriendsAction: bindActionCreators(getFriends, dispatch),
-//   }
-// }
-export default connect(mapStateToProps, null)(Friends);
+function matchDispatchToProps(dispatch){
+  return {
+    // getFriendsAction: bindActionCreators(getFriends, dispatch),
+    friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
+  }
+}
+export default connect(mapStateToProps, matchDispatchToProps)(Friends);

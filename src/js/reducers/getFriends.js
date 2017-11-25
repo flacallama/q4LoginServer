@@ -1,7 +1,8 @@
 const initialState = {
   user: null,
   friend: null,
-  friendsReqArr: []
+  friendsReqArr: [],
+  friendsArr: []
 }
 
 export default (state = initialState, action) => {
@@ -48,11 +49,13 @@ export default (state = initialState, action) => {
         };
 
 
-    // case "FRIENDS_REQ_ARR_STATE_PENDING":
-    //   return state;
     case "FRIENDS_REQ_ARR_STATE":
     console.log('FRIENDS_REQ_ARR_STATE', action.payload);
       return  {...state, friendsReqArr: action.payload};
+
+    case "FRIENDS_ARR_STATE":
+    console.log('FRIENDS_ARR_STATE', action.payload);
+      return  {...state, friendsArr: action.payload};
 
 
     default:
