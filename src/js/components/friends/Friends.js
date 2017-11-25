@@ -27,10 +27,12 @@ class Friends extends Component {
 
   render () {
     console.log('friends: login.props', this.props.login);
-
+    console.log('friends: getFriends', this.props.getFriends);
     let usersFriends = null;
-    if(this.props.getFriends.friendsArrState){
-      let friendsList = this.props.getFriends.friendsArrState
+    if(this.props.getFriends.friendsArr.length != 0){
+      console.log('inside Friends if');
+      let friendsList = this.props.getFriends.friendsArr
+      console.log('friendsList', friendsList);
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
         if (friendsList.includes(parseInt(elem.id))){

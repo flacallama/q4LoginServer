@@ -7,8 +7,8 @@ import { putFriendRequestArray } from '../../actions/getFriends';
 import { putFriendsArray } from '../../actions/getFriends';
 import { friendsReqArrState } from '../../actions/getFriends';
 // import { getFriends } from '../../actions/getFriends';
-import { refresh } from '../../actions/login';
-
+// import { refresh } from '../../actions/login';
+import { friendsArrState } from '../../actions/getFriends';
 
 class PendingRequestAPI extends Component {
   constructor() {
@@ -46,7 +46,9 @@ class PendingRequestAPI extends Component {
 
     // trying to refresh the friends list to include the
     // newest accepted friend
-    this.props.refreshAction(userId)
+    // this.props.refreshAction(userId)
+
+
 
 
 
@@ -59,7 +61,9 @@ class PendingRequestAPI extends Component {
     let origUsersFriendArr = this.props.login.userData.friends
     let newUsersFriendArr = origUsersFriendArr.concat(friendId)
     this.props.putFriendsArrayAction(newUsersFriendArr, userId)
-
+    // we must do this with the store object also so that 
+    // it refreshes on the index page
+    this.props.friendsArrStateAction(newUsersFriendArr)
 
 
 
@@ -110,7 +114,8 @@ function matchDispatchToProps(dispatch){
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
     putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
     friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
-    refreshAction: bindActionCreators(refresh, dispatch)
+    // refreshAction: bindActionCreators(refresh, dispatch)
+    friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
   }
 }
 

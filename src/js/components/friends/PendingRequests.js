@@ -36,7 +36,7 @@ class PendingRequests extends Component {
       // console.log('', friendsReqArr);
     }
     console.log('friendsReqArr',  this.props.getFriends.friendsReqArr );
-    if (this.props.getFriends.friendsReqArr) {
+    if (this.props.getFriends.friendsReqArr.length != 0) {
 
       return (
         <div className="container col-md-12" id="friendsOuterContainer">
