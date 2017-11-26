@@ -26,7 +26,7 @@ class PendingRequestAPI extends Component {
     let userFriendRequests = this.props.getFriends.friend.friendRequestsArr;
     let friendId = this.props.theFriend.id;
     let friendFriends = this.props.theFriend.friends;
-    // console.log(userId, userFriendRequests, friendId, friendFriends);
+
 
     // make a new array of friend requests without the // accepted request
     let newUserFriendRequests = userFriendRequests.filter(elem => {
@@ -35,18 +35,6 @@ class PendingRequestAPI extends Component {
       }
     })
     this.props.putFriendRequestArrayAction(newUserFriendRequests, userId)
-
-
-    // the request is not disappearing on PendingRequests.
-    // Therefore, let's alter the store to trigger a rerender.
-    // First we get the orginal request array, then we take
-    // out this user's id, and then put it back.
-    // console.log('this gets sent to state: ', newUserFriendRequests);
-    // this.props.friendsReqArrStateAction(newUserFriendRequests)
-
-
-
-
 
 
     // update friend's friend array to include
@@ -58,14 +46,6 @@ class PendingRequestAPI extends Component {
     let origUsersFriendArr = this.props.login.userData.friends
     let newUsersFriendArr = origUsersFriendArr.concat(friendId)
     this.props.putFriendsArrayAction(newUsersFriendArr, userId)
-
-    // we must do this with the store object also so that
-    // it refreshes on the index page
-    // this.props.friendsArrStateAction(newUsersFriendArr)
-
-    // trying to refresh the friends list to include the
-    // newest accepted friend  ???????????
-    // this.props.refreshAction(userId)
 
 
 

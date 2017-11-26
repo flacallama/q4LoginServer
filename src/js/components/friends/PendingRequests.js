@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PendingRequestAPI from './PendingRequestAPI';
-// import { friendsReqArrState } from '../../actions/getFriends';
-// import { friendsArrState } from '../../actions/getFriends';
-// import { refresh } from '../../actions/login';
 import { getFriend } from '../../actions/getFriends';
 
 
@@ -16,9 +13,7 @@ class PendingRequests extends Component {
       update: false
     }
   }
-  // componentDidMount(){
-  //   this.props.getFriendAction(this.props.login.userData.id)
-  // }
+
 
 
   render () {
@@ -33,18 +28,15 @@ class PendingRequests extends Component {
 
 
       friendRequests = friendsReqArr.map(friendId => {
-        // console.log('friendId', friendId);
         return <PendingRequestAPI friendId={friendId} key={friendId} userId={this.props.userId} friendsReqArr={friendsReqArr}/>
       })
-      // console.log('', friendsReqArr);
     }
-    // console.log('friendsReqArr',  this.props.getFriends.friendsReqArr );
-    // .friendRequestsArr.length != 0
+
     if (this.props.getFriends.friend) {
 
       return (
         <div className="container col-md-12" id="friendsOuterContainer">
-          <h4 id="title">Pending Requests</h4>
+          {this.props.getFriends.friend.friendRequestsArr.length > 0 ? <h4 id="title">Pending Requests</h4> : ''}
 
           {friendRequests ? friendRequests : 'you have no friend requests'}
 
@@ -66,10 +58,6 @@ function mapStateToProps(state, props){
 
 function matchDispatchToProps(dispatch){
   return {
-    // friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
-    // friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
-    // refreshAction: bindActionCreators(refresh, dispatch),
-    // getLoggedInUserAction: bindActionCreators(getLoggedInUser, dispatch)
     getFriendAction: bindActionCreators(getFriend, dispatch)
   }
 }
