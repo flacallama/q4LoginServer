@@ -7,7 +7,7 @@ import { putFriendRequestArray } from '../../actions/getFriends';
 import { putFriendsArray } from '../../actions/getFriends';
 import { friendsReqArrState } from '../../actions/getFriends';
 // import { getFriends } from '../../actions/getFriends';
-// import { refresh } from '../../actions/login';
+import { refresh } from '../../actions/login';
 import { friendsArrState } from '../../actions/getFriends';
 
 class PendingRequestAPI extends Component {
@@ -23,7 +23,7 @@ class PendingRequestAPI extends Component {
 
   acceptFriend = () => {
     let userId = this.props.userId
-    let userFriendRequests = this.props.friendsReqArr;
+    let userFriendRequests = this.props.getFriends.friend.friendRequestsArr;
     let friendId = this.props.theFriend.id;
     let friendFriends = this.props.theFriend.friends;
     // console.log(userId, userFriendRequests, friendId, friendFriends);
@@ -42,11 +42,8 @@ class PendingRequestAPI extends Component {
     // First we get the orginal request array, then we take
     // out this user's id, and then put it back.
     // console.log('this gets sent to state: ', newUserFriendRequests);
-    this.props.friendsReqArrStateAction(newUserFriendRequests)
+    // this.props.friendsReqArrStateAction(newUserFriendRequests)
 
-    // trying to refresh the friends list to include the
-    // newest accepted friend
-    // this.props.refreshAction(userId)
 
 
 
@@ -61,10 +58,14 @@ class PendingRequestAPI extends Component {
     let origUsersFriendArr = this.props.login.userData.friends
     let newUsersFriendArr = origUsersFriendArr.concat(friendId)
     this.props.putFriendsArrayAction(newUsersFriendArr, userId)
-    // we must do this with the store object also so that 
-    // it refreshes on the index page
-    this.props.friendsArrStateAction(newUsersFriendArr)
 
+    // we must do this with the store object also so that
+    // it refreshes on the index page
+    // this.props.friendsArrStateAction(newUsersFriendArr)
+
+    // trying to refresh the friends list to include the
+    // newest accepted friend  ???????????
+    // this.props.refreshAction(userId)
 
 
 
@@ -75,7 +76,7 @@ class PendingRequestAPI extends Component {
 
 
   render () {
-    console.log('login props', this.props.login);
+    // console.log('login props', this.props.login);
     // console.log('PendingRequest', this.props.theFriend);
 
     let pathid = "/friends/" + this.props.theFriend.id
@@ -114,7 +115,7 @@ function matchDispatchToProps(dispatch){
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
     putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
     friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
-    // refreshAction: bindActionCreators(refresh, dispatch)
+    refreshAction: bindActionCreators(refresh, dispatch),
     friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
   }
 }

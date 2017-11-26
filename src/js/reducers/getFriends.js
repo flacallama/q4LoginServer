@@ -2,11 +2,12 @@ const initialState = {
   user: null,
   friend: null,
   friendsReqArr: [],
-  friendsArr: []
+  friendsArr: [],
+  loggedInUser: null
 }
 
 export default (state = initialState, action) => {
-  console.log('in getFriends reducer');
+  // console.log('in getFriends reducer');
   switch (action.type){
     case "GET_FRIENDS_PENDING":
       return state;
@@ -18,7 +19,7 @@ export default (state = initialState, action) => {
     case "GET_FRIEND_PENDING":
       return state;
     case "GET_FRIEND_FULFILLED":
-    // console.log('reducer GET_FRIEND', action.payload.data);
+    console.log('reducer GET_FRIEND', action.payload.data);
       return  {...state, friend: action.payload.data};
 
 // IM NOT SURE THAT friendRequestsArr IS UPDATING IN
@@ -50,13 +51,20 @@ export default (state = initialState, action) => {
 
 
     case "FRIENDS_REQ_ARR_STATE":
-    console.log('FRIENDS_REQ_ARR_STATE', action.payload);
+    // console.log('FRIENDS_REQ_ARR_STATE', action.payload);
       return  {...state, friendsReqArr: action.payload};
 
     case "FRIENDS_ARR_STATE":
-    console.log('FRIENDS_ARR_STATE', action.payload);
+    // console.log('FRIENDS_ARR_STATE', action.payload);
       return  {...state, friendsArr: action.payload};
 
+
+
+    case "GET_LOGGED_IN_USER_PENDING":
+      return state;
+    case "GET_LOGGED_IN_USER_FULFILLED":
+    // console.log("GET_LOGGED_IN_USER_FULFILLED", action.payload.data);
+      return  {...state, loggedInUser: action.payload.data};
 
     default:
       return state;

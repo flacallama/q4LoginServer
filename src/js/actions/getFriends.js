@@ -18,7 +18,7 @@ export const getFriends = () => {
 }
 
 export const getFriend = (myId) => {
-  // console.log("getfriend action, myId: ", myId)
+  console.log("getfriend action, myId: ", myId)
   return {
     type: "GET_FRIEND",
     payload: axios.get(`http://localhost:1337/users/${myId}`)
@@ -62,7 +62,7 @@ export const putFriendsArray = (friendsArr, friendId) => {
 }
 
 export const friendsReqArrState = (friendsReqArr) => {
-  console.log("action: friendsReqArrState", friendsReqArr);
+  // console.log("action: friendsReqArrState", friendsReqArr);
   return {
     type: "FRIENDS_REQ_ARR_STATE",
     payload: friendsReqArr
@@ -71,9 +71,17 @@ export const friendsReqArrState = (friendsReqArr) => {
 
 
 export const friendsArrState = (friendsArr) => {
-  console.log("action: friendsArrState", friendsArr);
+  // console.log("action: friendsArrState", friendsArr);
   return {
     type: "FRIENDS_ARR_STATE",
     payload: friendsArr
+  }
+}
+
+export const getLoggedInUser = (myId) => {
+  // console.log("getfriend action, myId: ", myId)
+  return {
+    type: "GET_LOGGED_IN_USER",
+    payload: axios.get(`http://localhost:1337/users/${myId}`)
   }
 }

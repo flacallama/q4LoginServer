@@ -10,7 +10,7 @@ import axios from 'axios';
 // }
 //
 export const login = (username, password) => {
-  // console.log('login action reached', username, password);
+  console.log('login action reached', username, password);
   return {
     type: "LOGIN",
     payload: axios.get(`http://localhost:1337/users/?username=${username}&password=${password}`)
@@ -18,9 +18,9 @@ export const login = (username, password) => {
 }
 
 export const refresh = (userId) => {
-  // console.log('login action reached', username, password);
+  console.log('login Refresh action reached',userId);
   return {
-    type: "LOGIN",
+    type: "REFRESH",
     payload: axios.get(`http://localhost:1337/users/${userId}`)
   }
 }

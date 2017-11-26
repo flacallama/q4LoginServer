@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from '../../actions/login';
 import LoginActive from './LoginActive';
-
+import { getFriend } from '../../actions/getFriends';
 
 class Login extends Component {
   constructor() {
@@ -18,9 +18,13 @@ class Login extends Component {
     this.props.loginAction();
   }
 
-  // <div>
-  //   {this.props.login.userData ? <LoginActive /> : "Please log in"}
-  // </div>
+  // loginHandler = () => {
+  //   console.log('loginHandler triggerd');
+  //   // componentDidMount(){
+  //     this.props.getFriendAction(this.props.login.userData.id)
+  //   // }
+  // }
+
 
   render () {
     return (
@@ -32,6 +36,7 @@ class Login extends Component {
           )
           e.preventDefault();
           e.target.reset();
+          // this.loginHandler();
         }}
 
         >
@@ -58,7 +63,7 @@ function mapStateToProps(state, props){
 function matchDispatchToProps(dispatch){
   return {
     loginAction: bindActionCreators(login, dispatch),
-
+    getFriendAction: bindActionCreators(getFriend, dispatch)
   }
 }
 export default connect(mapStateToProps, matchDispatchToProps)(Login);

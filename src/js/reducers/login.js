@@ -21,15 +21,28 @@ export default (state = initialState, action) => {
     case "LOGIN_FULFILLED":
       if(action.payload.data[0]){
         return {
-          ...state, loggedIn: true,
+          loggedIn: true,
           userData: action.payload.data[0]
         };
       }
+
+      case "REFRESH_PENDING":
+        return state;
+      case "REFRESH_FULFILLED":
+      console.log('REFRESH_FULFILLED', action.payload.data);
+        return {
+          ...state,
+          userData: action.payload.data
+        };
+
+
+
+
     case "LOGOUT_PENDING":
       return state;
     case "LOGOUT_FULFILLED":
       return {
-        ...state, 
+        ...state,
         loggedIn: false,
         userData: {}
       }
