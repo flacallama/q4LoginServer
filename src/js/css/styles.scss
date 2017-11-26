@@ -1,3 +1,10 @@
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 $mainColor: #7777bb;
 $pastelGreen: #aaf3a6;
 $limeGreen: #33cc66;
@@ -167,15 +174,34 @@ $yellow: #fff07b;
 
 
 
-
 .eventsGroup{
-  height: 100vh;
-  width: 100%;
-  background-color: lightgrey;
+  background-color: #f3f3f3;
 
-  .eventSingle{
-    width: 100%;
-    background-color: grey;
+  .linkElement{
+    max-height: 100px;
+    overflow: hidden;
+    position:relative;
+    .eventSingle{
+      
+      .eventButtons{
+        padding-left: 0px;
+      }
+      .accepted{
+        border-left: 5px solid $limeGreen;
+      }
+      .maybe{
+        border-left: 5px solid $pastelGreen;
+      }
+      .declined{
+        border-left: 5px solid $brown;
+      }
+      .invited{
+        border-left: 5px solid $purple;
+      }
+      .hosting{
+        border-left: 5px solid yellow;
+      }
+    }
   }
 }
 
@@ -185,23 +211,7 @@ $yellow: #fff07b;
 
 
 
-.eventSingle{
-  .accepted{
-    background-color: $limeGreen;
-  }
-  .maybe{
-    background-color: $pastelGreen;
-  }
-  .declined{
-    background-color: $brown;
-  }
-  .invited{
-    background-color: $purple;
-  }
-  .hosting{
-    background-color: yellow;
-  }
-}
+
 
 
 

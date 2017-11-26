@@ -38,10 +38,8 @@ export default (state = initialState, action) => {
 
 
 
-    // case "LOGOUT_PENDING":
-    //   return state;
     case "LOGOUT":
-    console.log("REDUCER: LOGOUT");
+    // console.log("REDUCER: LOGOUT");
       return {
         ...state,
         loggedIn: false,

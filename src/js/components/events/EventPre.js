@@ -46,7 +46,7 @@ class EventPre extends Component {
     }
     // console.log('EventPre: state updated');
     return(
-      <div><Event elem={this.state.theEvent} /></div>
+      <Event elem={this.state.theEvent} />
 
     )
 

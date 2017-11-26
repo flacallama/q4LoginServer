@@ -19,13 +19,13 @@ export const getEvent = (eventId) => {
 }
 
 
-export const putEvent = (eventId, invitees) => {
+export const putEvent = (eventId, inviteesObj) => {
   // console.log('putEvent action reached', eventId, invitees);
   return {
     type: "PUT_EVENT",
     payload: axios.put(`http://localhost:1337/events/${eventId}`,
       {
-        invitees
+        inviteesObj
       }
     )
   }

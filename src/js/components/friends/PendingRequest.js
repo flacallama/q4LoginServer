@@ -7,7 +7,7 @@ import { putFriendRequestArray } from '../../actions/getFriends';
 import { putFriendsArray } from '../../actions/getFriends';
 import { friendsReqArrState } from '../../actions/getFriends';
 // import { getFriends } from '../../actions/getFriends';
-import { refresh } from '../../actions/login';
+// import { refresh } from '../../actions/login';
 import { friendsArrState } from '../../actions/getFriends';
 
 class PendingRequestAPI extends Component {
@@ -95,7 +95,7 @@ function matchDispatchToProps(dispatch){
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
     putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
     friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
-    refreshAction: bindActionCreators(refresh, dispatch),
+    // refreshAction: bindActionCreators(refresh, dispatch),
     friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
   }
 }

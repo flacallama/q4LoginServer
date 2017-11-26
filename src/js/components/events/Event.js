@@ -51,6 +51,47 @@ class Event extends Component {
     let eventType = null;
     let pathid = "/events/" + this.props.elem.id
     let event = this.props.elem
+
+    // CREATED TRUNCATED TITLE TEXT
+    var truncatedTit = (str, n) => {
+      var result;
+      if(str.length > n){
+        result = str.substring(0, n) + "..."
+      } else {
+        result = str
+      }
+      return result
+    }
+
+    let truncatedTitle = truncatedTit(event.title, 24)
+
+
+
+
+
+    // CREATED TRUNCATED BODY TEXT
+    var truncatedBody = (str, n) => {
+      var result;
+      var index = n;
+      var firstSpaceBeforeN = null
+      if(str.length > n){
+        while(firstSpaceBeforeN === null) {
+          if(str[index] === " "){
+            firstSpaceBeforeN = index;
+          }
+          index --;
+        }
+        result = str.substring(0, firstSpaceBeforeN) + "..."
+      } else {
+        result = str;
+      }
+      return result
+    }
+
+    let truncatedText = truncatedBody(event.body, 42)
+
+
+
     // console.log('event', event.invitees[userId])
     switch(event.inviteesObj[userId]) {
       case "invited":
@@ -79,20 +120,28 @@ class Event extends Component {
 
 
     return (
-      <Link to={pathid}>
-        <div className="eventSingle">
-          <div className={eventType}>
-            <h3>{event.title}</h3>
-            <p>{event.body}</p>
-            <div>
+      <div className="linkElement row">
+        <Link to={pathid} >
+          <div className="eventSingle">
+            <div className="col-md-10">
+              <div className={eventType}>
+                <h3>{truncatedTitle}</h3>
+                <p>{truncatedText}</p>
+              </div>
+            </div>
+
+            <div className="col-md-2 margin-top eventButtons">
               {eventType === "invited" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.declineButton}>Decline</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
               {eventType === "declined" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
               {eventType === "maybe" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.declineButton}>Decline</button></div> : ''}
               {eventType === "accepted" ? <div><button onClick={this.declineButton}>Decline</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
+              {eventType === "hosting" ? <h4>Hosting</h4> : ''}
             </div>
+
           </div>
-        </div>
-      </Link>
+        </Link>
+
+      </div>
     )
   }
 }

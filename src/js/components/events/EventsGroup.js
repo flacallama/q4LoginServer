@@ -15,7 +15,10 @@ class EventsGroup extends Component {
 
   render () {
     return (
-      <Events />
+    
+
+        <Events />
+
     )
   }
 }

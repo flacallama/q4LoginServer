@@ -26,8 +26,8 @@ class Root extends Component {
     return (
       <div className="container">
       <div className="row">
+        <h1>Welcome, {this.props.login.userData.username}</h1>
         <div className="col-md-7">
-          <h1>Welcome, {this.props.login.userData.username}</h1>
           <PendingRequests userId={this.props.login.userData.id}/>
           <FriendGroup />
         </div>

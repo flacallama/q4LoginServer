@@ -19,8 +19,21 @@ export default (state = initialState, action) => {
     case "PUT_EVENT_PENDING":
         return state;
     case "PUT_EVENT_FULFILLED":
-    // console.log("reducer: getEvents - PUT");
-        return {...state, event: action.payload.data}
+    // console.log("reducer: getEvents - PUT", action.payload.data, state.events);
+      let events = state.events
+      let event = action.payload.data
+      let theinviteeobj = event.inviteesObj
+      let updateEvents = () => {
+        for(let anEvent in events){
+          if(events[anEvent].id === event.id){
+            events[anEvent].inviteesObj = theinviteeobj
+          }
+        }
+        return events
+      }
+      // console.log('reducer getEvents- PUT, updateEvents var', updateEvents);
+      // now the single event is updated in the getEvents (w/ all events)
+        return {...state, events: updateEvents(), event: action.payload.data}
 
     case "PUT_EVENT_RSVP_PENDING":
         return state;
