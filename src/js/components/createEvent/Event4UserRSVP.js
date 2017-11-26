@@ -7,7 +7,7 @@ class Event4UserRSVP extends Component {
     let elem = this.props.elem
     let eventId = this.props.eventId
 
-    console.log(elem.eventsObj);
+ // console.log(elem.eventsObj);
     return (
       <div className="event4rsvp">
         <span>

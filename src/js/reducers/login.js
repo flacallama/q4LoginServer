@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
       case "REFRESH_PENDING":
         return state;
       case "REFRESH_FULFILLED":
-      console.log('REFRESH_FULFILLED', action.payload.data);
+   // console.log('REFRESH_FULFILLED', action.payload.data);
         return {
           ...state,
           userData: action.payload.data
@@ -38,9 +38,10 @@ export default (state = initialState, action) => {
 
 
 
-    case "LOGOUT_PENDING":
-      return state;
-    case "LOGOUT_FULFILLED":
+    // case "LOGOUT_PENDING":
+    //   return state;
+    case "LOGOUT":
+    console.log("REDUCER: LOGOUT");
       return {
         ...state,
         loggedIn: false,

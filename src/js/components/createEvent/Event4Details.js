@@ -18,10 +18,10 @@ class Event4Details extends Component {
 
   render () {
     let elem = this.props.elem;
-    console.log('elem.inviteesObj', elem.inviteesObj);
+ // console.log('elem.inviteesObj', elem.inviteesObj);
 
 
-    console.log('getFriends in Event4Details', this.props.getFriends.user);
+ // console.log('getFriends in Event4Details', this.props.getFriends.user);
 
     var allUsers = this.props.getFriends.user;
     var inviteesObj = elem.inviteesObj;

@@ -64,7 +64,7 @@ class EventCreate4 extends Component {
       // console.log('fetchedEvents', fetchedEvents);
 
       selectedEventDetails = fetchedEvents.filter(elem => {
-        console.log('elemid and eventid', elem.id, eventId);
+     // console.log('elemid and eventid', elem.id, eventId);
         if(elem.id == eventId){
           return elem
         }

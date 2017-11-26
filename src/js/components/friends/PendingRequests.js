@@ -22,7 +22,7 @@ class PendingRequests extends Component {
     let friendRequests = null;
 
     if(this.props.getFriends.friend){
-      console.log('PendingRequests: getFriends.friend', this.props.getFriends.friend.friends,   this.props.getFriends.friend.friendRequestsArr);
+   // console.log('PendingRequests: getFriends.friend', this.props.getFriends.friend.friends,   this.props.getFriends.friend.friendRequestsArr);
 
       var friendsReqArr = this.props.getFriends.friend.friendRequestsArr
 

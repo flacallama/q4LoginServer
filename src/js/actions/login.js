@@ -26,6 +26,7 @@ export const refresh = (userId) => {
 }
 
 export const logout = () => {
+  console.log('ACTION: LOGOUT');
   return {
     type: "LOGOUT"
   }

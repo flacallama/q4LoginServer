@@ -26,8 +26,8 @@ class EventShow1 extends Component {
   }
 
   render () {
-    console.log('eventShow1 elem: ', this.props.elem);
-    console.log('eventShow1 getFriends', this.props.getFriends);
+ // console.log('eventShow1 elem: ', this.props.elem);
+ // console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
     let invitedArr = [];
     let acceptedArr = [];

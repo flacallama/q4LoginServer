@@ -8,7 +8,21 @@ import { Redirect } from 'react-router'
 
 class Header extends Component {
 
+  logout = () => {
+    console.log("logout firing");
+    this.props.logoutAction()
+  }
+
   render () {
+    if (!this.props.login.loggedIn) {
+      return (
+        <Redirect to={ '/login'}/>
+      )
+    }
+
+
+
+
     let userPic = null;
     if(this.props.login.userData.picUrl){
       userPic = this.props.login.userData.picUrl
@@ -31,7 +45,7 @@ class Header extends Component {
             <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
               <ul className="dropdown-menu">
-                <li><Link to="/login">Logout</Link></li>
+                <li><Link onClick={this.logout} to="/login">Logout</Link></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li role="separator" className="divider"></li>

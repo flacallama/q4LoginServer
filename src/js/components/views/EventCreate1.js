@@ -25,13 +25,13 @@ class EventCreate1 extends Component {
 
   componentWillReceiveProps(nextProps){
     if(nextProps.getEvent.eventsByUser != this.props.getEvent.eventsByUser){
-      console.log('props changing - updatedPosts', nextProps, this.props);
+   // console.log('props changing - updatedPosts', nextProps, this.props);
       this.setState({
         updatedPosts: true
       })
     }
     if(nextProps.getEvent.event != this.props.getEvent.event){
-      console.log('props changed getEvent.event', nextProps.getEvent.event);
+   // console.log('props changed getEvent.event', nextProps.getEvent.event);
       this.setState({
         postSubmitted: true
       })

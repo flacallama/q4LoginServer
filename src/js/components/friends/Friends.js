@@ -15,7 +15,7 @@ class Friends extends Component {
 
   render () {
     if(this.props.getFriends.friend){
-    console.log('friends: getFriends.friend', this.props.getFriends.friend.friends,   this.props.getFriends.friend.friendRequestsArr);
+ // console.log('friends: getFriends.friend', this.props.getFriends.friend.friends,   this.props.getFriends.friend.friendRequestsArr);
   }
     let usersFriends = null;
     if(this.props.getFriends.friend){

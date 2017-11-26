@@ -3,7 +3,7 @@ export default (state = [], action) => {
     case "QUERY_PENDING":
       return state;
     case "QUERY_FULFILLED":
-    console.log('reducer: query', action.payload.data);
+ // console.log('reducer: query', action.payload.data);
       return [...action.payload.data]
     default:
       return state;

@@ -58,16 +58,16 @@ class EventCreate extends Component {
     }
 
     if(this.props.getFriends){
-      console.log('eventCreation', this.props.eventCreation);
+   // console.log('eventCreation', this.props.eventCreation);
       // console.log('eventCreate3', this.props.login.userData.dateFreeArr);
 
       // 1. lets start with all users
       let allUsers = this.props.getFriends.user;
-      console.log('allUsers', allUsers);
+   // console.log('allUsers', allUsers);
 
       // 2. now, here's an object with invited users as keys
       let inviteesObj = this.props.getEvent.event.inviteesObj;
-      console.log('getEvent: inviteesObj', inviteesObj)
+   // console.log('getEvent: inviteesObj', inviteesObj)
 
       // 3. here's a function for filtering out uninvited users
       var invitedUsers = []
@@ -147,7 +147,7 @@ class EventCreate extends Component {
 
     // here's the result of our first soring function
     let sortedByDateArr = sortByDate(result)
-    console.log("sortedByDateArr", sortedByDateArr);
+ // console.log("sortedByDateArr", sortedByDateArr);
 
     // LETS DISPLAY RESULTS NOW:
     var thesorteddates = sortedByDateArr.map((elem, idx) => {

@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     case "GET_FRIEND_PENDING":
       return state;
     case "GET_FRIEND_FULFILLED":
-    console.log('reducer GET_FRIEND', action.payload.data);
+ // console.log('reducer GET_FRIEND', action.payload.data);
       return  {...state, friend: action.payload.data};
 
 // IM NOT SURE THAT friendRequestsArr IS UPDATING IN
