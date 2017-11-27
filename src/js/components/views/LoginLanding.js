@@ -1,13 +1,6 @@
 import React from 'react'
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link,
-//   Redirect,
-//   withRouter
-// } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { login } from '../../actions/login';
 import LoginGroup from '../login/LoginGroup';
 
