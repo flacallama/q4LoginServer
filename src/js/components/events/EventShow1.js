@@ -29,6 +29,7 @@ class EventShow1 extends Component {
  // console.log('eventShow1 elem: ', this.props.elem);
  // console.log('eventShow1 getFriends', this.props.getFriends);
     let inviteesObj = this.props.elem.invitees;
+    console.log('eventShow1: inviteesObj', inviteesObj);
     let invitedArr = [];
     let acceptedArr = [];
     let declinedArr = [];
@@ -51,23 +52,30 @@ class EventShow1 extends Component {
       }
     }
 
+    console.log('eventShow1 Arrs', invitedArr, acceptedArr, declinedArr, maybeArr);
+
     let invitedFriends
     let acceptedFriends
     let declinedFriends
     let maybeFriends
+    let accepteesTotalCount = null
 
     if(this.state.updated){
       invitedFriends =this.props.getFriends.user.filter(elem => {
         if(invitedArr.includes(elem.id)){
+          console.log('invitee', elem);
           return elem;
         }
       }).map(el => {
       return <EventShow2 key={el.id} elem={el} status="invited" />;
       });
 
+      accepteesTotalCount = 0;
 
       acceptedFriends = this.props.getFriends.user.filter(elem => {
         if(acceptedArr.includes(elem.id)){
+          console.log('accepted', elem);
+          accepteesTotalCount ++;
           return elem;
         }
       }).map(el => {
@@ -77,6 +85,7 @@ class EventShow1 extends Component {
 
       declinedFriends = this.props.getFriends.user.filter(elem => {
         if(declinedArr.includes(elem.id)){
+          console.log('declined', elem);
           return elem;
         }
       }).map(el => {
@@ -86,12 +95,15 @@ class EventShow1 extends Component {
 
       maybeFriends = this.props.getFriends.user.filter(elem => {
         if(maybeArr.includes(elem.id)){
+          console.log('maybe', elem);
           return elem;
         }
       }).map(el => {
       return <EventShow2 key={el.id} elem={el} status="maybe" />;
       });
+
     }
+// {inviteesTotalCount} have been invited,
 
     return (
       <div>
@@ -100,6 +112,7 @@ class EventShow1 extends Component {
         <img id="friendShowImage" src={this.props.elem.picUrl}/>
         <div id="friendsOuterContainer">
           <h2 id="title">RSVP List</h2>
+          <h4> {accepteesTotalCount} have accepted</h4>
           <div className="friendsContainer">
             <div>
               {invitedFriends ? invitedFriends : "no friends have been invited"}

@@ -94,9 +94,9 @@ function matchDispatchToProps(dispatch){
   return {
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
     putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
-    friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
+    // friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
     // refreshAction: bindActionCreators(refresh, dispatch),
-    friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
+    // friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
   }
 }
 

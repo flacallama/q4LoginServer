@@ -103,7 +103,7 @@ $yellow: #fff07b;
 
 
 
-
+/*
 .selectedEvent{
   background-color: lightyellow;
   margin: 2px;
@@ -117,8 +117,14 @@ $yellow: #fff07b;
   padding: 5px;
 }
 
+*/
+
 .margin-top{
   margin-top: 5vh;
+}
+
+.margin-top-sm{
+  margin-top: 2vh;
 }
 
 .formGroup{
@@ -182,7 +188,7 @@ $yellow: #fff07b;
     overflow: hidden;
     position:relative;
     .eventSingle{
-      
+
       .eventButtons{
         padding-left: 0px;
       }
