@@ -17,8 +17,8 @@ class FriendsGroup extends Component {
   render () {
 
     return (
-      <div className="container" id="friendsOuterContainer">
-        <h2 id="title">Your Friends List</h2>
+      <div className="" id="friendsOuterContainer">
+        <h2 id="title">Invite some friends!</h2>
         {this.props.login.userData.friends ? <Friends login={this.props.login} fetchedEvents={this.props.fetchedEvents} selectedEvent={this.props.selectedEvent}/> : 'friendsgrouprenderfail'}
       </div>
     )

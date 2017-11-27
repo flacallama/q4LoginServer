@@ -51,7 +51,17 @@ class Friend extends Component {
         this.update()
       }
 
+      // var unInviteRSVP = () => {
+      //   inviteesObj[this.props.elem.id.toString()] = "uninvited";
+      //   this.props.putEventRSVPAction(curEvent[0].id, inviteesObj)
+      //   rsvpText = "Uninvited!"
+      //   this.update()
+      // }
+
     }
+
+    // THIS INDICATES THE BUG
+    // console.log('joey?', this.props.elem.username, this.props.elem.id, this.props.eventCreation.eventId, rsvpText);
 
 
     return (
@@ -67,11 +77,15 @@ class Friend extends Component {
             </div>
           </Link>
         </div>
-        {this.props.eventCreation.eventId == this.props.elem.id ? '?' : rsvpText ? rsvpText : <button onClick={inviteRSVP}>invite</button>}
+        <div className="rsvpTextBox">
+          {this.props.eventCreation.eventId == this.props.elem.id ? <h5 className="rsvpText">invited</h5> : rsvpText ? <h5 className="rsvpText">{rsvpText}</h5> : <button onClick={inviteRSVP} className="btn btn-primary" type="submit">invite</button>}
+
+        </div>
       </div>
-
-
     )
+    // THIS IS A BUG. A FEW FRIENDS RECEIVE THIS
+    // "INVITED"  (ON THE LAST LINES) BECAUSE THEY
+    // AREN'T ASSIGNED rsvpText
   }
 }
 

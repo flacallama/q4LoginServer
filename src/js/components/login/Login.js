@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from '../../actions/login';
-import LoginActive from './LoginActive';
+// import LoginActive from './LoginActive';
 import { getFriend } from '../../actions/getFriends';
 
 class Login extends Component {
@@ -14,16 +14,10 @@ class Login extends Component {
     }
   }
 
-  componentDidMount(){
-    this.props.loginAction();
-  }
-
-  // loginHandler = () => {
-  //   console.log('loginHandler triggerd');
-  //   // componentDidMount(){
-  //     this.props.getFriendAction(this.props.login.userData.id)
-  //   // }
+  // componentDidMount(){
+  //   this.props.loginAction();
   // }
+
 
 
   render () {
@@ -36,15 +30,15 @@ class Login extends Component {
           )
           e.preventDefault();
           e.target.reset();
-          // this.loginHandler();
+
         }}
 
         >
           <input className="form-control" name="username" placeholder="username" onChange={e => this.setState({username: e.target.value})}/>
           <input className="form-control" name="password" placeholder="password" onChange={e => this.setState({password: e.target.value})}/>
 
-          <div className="form-group">
-            <input type="submit" className="btn btn-primary" />
+          <div className="form-group margin-top-sm">
+            <input type="submit" className="btn btn-primary right" />
           </div>
 
         </form>

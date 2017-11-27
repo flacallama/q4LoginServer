@@ -24,6 +24,11 @@ export default (state = initialState, action) => {
           loggedIn: true,
           userData: action.payload.data[0]
         };
+      } else {
+        return {
+          loggedIn: false,
+          userData: false,
+        }
       }
 
       case "REFRESH_PENDING":

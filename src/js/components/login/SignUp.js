@@ -29,7 +29,6 @@ class SignUp extends Component {
             this.state.picUrl
           )
           e.preventDefault();
-          // this.resetState();
           e.target.reset();
         }}
 
@@ -40,8 +39,8 @@ class SignUp extends Component {
           <input className="form-control" name="picUrl" placeholder="pic url" onChange={e => this.setState({picUrl: e.target.value})}/>
 
 
-          <div className="form-group">
-            <input type="submit" className="btn btn-primary" />
+          <div className="form-group margin-top-sm ">
+            <input type="submit" className="btn btn-primary right" />
           </div>
 
         </form>
