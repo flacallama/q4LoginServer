@@ -1,8 +1,8 @@
 const initialState = {
   user: null,
   friend: null,
-  friendsReqArr: [],
-  friendsArr: [],
+  // friendsReqArr: [],
+  // friendsArr: [],
   loggedInUser: null
 }
 
