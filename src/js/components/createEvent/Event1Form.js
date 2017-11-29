@@ -18,12 +18,6 @@ class Event1Form extends Component {
   }
 
   render () {
-    // if (!this.props.login.loggedIn) {
-    //   return (
-    //     <Redirect to={ '/login'}/>
-    //   )
-    // }
-    // console.log('login info', this.props.login);
     let inviteesObj = {}
 
     inviteesObj[this.props.login.userData.id] = "hosting"

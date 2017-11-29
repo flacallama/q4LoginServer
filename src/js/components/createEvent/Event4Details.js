@@ -18,10 +18,7 @@ class Event4Details extends Component {
 
   render () {
     let elem = this.props.elem;
- // console.log('elem.inviteesObj', elem.inviteesObj);
 
-
- // console.log('getFriends in Event4Details', this.props.getFriends.user);
 
     var allUsers = this.props.getFriends.user;
     var inviteesObj = elem.inviteesObj;
@@ -117,11 +114,6 @@ class Event4Details extends Component {
     let thedeclined = theDeclinedArr.map(elem => {
       return <Event4UserRSVP elem={elem} key={elem.id} eventId={eventId}/>
     })
-
-
-
-
-    console.log('props', this.props);
 
 
     return (

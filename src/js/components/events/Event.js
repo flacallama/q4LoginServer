@@ -6,10 +6,6 @@ import { putEvent } from '../../actions/getEvent';
 
 
 class Event extends Component {
-  constructor() {
-    super();
-  }
-
 
 
   acceptButton = (e) => {

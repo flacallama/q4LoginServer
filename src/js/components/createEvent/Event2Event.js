@@ -32,11 +32,6 @@ class Event2Event extends Component {
         </Link>
       )
 
-
-
-
-
-
   }
 }
 

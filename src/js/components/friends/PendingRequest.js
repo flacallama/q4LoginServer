@@ -93,10 +93,7 @@ function mapStateToProps(state, props){
 function matchDispatchToProps(dispatch){
   return {
     putFriendRequestArrayAction: bindActionCreators(putFriendRequestArray, dispatch),
-    putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch),
-    // friendsReqArrStateAction: bindActionCreators(friendsReqArrState, dispatch),
-    // refreshAction: bindActionCreators(refresh, dispatch),
-    // friendsArrStateAction: bindActionCreators(friendsArrState, dispatch),
+    putFriendsArrayAction: bindActionCreators(putFriendsArray, dispatch)
   }
 }
 

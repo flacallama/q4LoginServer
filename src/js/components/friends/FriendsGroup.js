@@ -15,9 +15,7 @@ class FriendsGroup extends Component {
 
 
   render () {
-    // console.log('friendsGroup login', this.props.login);
-
-    // console.log(this.props.login.userData);
+    
     return (
       <div className="container col-md-12" id="friendsOuterContainer">
         <h4 id="title">Friends List</h4>

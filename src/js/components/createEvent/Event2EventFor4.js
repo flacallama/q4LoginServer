@@ -30,12 +30,6 @@ class Event2EventFor4 extends Component {
           </div>
 
       )
-
-
-
-
-
-
   }
 }
 

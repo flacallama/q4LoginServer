@@ -23,10 +23,8 @@ class Friend extends Component {
     let pathid = "/friends/" + this.props.elem.id
 
     if(this.props.eventCreation){
-      // curEvent returns the selected event inviteeObj
       let curEvent = this.props.fetchedEvents.filter(elem =>{
-        // console.log('elem', elem);
-        // console.log('eventId', this.props.eventCreation.eventId);
+
         if(parseInt(elem.id) == parseInt(this.props.eventCreation.eventId)){
           return elem
         }
@@ -51,12 +49,7 @@ class Friend extends Component {
         this.update()
       }
 
-      // var unInviteRSVP = () => {
-      //   inviteesObj[this.props.elem.id.toString()] = "uninvited";
-      //   this.props.putEventRSVPAction(curEvent[0].id, inviteesObj)
-      //   rsvpText = "Uninvited!"
-      //   this.update()
-      // }
+
 
     }
 

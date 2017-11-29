@@ -13,15 +13,6 @@ class FriendItem extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps != this.props){
-      // console.log('props', this.props.match);
-      // console.log("thispropsreceived", this.props.match.params.id);
-      // console.log("nextpropsreceived", nextProps.match.params.id);
-    }
-  }
-
-
 
   updated = () =>{
     this.setState({

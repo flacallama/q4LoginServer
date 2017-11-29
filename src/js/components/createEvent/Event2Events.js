@@ -17,8 +17,6 @@ class Event2Events
 
 
   render () {
-
-
     let myEvents;
 
     if(this.props.getEvent.eventsByUser){
@@ -35,7 +33,6 @@ class Event2Events
       })
     }
 
-    // console.log('getEvent, evenCreation', this.props.getEvent.event.title, this.props.eventCreation);
 
     // return this if somehow an event hasn't been chosen
     // in our redux createEvent.eventId

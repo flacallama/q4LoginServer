@@ -5,9 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 
 class EventHeader4 extends Component {
-  constructor() {
-    super();
-  }
+
   render () {
 
 

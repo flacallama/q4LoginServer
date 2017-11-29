@@ -28,19 +28,6 @@ class DateBox extends Component {
       });
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   // if(nextProps.getFriend != this.props.getFriend){
-  //   //   this.setState({
-  //   //     updated: true
-  //   //   })
-  //   //
-  //   // }
-  //
-  // }
-
-
-// console.log("elem DateBoxEvent", this.props.)
-
   render () {
     let pathid = "/events/" + this.props.id
 
@@ -55,18 +42,18 @@ class DateBox extends Component {
   }
 }
 
-function mapStateToProps(state, props){
-  return {
-    // login: state.login,
-    // putDate: state.putDate
-  }
-}
-
-function matchDispatchToProps(dispatch){
-  return {
-    // putDateAction: bindActionCreators(putDate, dispatch)
-
-  }
-}
+// function mapStateToProps(state, props){
+//   return {
+//     // login: state.login,
+//     // putDate: state.putDate
+//   }
+// }
+//
+// function matchDispatchToProps(dispatch){
+//   return {
+//     // putDateAction: bindActionCreators(putDate, dispatch)
+//
+//   }
+// }
 
 export default connect(null, null)(DateBox);

@@ -16,7 +16,6 @@ class EventPre extends Component {
 
   componentWillMount(){
     let eventId = this.props.elem.id;
-    // this.props.getEventAction(this.props.elem.id)
     axios.get(`http://localhost:1337/events/${eventId}`)
       .then(res => {
         const theEvent = res.data;
@@ -37,24 +36,18 @@ class EventPre extends Component {
   render () {
 
     if(!this.state.updated){
-      // console.log('EventPre: state not updated');
+
       return (
         <div>
           loading...
         </div>
       )
     }
-    // console.log('EventPre: state updated');
+
     return(
       <Event elem={this.state.theEvent} />
-
     )
-
-
-
-
   }
-
 }
 
 
