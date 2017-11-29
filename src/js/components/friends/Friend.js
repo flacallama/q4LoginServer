@@ -11,17 +11,17 @@ class Friend extends Component {
   }
 
   render () {
-    let pathid = "/friends/" + this.props.elem.id
 
+    let pathid = "/friends/" + this.props.elem.id
     return (
 
         <Link to={pathid} className="link friendBox">
 
-            <div className="friendNameBox">
+            <div className="friendNameBox center">
               {this.props.elem.username}
             </div>
 
-            <div className="friendImageBox">
+            <div className="friendImageBox center">
               <img src={this.props.elem.picUrl} className="friendImageImg"/>
             </div>
 

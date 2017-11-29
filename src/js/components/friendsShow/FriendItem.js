@@ -56,7 +56,7 @@ class FriendItem extends Component {
         arr = []
       }
       // console.log("inviteProcess friendObj.id, login", friendObj.id, this.props.login.userData.id);
-      
+
       let updatedArr = arr.concat(this.props.login.userData.id)
       this.props.putFriendRequestArrayAction(updatedArr, friendObj.id)
       this.updated()
@@ -68,12 +68,18 @@ class FriendItem extends Component {
 
     return (
 
-      <div>
-        <h2>{getFriend.friend.username}</h2>
-        <div>{isFriend ? "You are friends" : this.state.requested ? "friendship requested" : <button onClick={invite}>add friend</button>}</div>
+      <div className="row">
+        <div className="col-md-4 eventShowLeftBlock">
+          <div className="eventShowLeftContent">
+            <h2>{getFriend.friend.username}</h2>
+            <div>{isFriend ? "You are friends" : this.state.requested ? "friendship requested" : <button onClick={invite} className="btn btn-primary btn-sm">add friend</button>}</div>
+            <img id="friendShowImage" src={getFriend.friend.picUrl}/>
+          </div>
+        </div>
+        <div className="col-md-8">
 
-        <img id="friendShowImage" src={getFriend.friend.picUrl}/>
-        <FriendsGroup getFriend={getFriend}  />
+          <FriendsGroup getFriend={getFriend}  />
+        </div>
       </div>
     )
   }

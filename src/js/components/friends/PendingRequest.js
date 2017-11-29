@@ -63,9 +63,9 @@ class PendingRequestAPI extends Component {
 
     return (
       <div>
-        <Link to={pathid} className="link friendBox">
+        <Link to={pathid} className="link friendBox center">
 
-          <div className="friendNameBox">
+          <div className="friendNameBox center">
             {this.props.theFriend.username}
           </div>
 
@@ -74,8 +74,8 @@ class PendingRequestAPI extends Component {
           </div>
 
         </Link>
-        <div>
-          {this.state.accepted ? 'request accepted' : <button onClick={this.acceptFriend}>Accept Request</button>}
+        <div className="center">
+          {this.state.accepted ? 'request accepted' : <button className="btn btn-primary btn-sm center" onClick={this.acceptFriend}>Accept Request</button>}
         </div>
       </div>
     )

@@ -39,7 +39,7 @@ $yellow: #fff07b;
 }
 
 #friendsOuterContainer{
-  border: 3px solid black;
+  margin-top: 3em;
 }
 
 #title{
@@ -61,7 +61,9 @@ $yellow: #fff07b;
     width: 130px;
     display: inline-block;
     margin: 0px;
+    margin-top: 30px;
     align-content: center;
+    margin-left: 1em;
 
 
     .friendNameBox{
@@ -110,11 +112,19 @@ $yellow: #fff07b;
 
 
 
+.eventShowLeftBlock{
+  text-align: center;
+  .eventShowLeftContent{
+    display: inline-block;
+  }
+}
 
 
-
-
-
+.center{
+  text-align: center;
+  align-content: center;
+  margin: auto;
+}
 
 
 
@@ -146,6 +156,10 @@ $yellow: #fff07b;
 
 .margin-top-sm{
   margin-top: 2vh;
+}
+
+.margin-top-tiny{
+  margin-top: 1.2vh;
 }
 
 .formGroup{
@@ -242,18 +256,18 @@ $yellow: #fff07b;
 
 #eventCreationGroup{
   width: 100%;
-  .eventHeaderGroup{
-    height: 5vh;
-    background-color: #f3f3f3;
-    width: 100%;
-    display: flex;
-    .eventHeaderButton{
-      flex: 1;
-      background-color: darkgrey;
-      height: 100%;
-      margin: 2px;
-      align-items: center;
-    }
+}
+.eventHeaderGroup{
+  height: 5vh;
+  background-color: #f3f3f3;
+  width: 100%;
+  display: flex;
+  .eventHeaderButton{
+    flex: 1;
+    background-color: darkgrey;
+    height: 100%;
+    margin: 2px;
+    align-items: center;
   }
 }
 
@@ -272,8 +286,10 @@ $yellow: #fff07b;
 
 
 
+
 .event4rsvp{
   display: inline-block;
+  margin: 1.5em;
 }
 
 

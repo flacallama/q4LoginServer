@@ -8,14 +8,10 @@ class EventsGroup extends Component {
     super();
   }
 
-  // <Switch>
-  //   <Route exact path='/events' component={Events}/>
-  //   <Route path='/event/:id' component={Event}/>
-  // </Switch>
 
   render () {
     return (
-    
+
 
         <Events />
 

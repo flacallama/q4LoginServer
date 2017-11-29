@@ -35,13 +35,14 @@ class Event2Events
       })
     }
 
-
+    // console.log('getEvent, evenCreation', this.props.getEvent.event.title, this.props.eventCreation);
 
     // return this if somehow an event hasn't been chosen
     // in our redux createEvent.eventId
     if(!this.props.eventCreation.eventId){
       return (
         <div className="container">
+
           <FriendsGroup fetchedEvents={fetchedEvents} />
           <div className="row margin-top">
             <div className="col-md-12">
@@ -55,6 +56,7 @@ class Event2Events
     } else {
       return (
         <div className="container">
+          <h2>{this.props.getEvent.event.title ? this.props.getEvent.event.title : ''}</h2>
           <FriendsGroup fetchedEvents={fetchedEvents} />
         </div>
       )

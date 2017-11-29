@@ -36,7 +36,7 @@ componentWillMount(){
 
         <Link to={pathid} className="link friendBox">
 
-          <div className="friendNameBox">
+          <div className="friendNameBox center">
             {this.state.theFriend.username}
           </div>
 

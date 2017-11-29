@@ -59,7 +59,7 @@ class FriendsShow extends Component {
         </div>
       )
     } else {
-      return <div>asdf</div>
+      return <div>loading...</div>
     }
   }
 }

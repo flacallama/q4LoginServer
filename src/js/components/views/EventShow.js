@@ -29,7 +29,7 @@ class EventShow extends Component {
     let getEvent = this.props.getEvent.event
 
     return (
-    <div>
+    <div className="">
       {getEvent ? <EventShow1 elem={getEvent} />: "no event yet in eventShow"}
     </div>
     )

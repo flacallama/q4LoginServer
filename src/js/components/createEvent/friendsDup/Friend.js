@@ -68,7 +68,7 @@ class Friend extends Component {
       <div>
         <div className="link friendBox">
           <Link to={pathid}>
-            <div className="friendNameBox">
+            <div className="friendNameBox center">
               {this.props.elem.username}
             </div>
 

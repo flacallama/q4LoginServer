@@ -44,7 +44,7 @@ class Event4Details extends Component {
       return invitedUsers
     }
     let theInvitedArr = filterOutAllButInvited(allUsers, inviteesObj)
-
+    console.log('theInvitedArr', theInvitedArr);
     let theinvited = theInvitedArr.map(elem => {
       return <Event4UserRSVP elem={elem} key={elem.id} eventId={eventId}/>
     })
@@ -66,7 +66,7 @@ class Event4Details extends Component {
       return invitedUsers
     }
     let theMaybeArr = filterOutAllButMaybe(allUsers, inviteesObj)
-
+    console.log('theMaybeArr', theMaybeArr);
     let themaybe = theMaybeArr.map(elem => {
       return <Event4UserRSVP elem={elem} key={elem.id} eventId={eventId}/>
     })
@@ -90,7 +90,7 @@ class Event4Details extends Component {
       return invitedUsers
     }
     let theAcceptedArr = filterOutAllButAccepted(allUsers, inviteesObj)
-
+    console.log('theAcceptedArr', theAcceptedArr);
     let theaccepted = theAcceptedArr.map(elem => {
       return <Event4UserRSVP elem={elem} key={elem.id} eventId={eventId}/>
     })
@@ -113,7 +113,7 @@ class Event4Details extends Component {
       return invitedUsers
     }
     let theDeclinedArr = filterOutAllButDeclined(allUsers, inviteesObj)
-
+    console.log('theDeclinedArr', theDeclinedArr);
     let thedeclined = theDeclinedArr.map(elem => {
       return <Event4UserRSVP elem={elem} key={elem.id} eventId={eventId}/>
     })

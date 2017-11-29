@@ -76,7 +76,7 @@ class EventCreate1 extends Component {
         <div className="container">
           <div className="row margin-top">
             <EventHeader />
-            <div className="col-md-5 col-md-offset-1">
+            <div className="col-md-5 col-md-offset-1 margin-top">
               <h4>Make a new event</h4>
               <Event1Form />
             </div>
@@ -86,9 +86,7 @@ class EventCreate1 extends Component {
                 <div className="col-md-12">
                   <h6>Select an event to manage invitees</h6>
                   {this.props.getEvent.eventsByUser.eventData ? myEvents : "You have no events"}
-                  <div className="margin-top">
-                    {this.props.eventCreation.eventId ? <Link to={'/event/create/2'}>Invite Friends</Link> : 'Select an event'}
-                  </div>
+
 
 
                 </div>

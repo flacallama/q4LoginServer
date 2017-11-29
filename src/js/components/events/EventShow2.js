@@ -11,7 +11,7 @@ class EventShow2 extends Component {
     return (
       <Link to={pathid}>
         <div className="friendBox" >
-          <div className="friendNameBox">
+          <div className="friendNameBox center">
             <h3>{this.props.elem.username}</h3>
 
           </div>
@@ -19,6 +19,7 @@ class EventShow2 extends Component {
           <div className="friendImageBox">
             <img src={this.props.elem.picUrl} className="friendImageImg"/>
           </div>
+
           <div className="center"><p>{this.props.status}</p></div>
         </div>
       </Link>

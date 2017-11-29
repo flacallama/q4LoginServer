@@ -89,7 +89,7 @@ class SearchGroup extends Component {
 
     // console.log('query', this.props.query);
     return (
-      <div className="margin-top-sm">
+      <div className="margin-top-tiny">
         <form
           onSubmit={e => { this.getQuery(
             this.state.query

@@ -9,14 +9,14 @@ class Event4UserRSVP extends Component {
 
  // console.log(elem.eventsObj);
     return (
-      <div className="event4rsvp">
-        <span>
+      <span className="event4rsvp">
+        <div>
           <img className="userLoggedInPic" src={elem.picUrl} />
-        </span>
-        <span>
+        </div>
+        <div className="center">
           {elem.username}
-        </span>
-      </div>
+        </div>
+      </span>
     )
   }
 }
