@@ -75,16 +75,16 @@ class EventCreate1 extends Component {
       return (
         <div className="container margin-top">
           <EventHeader1 />
-          <div className="row ">
+          <div className="row margin-top">
             <div className="col-md-5 col-md-offset-1 margin-top">
               <h4>Make a new event</h4>
               <Event1Form />
             </div>
-            <div className="col-md-6 ">
+            <div className="col-md-6 margin-top">
               <h4>Manage a created event</h4>
               <div className="row margin-top">
                 <div className="col-md-12">
-                  <h6>Select an event to manage invitees</h6>
+                  <h5>Select an event to manage invitees</h5>
                   {this.props.getEvent.eventsByUser.eventData ? myEvents : "You have no events"}
 
 

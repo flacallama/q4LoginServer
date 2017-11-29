@@ -94,11 +94,11 @@ class EventCreate4 extends Component {
       return (
         <div className="container margin-top">
           <EventHeader4 />
-          <div className="row">
-            <div className="col-md-6 ">
-              <h4>Monitor a created event</h4>
+          <div className="row margin-top">
+
               <div className="row margin-top">
-                <div className="col-md-6">
+                <div className="col-md-4 col-md-offset-2">
+                  <h4>Select an event to monitor</h4>
                   {this.props.getEvent.eventsByUser.eventData ? myEvents : "You have no events"}
                 </div>
                 <div className="col-md-6">
@@ -106,14 +106,13 @@ class EventCreate4 extends Component {
                   selectedEventDetails : 'select an event'}
                 </div>
               </div>
-            </div>
 
           </div>
 
         </div>
       )
     } else {
-      return <div>notupdated eventcreate1</div>
+      return <div>notupdated eventcreate4</div>
     }
   }
 }

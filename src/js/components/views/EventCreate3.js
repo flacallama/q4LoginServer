@@ -160,16 +160,21 @@ class EventCreate3 extends Component {
 
     }
 
+    let eventId = this.props.eventCreation.eventId
+    // console.log('eventId', eventId);
+    let selectedEventDate=  this.props.login.userData.eventObj[eventId.toString()]
+    // console.log('selectedEventDate', selectedEventDate);
 
-
-
+    console.log('props', this.props);
 
     return (
       <div className="container margin-top">
         <EventHeader3 />
         <div id="event3Container" className="row ">
-          <div className='col-md-4'>
-            <button className="btn btn-primary right" onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
+          <div className='col-md-4 '>
+            <h3 className="right" id="title">Event: {this.props.getEvent.event.title}</h3>
+            <h3 className="right" id="title">Date: {selectedEventDate.substring(5,10)}</h3>
+            <button className="btn btn-primary right margin-top" onClick={this.clickHandler}>{this.state.viewByRSVP ? "sort by date" : "sort by availability"}</button>
           </div>
           <div className="col-md-7 col-md-offset-1">
             <div className="">

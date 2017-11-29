@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 // import { withRouter } from 'react-router-dom';
 import FriendGroup from '../friends/FriendsGroup';
-import EventsGroup from '../events/EventsGroup';
+import Events from '../events/Events';
 import PendingRequests from '../friends/PendingRequests';
 
 // import { bindActionCreators } from 'redux';
@@ -33,7 +33,7 @@ class Root extends Component {
         </div>
 
         <div className="col-md-5">
-          <EventsGroup />
+          <Events />
         </div>
       </div>
       </div>

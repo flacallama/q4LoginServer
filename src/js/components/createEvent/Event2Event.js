@@ -25,7 +25,8 @@ class Event2Event extends Component {
       return (
         <Link to={'/event/create/2'}>
           <div onClick={handleClick} className={this.props.event.id == this.props.eventCreation.eventId ? "selectedEvent" : "unSelectedEvent"}>
-            {this.props.event.title}
+            <span className="glyphicon glyphicon-plus-sign" aria-hidden="true">
+            </span>{" " + this.props.event.title}
 
           </div>
         </Link>

@@ -11,6 +11,7 @@ $limeGreen: #33cc66;
 $purple: #cda7d3;
 $brown: #a29276;
 $yellow: #fff07b;
+$darkerBrown: #7C6E54;
 
 .userLoggedInPic{
   height: 50px;
@@ -134,7 +135,7 @@ $yellow: #fff07b;
 
 
 
-/*
+
 .selectedEvent{
   background-color: lightyellow;
   margin: 2px;
@@ -148,7 +149,7 @@ $yellow: #fff07b;
   padding: 5px;
 }
 
-*/
+
 
 .margin-top{
   margin-top: 5vh;
@@ -316,13 +317,40 @@ $yellow: #fff07b;
             box-shadow: inset 0px 0px 4px #ccc;
   }
   .eventHeaderButton:hover{
+    text-decoration: none;
     background: #f3f3f3;
     outline: none;
     -webkit-box-shadow: inset 0px 0px 4px #ccc;
        -moz-box-shadow: inset 0px 0px 4px #ccc;
             box-shadow: inset 0px 0px 4px #ccc;
   }
+  #selectedButton{
+    background: $limeGreen;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 1px 1px 2px #ccc;
+       -moz-box-shadow: 1px 1px 2px #ccc;
+            box-shadow: 1px 1px 2px #ccc;
+    padding: 10px 30px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  #selectedButton:focus{
+    background: $pastelGreen;
+    outline: none;
+    -webkit-box-shadow: inset 0px 0px 4px #ccc;
+       -moz-box-shadow: inset 0px 0px 4px #ccc;
+            box-shadow: inset 0px 0px 4px #ccc;
+  }
+  #selectedButton:hover{
+    background: $pastelGreen;
+    text-decoration: none;
+    outline: none;
+    -webkit-box-shadow: inset 0px 0px 4px #ccc;
+       -moz-box-shadow: inset 0px 0px 4px #ccc;
+            box-shadow: inset 0px 0px 4px #ccc;
+  }
   .selectedText{
+    margin-top: -5px;
     font-weight: bold;
     font-variant: small-caps;
     color: #555555;

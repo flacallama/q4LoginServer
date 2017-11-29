@@ -14,18 +14,18 @@ class EventHeader1 extends Component {
       return (
         <div className="container">
           <div className="eventHeaderGroup">
-            <Link to='/event/create/1' className="eventHeaderButton center">
+            <Link to='/event/create/1' id="selectedButton" className="eventHeaderButton center">
               <p className="selectedText">Create New Event</p>
             </Link>
             <div className="eventHeaderButtonDead center">
               <p className="eventHeaderButtonTextDead">Invite Friends</p>
             </div>
-            <Link to='/event/create/3' className="eventHeaderButtonDead center">
+            <div className="eventHeaderButtonDead center">
               <p className="eventHeaderButtonTextDead">Select Date</p>
-            </Link>
-            <Link to='/event/create/4' className="eventHeaderButtonDead center">
+            </div>
+            <div className="eventHeaderButtonDead center">
               <p className="eventHeaderButtonTextDead">Monitor Event</p>
-            </Link>
+            </div>
 
           </div>
         </div>

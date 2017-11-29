@@ -121,23 +121,23 @@ class Event4Details extends Component {
 
 
 
-
+    console.log('props', this.props);
 
 
     return (
-      <div>
+      <div className={this.props.elem.id == this.props.eventCreation.eventId ? "selectedEvent" : "unSelectedEvent"}>
 
-      <h4>{elem.title}</h4>
-      <h6>{elem.body}</h6>
+        <h4>{elem.title}</h4>
+        <h6>{elem.body}</h6>
 
-      {theInvitedArr.length > 0 ? <h4>Invited</h4> : ''}
-      <div>{theinvited}</div>
-      {theAcceptedArr.length > 0 ? <h4>Accepted</h4> : ''}
-      <div>{theaccepted}</div>
-      {theMaybeArr.length > 0 ? <h4>Maybe</h4> : ''}
-      <div>{themaybe}</div>
-      {theDeclinedArr.length > 0 ? <h4>Declined</h4> : ''}
-      <div>{thedeclined}</div>
+        {theInvitedArr.length > 0 ? <h4>Invited</h4> : ''}
+        <div>{theinvited}</div>
+        {theAcceptedArr.length > 0 ? <h4>Accepted</h4> : ''}
+        <div>{theaccepted}</div>
+        {theMaybeArr.length > 0 ? <h4>Maybe</h4> : ''}
+        <div>{themaybe}</div>
+        {theDeclinedArr.length > 0 ? <h4>Declined</h4> : ''}
+        <div>{thedeclined}</div>
       </div>
     )
   }

@@ -54,6 +54,24 @@ export default (state = initialState, action) => {
     // console.log("reducer: putEventStatusInvited - PUT", action.payload.data);
         return {...state, event: action.payload.data}
 
+        // let events = state.events
+        // let event = action.payload.data
+        // let theinviteeobj = event.inviteesObj
+        // let updateEvents = () => {
+        //   for(let anEvent in events){
+        //     if(events[anEvent].id === event.id){
+        //       events[anEvent].inviteesObj = theinviteeobj
+        //     }
+        //   }
+        //   return events
+        // }
+        // // console.log('reducer getEvents- PUT, updateEvents var', updateEvents);
+        // // now the single event is updated in the getEvents (w/ all events)
+        //   return {...state, events: updateEvents(), event: action.payload.data}
+
+
+
+
     case "FIND_EVENT_BY_CREATOR_ID_PENDING":
       return state;
     case "FIND_EVENT_BY_CREATOR_ID_FULFILLED":
