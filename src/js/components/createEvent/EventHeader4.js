@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 
-class EventHeader extends Component {
+class EventHeader4 extends Component {
   constructor() {
     super();
   }
@@ -46,4 +46,4 @@ function mapStateToProps(state, props){
 //   }
 // }
 
-export default connect(mapStateToProps, null)(EventHeader);
+export default connect(mapStateToProps, null)(EventHeader4);

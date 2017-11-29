@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
-import EventHeader from '../createEvent/EventHeader'
+import EventHeader3 from '../createEvent/EventHeader3'
 import { getFriends } from '../../actions/getFriends';
 import Event3Events from '../createEvent/Event3Events';
 import moment from 'moment';
@@ -166,10 +166,12 @@ class EventCreate extends Component {
 
     return (
       <div className="container">
-        <EventHeader />
-        <button onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
-        {this.state.viewByRSVP ? '' : thesorteddates}
-        {this.state.viewByRSVP ? thesortedinviteesarr : ''}
+        <div id="eventCreationGroup" className="row margin-top">
+          <EventHeader3 />
+          <button onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
+          {this.state.viewByRSVP ? '' : thesorteddates}
+          {this.state.viewByRSVP ? thesortedinviteesarr : ''}
+        </div>
       </div>
     )
   }

@@ -56,7 +56,7 @@ class Event2Events
     } else {
       return (
         <div className="container">
-          <h2>{this.props.getEvent.event.title ? this.props.getEvent.event.title : ''}</h2>
+
           <FriendsGroup fetchedEvents={fetchedEvents} />
         </div>
       )

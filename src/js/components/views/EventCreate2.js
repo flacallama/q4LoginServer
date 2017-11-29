@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 // import { bindActionCreators } from 'redux';
-import EventHeader from '../createEvent/EventHeader'
+import EventHeader2 from '../createEvent/EventHeader2'
 
 import Event2Events from '../createEvent/Event2Events'
 
@@ -23,7 +23,7 @@ class EventCreate2 extends Component {
       <div className="container">
         <div id="eventCreationGroup" className="row margin-top">
 
-          <EventHeader />
+          <EventHeader2 />
 
           <Event2Events />
         </div>

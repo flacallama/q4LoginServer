@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 // import { bindActionCreators } from 'redux';
-import EventHeader from '../createEvent/EventHeader';
+import EventHeader1 from '../createEvent/EventHeader1';
 import Event1Form from '../createEvent/Event1Form';
 import { bindActionCreators } from 'redux';
 // import { createEvent } from '../../actions/getEvent';
@@ -75,7 +75,7 @@ class EventCreate1 extends Component {
       return (
         <div className="container">
           <div className="row margin-top">
-            <EventHeader />
+            <EventHeader1 />
             <div className="col-md-5 col-md-offset-1 margin-top">
               <h4>Make a new event</h4>
               <Event1Form />
