@@ -120,25 +120,25 @@ class Event extends Component {
 
 
     return (
-      <div className="linkElement row">
+      <div className="linkElement">
         <Link to={pathid} >
-          <div className="eventSingle">
-            <div className="col-md-10">
+
+            <div className="col-md-10 eventText">
               <div className={eventType}>
-                <h3>{truncatedTitle}</h3>
+                <h3 className="title">{truncatedTitle}</h3>
                 <p>{truncatedText}</p>
               </div>
             </div>
 
             <div className="col-md-2 margin-top eventButtons">
-              {eventType === "invited" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.declineButton}>Decline</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
-              {eventType === "declined" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
-              {eventType === "maybe" ? <div><button onClick={this.acceptButton}>Accept</button><button onClick={this.declineButton}>Decline</button></div> : ''}
-              {eventType === "accepted" ? <div><button onClick={this.declineButton}>Decline</button><button onClick={this.maybeButton}>Maybe</button></div> : ''}
-              {eventType === "hosting" ? <h4>Hosting</h4> : ''}
+              {eventType === "invited" ? <div><button type="button" className="btn btn-primary btn-xs" onClick={this.acceptButton}>Accept</button><button type="button" className="btn btn-primary btn-xs margin-top-sm" onClick={this.declineButton}>Decline</button><button type="button" className="btn btn-primary btn-xs margin-top-sm" onClick={this.maybeButton}>Maybe</button></div> : ''}
+              {eventType === "declined" ? <div><button type="button" className="btn btn-primary btn-xs" onClick={this.acceptButton}>Accept</button><button type="button" className="btn btn-primary btn-xs margin-top-sm" onClick={this.maybeButton}>Maybe</button></div> : ''}
+              {eventType === "maybe" ? <div><button type="button" className="btn btn-primary btn-xs" onClick={this.acceptButton}>Accept</button><button type="button" className="btn btn-primary btn-xs margin-top-sm" onClick={this.declineButton}>Decline</button></div> : ''}
+              {eventType === "accepted" ? <div><button type="button" className="btn btn-primary btn-xs" onClick={this.declineButton}>Decline</button><button type="button" className="btn btn-primary btn-xs margin-top-sm" onClick={this.maybeButton}>Maybe</button></div> : ''}
+              {eventType === "hosting" ? <h4 id="hosting">Hosting</h4> : ''}
             </div>
 
-          </div>
+
         </Link>
 
       </div>

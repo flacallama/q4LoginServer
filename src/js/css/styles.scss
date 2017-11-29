@@ -219,15 +219,28 @@ $darkerBrown: #7C6E54;
 
 .eventsGroup{
   background-color: #f3f3f3;
-
+  padding-left: .5em;
+  padding-right: .5em;
+  .linkElement:hover{
+    background-color: rgba(0, 0, 0, .1);
+  }
   .linkElement{
     max-height: 100px;
     overflow: hidden;
-    position:relative;
-    .eventSingle{
 
-      .eventButtons{
-        padding-left: 0px;
+
+
+      .eventButtons, .eventText{
+        padding: 0px;
+        .title{
+          font-variant: small-caps;
+          font-weight: 600;
+        }
+
+      }
+      #hosting{
+        font-variant:small-caps;
+        font-weight: 500;
       }
       .accepted{
         border-left: 5px solid $limeGreen;
@@ -245,7 +258,7 @@ $darkerBrown: #7C6E54;
         border-left: 5px solid yellow;
       }
     }
-  }
+
 }
 
 

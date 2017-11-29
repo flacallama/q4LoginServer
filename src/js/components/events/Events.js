@@ -87,13 +87,17 @@ class Events extends Component {
 
     return (
       <div className="eventsGroup">
-    
-        <h2 id="title" >Events List</h2>
-        {filteredEventsHosting}
-        {filteredEventsAccepted}
-        {filteredEventsInvited}
-        {filteredEventsMaybe}
-        {filteredEventsDeclined}
+        <div className="">
+          <div className="">
+            <h2 id="title" >Events List</h2>
+            {filteredEventsHosting}
+            {filteredEventsAccepted}
+            {filteredEventsInvited}
+            {filteredEventsMaybe}
+            {filteredEventsDeclined}
+
+          </div>
+        </div>
       </div>
     )
   }
