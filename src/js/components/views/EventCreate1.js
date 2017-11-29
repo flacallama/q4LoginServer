@@ -73,9 +73,9 @@ class EventCreate1 extends Component {
 
     if(this.state.updatedPosts){
       return (
-        <div className="container">
-          <div className="row margin-top">
-            <EventHeader1 />
+        <div className="container margin-top">
+          <EventHeader1 />
+          <div className="row ">
             <div className="col-md-5 col-md-offset-1 margin-top">
               <h4>Make a new event</h4>
               <Event1Form />

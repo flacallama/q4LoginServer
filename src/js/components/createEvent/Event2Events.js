@@ -46,7 +46,7 @@ class Event2Events
           <FriendsGroup fetchedEvents={fetchedEvents} />
           <div className="row margin-top">
             <div className="col-md-12">
-              <h6>Select an event to manage invitees</h6>
+              <h4>Select one of your events to manage invitees</h4>
               {this.props.findEventByCreatorId.eventData ? myEvents : "You have no events"}
             </div>
           </div>

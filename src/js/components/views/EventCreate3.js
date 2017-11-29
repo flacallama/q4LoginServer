@@ -7,11 +7,11 @@ import { getFriends } from '../../actions/getFriends';
 import Event3Events from '../createEvent/Event3Events';
 import moment from 'moment';
 
-class EventCreate extends Component {
+class EventCreate3 extends Component {
   constructor() {
     super();
     this.state = {
-      viewByRSVP: false
+      viewByRSVP: true
     }
   }
   componentWillMount(){
@@ -165,12 +165,18 @@ class EventCreate extends Component {
 
 
     return (
-      <div className="container">
-        <div id="eventCreationGroup" className="row margin-top">
-          <EventHeader3 />
-          <button onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
-          {this.state.viewByRSVP ? '' : thesorteddates}
-          {this.state.viewByRSVP ? thesortedinviteesarr : ''}
+      <div className="container margin-top">
+        <EventHeader3 />
+        <div id="event3Container" className="row ">
+          <div className='col-md-4'>
+            <button className="btn btn-primary right" onClick={this.clickHandler}>{this.state.viewByRSVP ? "view by date" : "view by availability"}</button>
+          </div>
+          <div className="col-md-7 col-md-offset-1">
+            <div className="">
+              {this.state.viewByRSVP ? '' : thesorteddates}
+              {this.state.viewByRSVP ? thesortedinviteesarr : ''}
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -192,4 +198,4 @@ function matchDispatchToProps(dispatch){
   }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(EventCreate);
+export default connect(mapStateToProps, matchDispatchToProps)(EventCreate3);

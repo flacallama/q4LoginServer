@@ -24,7 +24,7 @@ class EventHeader4 extends Component {
               <p className="eventHeaderButtonText">Select Date</p>
             </Link>
             <Link to='/event/create/4' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Monitor Event</p>
+              <p className="selectedText">Monitor Event</p>
             </Link>
 
           </div>

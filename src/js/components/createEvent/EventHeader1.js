@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 
-class EventHeader extends Component {
+class EventHeader1 extends Component {
   constructor() {
     super();
   }
@@ -15,16 +15,16 @@ class EventHeader extends Component {
         <div className="container">
           <div className="eventHeaderGroup">
             <Link to='/event/create/1' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Create New Event</p>
+              <p className="selectedText">Create New Event</p>
             </Link>
-            <Link to='/event/create/2' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Invite Friends</p>
+            <div className="eventHeaderButtonDead center">
+              <p className="eventHeaderButtonTextDead">Invite Friends</p>
+            </div>
+            <Link to='/event/create/3' className="eventHeaderButtonDead center">
+              <p className="eventHeaderButtonTextDead">Select Date</p>
             </Link>
-            <Link to='/event/create/3' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Select Date</p>
-            </Link>
-            <Link to='/event/create/4' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Monitor Event</p>
+            <Link to='/event/create/4' className="eventHeaderButtonDead center">
+              <p className="eventHeaderButtonTextDead">Monitor Event</p>
             </Link>
 
           </div>
@@ -46,4 +46,4 @@ function mapStateToProps(state, props){
 //   }
 // }
 
-export default connect(mapStateToProps, null)(EventHeader);
+export default connect(mapStateToProps, null)(EventHeader1);

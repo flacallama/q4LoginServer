@@ -20,11 +20,9 @@ class EventCreate2 extends Component {
 
 
     return (
-      <div className="container">
-        <div id="eventCreationGroup" className="row margin-top">
-
-          <EventHeader2 />
-
+      <div className="container  margin-top">
+        <EventHeader2 />
+        <div id="event2Container" className="row">
           <Event2Events />
         </div>
       </div>

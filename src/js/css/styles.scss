@@ -254,16 +254,43 @@ $yellow: #fff07b;
 
 
 
-#eventCreationGroup{
+#event2Container{
   width: 100%;
 }
+
+#event3Container{
+  width: 100%;
+  margin-top: 3em;
+}
+
+.friendFreeItem{
+  background: #f3f3f3;
+  margin: 1px;
+  font-family: helvetica;
+  border: 1px solid #ccc;
+}
+
+.friendFreeItem:focus {
+  background: #e0e0e0;
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 4px #ccc;
+     -moz-box-shadow: inset 0px 0px 4px #ccc;
+          box-shadow: inset 0px 0px 4px #ccc;
+}
+.friendFreeItem:hover{
+  background: #e0e0e0;
+  border: 1px solid f3f3f3;
+}
+
+
+
 .eventHeaderGroup{
   height: 5vh;
   background-color: #f3f3f3;
   width: 100%;
   display: flex;
 
-  .eventHeaderButton{
+  .eventHeaderButton, .eventHeaderButtonDead{
     flex: 1;
     height: 2.5em;
     margin: 2px;
@@ -275,19 +302,41 @@ $yellow: #fff07b;
     padding: 10px 30px;
     border-radius: 2px;
     cursor: pointer;
-
-    .eventHeaderButtonText{
+    .eventHeaderButtonText, .eventHeaderButtonTextDead{
       font-weight: bold;
       font-variant: small-caps;
       color: darkgrey;
     }
   }
   .eventHeaderButton:focus {
-  background: #e0e0e0;
-  outline: none;
-  -webkit-box-shadow: inset 0px 0px 4px #ccc;
-     -moz-box-shadow: inset 0px 0px 4px #ccc;
-          box-shadow: inset 0px 0px 4px #ccc;
+    background: #e0e0e0;
+    outline: none;
+    -webkit-box-shadow: inset 0px 0px 4px #ccc;
+       -moz-box-shadow: inset 0px 0px 4px #ccc;
+            box-shadow: inset 0px 0px 4px #ccc;
+  }
+  .eventHeaderButton:hover{
+    background: #f3f3f3;
+    outline: none;
+    -webkit-box-shadow: inset 0px 0px 4px #ccc;
+       -moz-box-shadow: inset 0px 0px 4px #ccc;
+            box-shadow: inset 0px 0px 4px #ccc;
+  }
+  .selectedText{
+    font-weight: bold;
+    font-variant: small-caps;
+    color: #555555;
+    font-size: 1.2em;
+  }
+  .eventHeaderButtonDead{
+    background: lightgrey;
+    -webkit-box-shadow: 0px 0px 21px #ccc;
+       -moz-box-shadow: 0px 1px 21px #ccc;
+            box-shadow: 0px 0px 21px #ccc;
+    .eventHeaderButtonTextDead{
+      color: transparent;
+      text-shadow: 0 0 2px #000;
+    }
   }
 }
 

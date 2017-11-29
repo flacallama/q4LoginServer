@@ -92,9 +92,9 @@ class EventCreate4 extends Component {
 
     if(this.state.updatedPosts){
       return (
-        <div className="container">
-          <div className="row margin-top">
-            <EventHeader4 />
+        <div className="container margin-top">
+          <EventHeader4 />
+          <div className="row">
             <div className="col-md-6 ">
               <h4>Monitor a created event</h4>
               <div className="row margin-top">

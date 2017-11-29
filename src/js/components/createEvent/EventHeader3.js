@@ -21,7 +21,7 @@ class EventHeader3 extends Component {
               <p className="eventHeaderButtonText">Invite Friends</p>
             </Link>
             <Link to='/event/create/3' className="eventHeaderButton center">
-              <p className="eventHeaderButtonText">Select Date</p>
+              <p className="selectedText">Select Date</p>
             </Link>
             <Link to='/event/create/4' className="eventHeaderButton center">
               <p className="eventHeaderButtonText">Monitor Event</p>

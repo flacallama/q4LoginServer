@@ -62,13 +62,19 @@ class Event3Events extends Component {
 
     // render out all of the invitees names; they're
     // in an array at element [1]
-    let theinvitees = this.props.elem[1].map((person, i)=>{
-       return <span key={i}> {i + 1}: {person}</span>
+
+    let trimmedInviteesArr = this.props.elem[1].slice(0, 6)
+    while(trimmedInviteesArr.length < 5){
+      trimmedInviteesArr.push('-')
+    }
+
+    let theinvitees = trimmedInviteesArr.map((person, i)=>{
+       return <div  className="col-md-2 center" key={i}> {person}</div>
     })
 
     return (
-      <div>
-        <span onClick={this.inviteTheUsers}>{this.props.elem[0]} :  </span> {theinvitees}
+      <div className="friendFreeItem row"  onClick={this.inviteTheUsers}>
+        <div className="col-md-2 center">{this.props.elem[0].substring(5,11)}  </div> {theinvitees}
 
       </div>
     )
