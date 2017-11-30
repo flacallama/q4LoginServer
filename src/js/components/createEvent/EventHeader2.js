@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 
 class EventHeader2 extends Component {
 

@@ -25,9 +25,12 @@ class Friend extends Component {
     if(this.props.eventCreation){
       let curEvent = this.props.fetchedEvents.filter(elem =>{
 
-        if(parseInt(elem.id) == parseInt(this.props.eventCreation.eventId)){
+        if(elem.id == this.props.eventCreation.eventId){
           return elem
         }
+        // if(parseInt(elem.id) == parseInt(this.props.eventCreation.eventId)){
+        //   return elem
+        // }
       })
 
       // this drills down to the inviteesObj

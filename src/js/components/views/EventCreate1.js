@@ -5,7 +5,6 @@ import { Redirect, Link } from 'react-router-dom';
 import EventHeader1 from '../createEvent/EventHeader1';
 import Event1Form from '../createEvent/Event1Form';
 import { bindActionCreators } from 'redux';
-// import { createEvent } from '../../actions/getEvent';
 import { findEventByCreatorId } from '../../actions/getEvents';
 import Event2Event from '../createEvent/Event2Event';
 
@@ -103,8 +102,8 @@ function mapStateToProps(state, props){
   return {
     login: state.login,
     getEvent: state.getEvent,
-    // findEventByCreatorId: state.findEventByCreatorId,
-    eventCreation: state.eventCreation
+    eventCreation: state.eventCreation,
+    getFriends: state.getFriends
   }
 }
 

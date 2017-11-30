@@ -54,7 +54,7 @@ $darkerBrown: #7C6E54;
 .friendsContainer{
   margin:0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   .friendBox{
     flex: 1;

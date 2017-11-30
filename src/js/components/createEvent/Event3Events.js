@@ -48,6 +48,7 @@ class Event3Events extends Component {
         <Redirect to={ '/event/create/4'}/>
       )
     }
+    
     // shit we don't have a userId for the PUT request.
     // lets loop thru the users to find it.
     let invitedUsersIdArr = [];

@@ -17,11 +17,7 @@ class EventCreate extends Component {
   }
 
   render () {
-    // if (!this.props.login.loggedIn) {
-    //   return (
-    //     <Redirect to={ '/login'}/>
-    //   )
-    // }
+
 
 
     return (

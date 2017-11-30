@@ -74,10 +74,13 @@ class EventCreate3 extends Component {
       function filterOutUninvited(allArr, invitedObj){
         var invitedArr = [];
         for(let invitee in invitedObj){
+          console.log('eventCreate3, invitee', invitee);
           invitedArr.push(invitee)
         }
         allUsers.filter(elem => {
-          if(invitedArr.includes(elem.id.toString())){
+          console.log('eventCreate3 elem', elem);
+          // if(invitedArr.includes(elem.id.toString())){
+          if(invitedArr.includes(elem.id)){
             invitedUsers.push(elem)
           }
 
@@ -145,7 +148,7 @@ class EventCreate3 extends Component {
     // here's the result of the second sorting function
     let sortedByInviteesLengthArr = sortByInviteesLength(result)
 
-    // here's the result of our first soring function
+    // here's the result of our first sorting function
     let sortedByDateArr = sortByDate(result)
  // console.log("sortedByDateArr", sortedByDateArr);
 
@@ -163,10 +166,11 @@ class EventCreate3 extends Component {
     console.log('eventId', eventId);
     console.log('this.props.login', this.props.login);
     console.log('eventObj', this.props.login.userData.eventObj);
-    let selectedEventDate=  this.props.login.userData.eventObj[eventId]
-    console.log('selectedEventDate', selectedEventDate);
+    // let selectedEventDate=  this.props.login.userData.eventObj[eventId]
+    // console.log('EventCreate3, selectedEventDate', selectedEventDate);
+    // <h3 className="right" id="title">Date: {selectedEventDate.substring(5,10)}</h3>
 
-    console.log('props', this.props);
+    console.log('EventCreate3, props', this.props);
 
     return (
       <div className="container margin-top">
@@ -174,7 +178,6 @@ class EventCreate3 extends Component {
         <div id="event3Container" className="row ">
           <div className='col-md-4 '>
             <h3 className="right" id="title">Event: {this.props.getEvent.event.title}</h3>
-            <h3 className="right" id="title">Date: {selectedEventDate.substring(5,10)}</h3>
             <button className="btn btn-primary right margin-top" onClick={this.clickHandler}>{this.state.viewByRSVP ? "sort by date" : "sort by availability"}</button>
           </div>
           <div className="col-md-7 col-md-offset-1">

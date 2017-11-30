@@ -12,15 +12,26 @@ class Event1Form extends Component {
       title: null,
       body: null,
       picUrl: null,
-
-
     }
+  }
+
+  setInitEventObj = () => {
+    let initObj = this.props.getFriends.friend.eventObj;
+    console.log('setInitEventObj', this.props);
+    // login.userData.eventObj/id
+    console.log('setInitEventObj initObj', initObj);
+
+    this.props.putEventObj(this.props.login.userData.id, )
   }
 
   render () {
     let inviteesObj = {}
 
     inviteesObj[this.props.login.userData.id] = "hosting"
+
+
+
+
     console.log('Event1Form ', this.props.login.userData.id);
     console.log('Event1Form inviteesObj', inviteesObj);
     return (
@@ -37,7 +48,7 @@ class Event1Form extends Component {
                 inviteesObj: inviteesObj
               })
               e.preventDefault();
-              // this.resetState();
+              this.setInitEventObj();
               e.target.reset();
             }}
 
@@ -64,7 +75,8 @@ class Event1Form extends Component {
 
 function mapStateToProps(state, props){
   return {
-    login: state.login
+    login: state.login,
+    getFriends: state.getFriends
   }
 }
 
