@@ -17,10 +17,8 @@ class Events extends Component {
     this.props.getEventsAction()
   }
 
-// THIS WAS USEFUL BEFORE - STATE.UPDATED == NULL (BEFORE)
   componentWillReceiveProps(nextProps) {
     if (nextProps.getEvent != this.props.getEvent){
-      // console.log('nextprops hit;', nextProps)
 
       this.setState({ updated: true })
     }
@@ -28,7 +26,7 @@ class Events extends Component {
 
 
   render () {
-    console.log('getEvent', this.props.getEvent.events);
+    // console.log('getEvent', this.props.getEvent.events);
     let userId = this.props.login.userData.id
     let filteredEventsHosting = null;
     let filteredEventsAccepted = null;

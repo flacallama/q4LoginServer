@@ -166,11 +166,14 @@ class EventCreate3 extends Component {
     console.log('eventId', eventId);
     console.log('this.props.login', this.props.login);
     console.log('eventObj', this.props.login.userData.eventObj);
-    // let selectedEventDate=  this.props.login.userData.eventObj[eventId]
-    // console.log('EventCreate3, selectedEventDate', selectedEventDate);
-    // <h3 className="right" id="title">Date: {selectedEventDate.substring(5,10)}</h3>
 
-    console.log('EventCreate3, props', this.props);
+    // let selectedEventDate = null;
+    // let eventObj = this.props.login.userData.eventObj
+    // if(eventObj[eventId]){
+    //   selectedEventDate = eventObj[eventId]
+    // }
+
+    // {selectedEventDate ? <h3 className="right" id="title">Date: {selectedEventDate.substring(5,10)}</h3> : ''}
 
     return (
       <div className="container margin-top">

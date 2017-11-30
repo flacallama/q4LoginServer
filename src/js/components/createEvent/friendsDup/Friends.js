@@ -12,23 +12,24 @@ class Friends extends Component {
 
   render () {
     // friendsList is the friendId array from user json
-    let friendsList = this.props.login.userData.friends
-
+    let friendsList = this.props.getFriends.friend.friends
+    // console.log('Friends: login friends', this.props.login.userData.friends);
+    // console.log('Friends: getFriends friends', this.props.getFriends.friend.friends);
 
     let usersFriends = null;
     if(this.props.getFriends.user){
-      console.log('Friends:', this.props.getFriends.user);
+      // console.log('Friends:', this.props.getFriends.user);
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
         // if (friendsList.includes(parseInt(elem.id))){
-        console.log('friends: elem filter', elem.id, friendsList);
+        // console.log('friends: elem filter', elem.id, friendsList);
         if (friendsList.includes(elem.id)){
-          console.log('friends past filter', elem);
+          // console.log('friends past filter', elem);
           return elem
         }
       })
       .map(elem => {
-        console.log('friends: elem map', elem);
+        // console.log('friends: elem map', elem);
         return <Friend key={elem.id} elem={elem} fetchedEvents={this.props.fetchedEvents} selectedEvent={this.props.selectedEvent}/>
       })
     }

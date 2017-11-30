@@ -1,13 +1,3 @@
-// export default (state = [333], action) => {
-//   switch (action.type){
-//     case "TEST":
-//     console.log("redux test working", state);
-//       return [...state, action.payload]
-//     default:
-//         return state;
-//   }
-// }
-
 const initialState = {
   loggedIn: false,
   userData: {}

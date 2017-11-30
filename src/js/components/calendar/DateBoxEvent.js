@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import { bindActionCreators } from 'redux';
-// import { putDate } from '../../actions/getFriends';
-// import { getFriend } from '../../actions/getFriends';
+
 
 class DateBox extends Component {
 
@@ -15,7 +13,8 @@ class DateBox extends Component {
 
 
   componentWillMount(){
-    let eventId = parseInt(this.props.id);
+    let eventId = this.props.id;
+  // let eventId = parseInt(this.props.id);
     // console.log('eventId', eventId);
 
     axios.get(`http://localhost:1337/events/${eventId}`)

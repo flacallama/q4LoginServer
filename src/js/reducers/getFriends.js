@@ -51,6 +51,26 @@ export default (state = initialState, action) => {
           ...state,
           friend: action.payload.data
         };
+        // HERE ARE SOME TIPS FOR HOW TO INTEGRATE THIS WELL
+        // let events = state.events
+        // let event = action.payload.data
+        // let theinviteeobj = event.inviteesObj
+        // let updateEvents = () => {
+        //   for(let anEvent in events){
+        //     if(events[anEvent].id === event.id){
+        //       events[anEvent].inviteesObj = theinviteeobj
+        //     }
+        //   }
+        //   return events
+        // }
+        // // now the single event is updated in the getEvents (w/ all events)
+        //   return {...state, events: updateEvents(), event: action.payload.data}
+
+
+
+
+
+
 
 
     case "FRIENDS_REQ_ARR_STATE":

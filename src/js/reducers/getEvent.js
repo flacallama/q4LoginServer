@@ -31,7 +31,6 @@ export default (state = initialState, action) => {
         }
         return events
       }
-      // console.log('reducer getEvents- PUT, updateEvents var', updateEvents);
       // now the single event is updated in the getEvents (w/ all events)
         return {...state, events: updateEvents(), event: action.payload.data}
 

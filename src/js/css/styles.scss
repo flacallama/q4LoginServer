@@ -114,6 +114,7 @@ $darkerBrown: #7C6E54;
 
 #friendShowImage{
   display: block;
+  margin: auto;
   height: 250px;
   width: 250px;
   border-radius: 50%;
@@ -135,6 +136,10 @@ $darkerBrown: #7C6E54;
   margin: auto;
 }
 
+.centerItem{
+  display: block;
+  margin: auto;
+}
 
 
 
@@ -387,7 +392,7 @@ $darkerBrown: #7C6E54;
             box-shadow: 0px 0px 21px #ccc;
     .eventHeaderButtonTextDead{
       color: transparent;
-      text-shadow: 0 0 2px #000;
+      text-shadow: 0 0 1px #000;
     }
   }
 }

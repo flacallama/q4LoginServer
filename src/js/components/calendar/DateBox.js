@@ -90,7 +90,7 @@ class DateBox extends Component {
 
         <div id={currMonth !== elem.substring(0,7) ? "grey" : ""} className={selected ? "dateBox green" : "dateBox"} onClick={this.onClick}>
           <h6 id="monDay">{elem.substring(5, 10)}</h6>
-          {this.state.updated ? <ul className="eventUl">{getMyEvents()}</ul> : "nope"}
+          {this.state.updated ? <ul className="eventUl">{getMyEvents()}</ul> : ""}
         </div>
 
     )
