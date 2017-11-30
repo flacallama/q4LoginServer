@@ -30,53 +30,28 @@ class SearchGroup extends Component {
     .then(res => {
       console.log('res.data', res.data);
       if(res.data.user.length === 1){
-        console.log('inside first filter');
+        // console.log('inside first filter');
         const theQuery = res.data;
         this.setState({
           theQuery: theQuery,
-          // updated: true,
           wasClicked: true
         });
       } else {
-        console.log('login data', this.props.login.userData);
+        // console.log('login data', this.props.login.userData);
         alert("No user exists")
-        this.setState({
-          // theQuery: this.props.login.userData,
-          // updated: true,
-          // wasClicked: false
-        });
+
       }
     });
   }
-
-  // resetState = () => {
-  //   this.setState({
-  //     query: null,
-  //     theQuery: null,
-  //     // updated: false,
-  //     wasClicked: false
-  //   })
-  //
-  //   console.log('reseting state', this.state);
-  // }
-
-
-
 
 
 
   render () {
 
-    // function timerLinkFunct() {
-    //     setTimeout(function(){
-    //       this.resetState()
-    //     }.bind(this),300)
-    //   }
-
 
     if(this.state.wasClicked){
-      console.log('query in result', this.state.theQuery.user[0].username);
       let path = "/friends/" + this.state.theQuery.user[0].id;
+      console.log('query in result', this.state.theQuery.user[0].username, path);
       // this.setState({
       //   theQuery: null
       // })

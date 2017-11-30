@@ -157,13 +157,14 @@ class EventCreate3 extends Component {
     var thesortedinviteesarr = sortedByInviteesLengthArr.map((elem, idx) => {
         return <Event3Events elem={elem} key={idx} invitedUsers={invitedUsers}/>
       })
-
     }
 
     let eventId = this.props.eventCreation.eventId
-    // console.log('eventId', eventId);
-    let selectedEventDate=  this.props.login.userData.eventObj[eventId.toString()]
-    // console.log('selectedEventDate', selectedEventDate);
+    console.log('eventId', eventId);
+    console.log('this.props.login', this.props.login);
+    console.log('eventObj', this.props.login.userData.eventObj);
+    let selectedEventDate=  this.props.login.userData.eventObj[eventId]
+    console.log('selectedEventDate', selectedEventDate);
 
     console.log('props', this.props);
 

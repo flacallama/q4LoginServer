@@ -24,11 +24,14 @@ class Friends extends Component {
 
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
-        if (friendsList.includes(parseInt(elem.id))){
+        console.log('elem', elem.id, friendsList);
+        // if (friendsList.includes(parseInt(elem.id))){
+        if (friendsList.includes(elem.id)){
           return elem
         }
       })
       .map(elem => {
+        console.log('asdf');
         return <Friend key={elem.id} elem={elem} />
       })
     }

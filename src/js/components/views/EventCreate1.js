@@ -56,7 +56,8 @@ class EventCreate1 extends Component {
       // console.log('postSubmitted', this.props.getEvent.event);
 
       let fetchedEvents = this.props.getEvent.eventsByUser.eventData
-      // console.log('fetchedEvents', fetchedEvents);
+      console.log('fetch-pre', this.props.getEvent);
+      console.log('fetchedEvents', fetchedEvents, this.state.postSubmitted);
 
       if(this.state.postSubmitted){
         fetchedEvents.push(this.props.getEvent.event)
@@ -86,15 +87,10 @@ class EventCreate1 extends Component {
                 <div className="col-md-12">
                   <h5>Select an event to manage invitees</h5>
                   {this.props.getEvent.eventsByUser.eventData ? myEvents : "You have no events"}
-
-
-
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
       )
     } else {

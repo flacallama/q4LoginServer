@@ -15,7 +15,8 @@ class EventShow extends Component {
   }
 
   componentDidMount(){
-    this.props.getEventAction(parseInt(this.props.match.params.id))
+    // this.props.getEventAction(parseInt(this.props.match.params.id));
+    this.props.getEventAction(this.props.match.params.id);
   }
 
 

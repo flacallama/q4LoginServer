@@ -36,16 +36,20 @@ class EventShow1 extends Component {
     for (const id in inviteesObj){
       switch(inviteesObj[id]){
         case "invited":
-          invitedArr.push(parseInt(id));
+          // invitedArr.push(parseInt(id));
+          invitedArr.push(id);
           break;
         case "accepted":
-          acceptedArr.push(parseInt(id));
+          acceptedArr.push(id);
+          // acceptedArr.push(parseInt(id));
           break;
         case "declined":
-          declinedArr.push(parseInt(id));
+          declinedArr.push(id);
+          // declinedArr.push(parseInt(id));
           break;
         case "maybe":
-          maybeArr.push(parseInt(id));
+          maybeArr.push(id);
+          // maybeArr.push(parseInt(id));
           break;
       }
     }

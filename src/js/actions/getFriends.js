@@ -18,7 +18,7 @@ export const getFriends = () => {
 }
 
 export const getFriend = (myId) => {
-  // console.log("getfriend action, myId: ", myId)
+  console.log("getfriend action, myId: ", myId)
   return {
     type: "GET_FRIEND",
     payload: axios.get(`http://localhost:1337/users/${myId}`)

@@ -17,8 +17,9 @@ class Event3Events extends Component {
   inviteTheUsers = () => {
     for(let user in this.props.invitedUsers){
       // isolate this users eventObj
+      console.log('user', user);
       let usersEventObj = this.props.invitedUsers[user].eventObj;
-
+      console.log('usersEventObj', usersEventObj, user);
       // add the new value
       usersEventObj[this.props.eventCreation.eventId] = this.props.elem[0];
 
@@ -64,6 +65,7 @@ class Event3Events extends Component {
     // in an array at element [1]
 
     let trimmedInviteesArr = this.props.elem[1].slice(0, 6)
+    console.log('trimmedInviteesArr', trimmedInviteesArr);
     while(trimmedInviteesArr.length < 5){
       trimmedInviteesArr.push('-')
     }

@@ -14,7 +14,7 @@ class FriendsShow extends Component {
   }
 
   componentDidMount(){
-    this.props.getFriendAction(parseInt(this.props.match.params.id, 10))
+    this.props.getFriendAction(this.props.match.params.id)
   }
 
 
@@ -23,8 +23,8 @@ class FriendsShow extends Component {
       // console.log('params are changingin friendShow');
 
       // IF I PUT THIS OUTSIDE IF, IT UPDATES CONTINUALLY BUT WILL WORK FOR CLICKING ON NEW FRIENDS
-
-      this.props.getFriendAction(parseInt(this.props.match.params.id, 10))
+      console.log('PARAMS.ID', this.props.match.params.id);
+      this.props.getFriendAction(this.props.match.params.id)
     }
     if(nextProps != this.props){
       this.setState({
@@ -42,24 +42,25 @@ class FriendsShow extends Component {
         <Redirect to={ '/login'}/>
       )
     }
+console.log('PARAMS.ID in render', this.props.match.params.id);
+console.log('frindsShow props', this.props.getFriends);
+  const myId = this.props.match.params.id;
 
-  const myId = parseInt(this.props.match.params.id, 10);
 
-
-  if(myId !== 0 && !myId){
-    return <Redirect to={{ pathname: "/404"}} />;
-  }
+  // if(myId !== 0 && !myId){
+  //   return <Redirect to={{ pathname: "/404"}} />;
+  // }
 
     if(this.state.loaded){
 
       return (
         <div>
-          {this.props.getFriends ? <FriendsShowGroup myId={myId} login={this.props.login} getFriend={this.props.getFriends}/> : "friendShow"}
+          {this.props.getFriends.friend ? <FriendsShowGroup myId={myId} login={this.props.login} getFriend={this.props.getFriends}/> : "friendShow"}
 
         </div>
       )
     } else {
-      return <div>loading...</div>
+      return <div>loading..</div>
     }
   }
 }

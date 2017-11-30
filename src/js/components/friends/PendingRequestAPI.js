@@ -13,7 +13,8 @@ class PendingRequestAPI extends Component {
   }
 
   componentWillMount(){
-    let friendId = parseInt(this.props.friendId);
+    let friendId = this.props.friendId;
+    // let friendId = parseInt(this.props.friendId);
     // console.log('eventId', eventId);
 
     axios.get(`http://localhost:1337/users/${friendId}`)
@@ -30,7 +31,7 @@ class PendingRequestAPI extends Component {
 
 
   render () {
-    
+
     return (
 
 

@@ -15,7 +15,7 @@ class FriendsShowGroup extends Component {
 
 
 render() {
-
+console.log("FriendsShowGroup", this.props);
 
   return (
     <div>

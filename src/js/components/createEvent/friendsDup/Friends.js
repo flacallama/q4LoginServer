@@ -19,7 +19,8 @@ class Friends extends Component {
     if(this.props.getFriends.user){
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
-        if (friendsList.includes(parseInt(elem.id))){
+        // if (friendsList.includes(parseInt(elem.id))){
+        if (friendsList.includes(elem.id)){
           return elem
         }
       })

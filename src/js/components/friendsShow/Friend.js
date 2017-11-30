@@ -21,7 +21,7 @@ class Friend extends Component {
 
   render () {
     let getFriend = this.props.getFriend;
-    // console.log('Friend, getFriend', getFriend);
+    console.log('Friend, getFriend', getFriend);
 
     return (
       <div>
