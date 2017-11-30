@@ -13,7 +13,9 @@ class LoginLanding extends React.Component {
 
     return (
       <div>
-        <div id="loginTopSpacer"></div>
+        <div id="loginTopSpacer">
+          <img src="http://i63.photobucket.com/albums/h155/gdylanc/eventuallyLogo.png?t=1511970393" id="loginImage"/>
+        </div>
         <LoginGroup />
         {this.props.login.loggedIn === false ? <div id="disappearWarning">Enter a correct login or create new account</div> : ''}
       </div>

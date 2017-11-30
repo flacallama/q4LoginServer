@@ -29,7 +29,7 @@ class Header extends Component {
       userPic = this.props.login.userData.picUrl
       // console.log('header', this.props.login.userData.picUrl);
     }
-    // {!this.props.login.loggedIn ? <li><Link to="/login">login</Link></li> : <li className="active"><a href="#">Welcome, {this.props.login.userData.username}</a></li>}
+
     return (
       <header>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,7 +40,6 @@ class Header extends Component {
           </ul>
           <ul className="nav navbar-nav right">
             <li><SearchGroup /></li>
-            <li><Link to="/">Home</Link></li>
             <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
               <ul className="dropdown-menu">
@@ -50,6 +49,7 @@ class Header extends Component {
                 <li><a href="#">Contribute</a></li>
               </ul>
             </li>
+            <li><Link to="/" id="navLogoAtag"><img src="http://i63.photobucket.com/albums/h155/gdylanc/eventuallyLogo.png?t=1511970393" id="navLogo"/></Link></li>
           </ul>
         </div>
 

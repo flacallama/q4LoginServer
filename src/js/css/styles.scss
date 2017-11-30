@@ -20,8 +20,16 @@ $darkerBrown: #7C6E54;
 }
 
 
+
 #loginTopSpacer{
   height: 12em;
+  text-align: center;
+  #loginImage{
+    padding-top:3%;
+    margin:auto;
+    width: 20vw;
+    height: auto;
+  }
 }
 
 .right{
@@ -168,8 +176,14 @@ $darkerBrown: #7C6E54;
 }
 
 
-
-
+#navLogoAtag{
+  margin: 0px;
+  padding: 0px;
+}
+#navLogo{
+  width: 68px;
+  height: auto;
+}
 
 
 
