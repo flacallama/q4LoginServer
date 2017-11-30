@@ -17,14 +17,18 @@ class Friends extends Component {
 
     let usersFriends = null;
     if(this.props.getFriends.user){
+      console.log('Friends:', this.props.getFriends.user);
       usersFriends = this.props.getFriends.user
       .filter((elem, i) => {
         // if (friendsList.includes(parseInt(elem.id))){
+        console.log('friends: elem filter', elem.id, friendsList);
         if (friendsList.includes(elem.id)){
+          console.log('friends past filter', elem);
           return elem
         }
       })
       .map(elem => {
+        console.log('friends: elem map', elem);
         return <Friend key={elem.id} elem={elem} fetchedEvents={this.props.fetchedEvents} selectedEvent={this.props.selectedEvent}/>
       })
     }

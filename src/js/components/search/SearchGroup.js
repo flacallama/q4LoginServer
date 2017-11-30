@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { query } from '../../actions/query';
-import SearchResult from './SearchResult';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -18,26 +17,19 @@ class SearchGroup extends Component {
     }
   }
 
-  // wasClicked = () => {
-  //   this.setState({
-  //     wasClicked: true
-  //   })
-  // }
 
 
   getQuery = (query) =>{
     axios.get(`http://localhost:1337/users/findUserByUsername/${query}`)
     .then(res => {
-      console.log('res.data', res.data);
+      // console.log('res.data', res.data);
       if(res.data.user.length === 1){
-        // console.log('inside first filter');
         const theQuery = res.data;
         this.setState({
           theQuery: theQuery,
           wasClicked: true
         });
       } else {
-        // console.log('login data', this.props.login.userData);
         alert("No user exists")
 
       }
@@ -52,17 +44,15 @@ class SearchGroup extends Component {
     if(this.state.wasClicked){
       let path = "/friends/" + this.state.theQuery.user[0].id;
       console.log('query in result', this.state.theQuery.user[0].username, path);
-      // this.setState({
-      //   theQuery: null
-      // })
+      this.setState({
+        wasClicked: false
+      })
       return (
         <Redirect to={path} />
       )
     }
 
 
-
-    // console.log('query', this.props.query);
     return (
       <div className="margin-top-tiny">
         <form
@@ -70,8 +60,7 @@ class SearchGroup extends Component {
             this.state.query
           )
           e.preventDefault();
-          // timerLinkFunct();
-          // e.target.reset();
+          e.target.reset();
         }}
 
         >

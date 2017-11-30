@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import SearchGroup from '../search/SearchGroup'
 import { logout } from '../../actions/login';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+// import eventuallyLogo from '../../../eventuallyLogo'
 
 class Header extends Component {
 

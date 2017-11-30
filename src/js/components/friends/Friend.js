@@ -11,7 +11,7 @@ class Friend extends Component {
   }
 
   render () {
-
+    console.log('rendering one friend', this.props.elem);
     let pathid = "/friends/" + this.props.elem.id
     return (
 

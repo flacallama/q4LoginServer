@@ -95,7 +95,7 @@ class Calendar extends Component {
     // console.log('calendar state', this.state);
     return (
       <div className="container">
-        <div className="calShell">
+        <div className="calShell margin-top">
           <div className="monthHeadComp">
             <MonthControl
               YrMoArr={YrMoArr}

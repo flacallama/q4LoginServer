@@ -15,14 +15,7 @@ class Event1Form extends Component {
     }
   }
 
-  setInitEventObj = () => {
-    let initObj = this.props.getFriends.friend.eventObj;
-    console.log('setInitEventObj', this.props);
-    // login.userData.eventObj/id
-    console.log('setInitEventObj initObj', initObj);
 
-    this.props.putEventObj(this.props.login.userData.id, )
-  }
 
   render () {
     let inviteesObj = {}
@@ -30,10 +23,6 @@ class Event1Form extends Component {
     inviteesObj[this.props.login.userData.id] = "hosting"
 
 
-
-
-    console.log('Event1Form ', this.props.login.userData.id);
-    console.log('Event1Form inviteesObj', inviteesObj);
     return (
       <div className="container">
         <div className="row">
@@ -48,7 +37,7 @@ class Event1Form extends Component {
                 inviteesObj: inviteesObj
               })
               e.preventDefault();
-              this.setInitEventObj();
+
               e.target.reset();
             }}
 
